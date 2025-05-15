@@ -1,19 +1,82 @@
-/* Common font family */
+/* Base Styles */
 body {
   font-family: 'Nunito', sans-serif;
+  line-height: 1.6;
+  color: #333;
 }
 
-/* Header styles */
-header {
-  /* maybe some padding or background */
+/* Header Styles */
+.header-logo {
+  display: flex;
+  align-items: center;
 }
 
-/* Footer styles */
-footer {
-  /* maybe fixed height, background color, etc */
+.header-logo img {
+  height: 40px;
+  margin-right: 12px;
 }
 
-/* Responsive tweaks (you can override Tailwind if needed) */
-@media (max-width: 640px) {
-  /* small screen fixes */
+/* Main Content Styles */
+.main-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.main-heading:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: #f59e0b;
+}
+
+.section-heading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1e3a8a;
+  margin-bottom: 1.5rem;
+}
+
+/* Card Styles */
+.exam-card {
+  transition: all 0.3s ease;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.exam-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2rem;
+  }
+  
+  .section-heading {
+    font-size: 1.5rem;
+  }
 }
