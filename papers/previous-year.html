@@ -1,233 +1,470 @@
+Here's a similar `previous-year.html` page that maintains the same design language and structure as your homepage:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Download previous year question papers for HP government exams - HPPSC, HP Police, Patwari, and other Himachal Pradesh competitive exams">
-    <title>Previous Year Papers for HP Govt Exams | HP Exam Hub</title>
+    <meta name="description" content="HP Exam Hub - Previous year question papers for Himachal Pradesh exams. Free downloads for HAS, HP Police, Patwari, Teaching exams and more.">
+    <title>Previous Year Papers | HP Exam Hub</title>
     <link rel="icon" href="/assets/logo.png" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="bg-gray-50">
+  <body class="bg-gray-100 text-gray-800 font-nunito">
     <!-- Header -->
     <header class="bg-blue-600 text-white shadow sticky top-0 z-50">
       <div class="max-w-7xl mx-auto p-4 flex flex-col sm:flex-row justify-between items-center">
-        <div class="header-logo mb-4 sm:mb-0">
-          <img src="/assets/logo.png" alt="HP Exam Hub Logo">
+        <div class="flex items-center mb-4 sm:mb-0">
+          <img src="/assets/logo.png" alt="HP Exam Hub Logo" class="h-10 mr-3">
           <h1 class="text-2xl font-bold">HP Exam Hub</h1>
         </div>
         <nav class="flex flex-wrap justify-center gap-2 sm:gap-4 text-sm sm:text-base">
           <a href="/" class="hover:underline px-2 py-1 rounded hover:bg-blue-700">Home</a>
-          <a href="/papers/previous-year.html" class="hover:underline px-2 py-1 rounded hover:bg-blue-700 bg-blue-700">Previous Papers</a>
+          <a href="/papers/previous-year.html" class="bg-blue-700 px-2 py-1 rounded font-medium">Previous Papers</a>
           <a href="/exams/entrance.html" class="hover:underline px-2 py-1 rounded hover:bg-blue-700">Entrance Exams</a>
           <a href="/notifications/govt.html" class="hover:underline px-2 py-1 rounded hover:bg-blue-700">Govt Notifications</a>
+          <a href="/about.html" class="hover:underline px-2 py-1 rounded hover:bg-blue-700">About Us</a>
         </nav>
       </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 text-center">
+      <div class="max-w-4xl mx-auto px-4">
+        <h1 class="text-4xl sm:text-5xl font-bold mb-4">Previous Year Question Papers</h1>
+        <p class="text-xl sm:text-2xl mb-6">Access 10+ years of authentic exam papers for all major Himachal Pradesh competitive exams</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="#hppsc" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg transition">HPPSC Papers</a>
+          <a href="#police" class="bg-white hover:bg-gray-100 text-blue-800 font-bold py-3 px-6 rounded-lg transition">Police & Patwari</a>
+          <a href="#teaching" class="bg-white hover:bg-gray-100 text-blue-800 font-bold py-3 px-6 rounded-lg transition">Teaching Exams</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Breadcrumb -->
+    <div class="bg-blue-50 py-3 px-4">
+      <div class="max-w-7xl mx-auto text-sm">
+        <a href="/" class="text-blue-600 hover:underline">Home</a> > 
+        <a href="/papers/" class="text-blue-600 hover:underline">Papers</a> > 
+        <span class="text-gray-600">Previous Year Papers</span>
+      </div>
+    </div>
+
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-8">
-      <h1 class="main-heading">Previous Year Question Papers</h1>
-      <p class="text-lg text-gray-700 mb-8">Access solved and unsolved previous year papers for all major Himachal Pradesh government exams. Download PDFs for free and boost your preparation.</p>
-      
+    <main class="max-w-7xl mx-auto px-4 py-12">
+      <!-- Search Section -->
+      <section class="mb-12">
+        <div class="bg-white p-6 rounded-xl shadow">
+          <h2 class="text-2xl font-bold mb-4 text-blue-800">Find Your Exam Papers</h2>
+          <div class="flex flex-col md:flex-row gap-4">
+            <input type="text" placeholder="Search for exam (e.g. HAS 2022, Patwari 2020)" class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <select class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+              <option>All Categories</option>
+              <option>HPPSC Exams</option>
+              <option>Police & Revenue</option>
+              <option>Teaching Exams</option>
+              <option>Medical Exams</option>
+              <option>Other Govt Exams</option>
+            </select>
+            <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition">Search Papers</button>
+          </div>
+        </div>
+      </section>
+
       <!-- HPPSC Papers -->
-      <section class="mb-12">
-        <h2 class="section-heading">HPPSC Exam Papers</h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- HAS Papers -->
-          <div class="bg-white exam-card shadow rounded-lg overflow-hidden">
+      <section id="hppsc" class="mb-16">
+        <h2 class="text-3xl font-bold mb-6 text-blue-800 border-b pb-2">HPPSC Exam Papers</h2>
+        
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+          <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+            <!-- HAS Papers -->
             <div class="p-6">
-              <div class="flex items-center mb-4">
-                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+              <h3 class="text-xl font-semibold mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                HAS (Himachal Administrative Service)
+              </h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">HAS Preliminary Exam 2023</h4>
+                    <p class="text-sm text-gray-600">With official answer key</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
                 </div>
-                <h3 class="text-xl font-semibold">HAS Preliminary</h3>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">HAS Mains Exam 2022</h4>
+                    <p class="text-sm text-gray-600">All papers (GS I-IV)</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">HAS Preliminary Exam 2021</h4>
+                    <p class="text-sm text-gray-600">With solved questions</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">HAS Mains Exam 2020</h4>
+                    <p class="text-sm text-gray-600">All papers (GS I-IV)</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
               </div>
-              <div class="space-y-2 mb-4">
-                <p class="text-sm text-gray-600"><span class="font-medium">Years Available:</span> 2015-2023</p>
-                <p class="text-sm text-gray-600"><span class="font-medium">Papers:</span> 8 Solved, 5 Unsolved</p>
+              <div class="mt-4 text-right">
+                <a href="/papers/hppsc/has.html" class="text-blue-600 hover:underline font-medium">View all HAS papers →</a>
               </div>
-              <a href="/papers/hppsc/has-prelims.html" class="btn-primary inline-block">View Papers</a>
             </div>
-          </div>
-          
-          <!-- Allied Services -->
-          <div class="bg-white exam-card shadow rounded-lg overflow-hidden">
+            
+            <!-- Allied Services Papers -->
             <div class="p-6">
-              <div class="flex items-center mb-4">
-                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+              <h3 class="text-xl font-semibold mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+                Allied Services & Other PSC Exams
+              </h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">HPS (Himachal Police Service) 2022</h4>
+                    <p class="text-sm text-gray-600">Prelims + Mains</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
                 </div>
-                <h3 class="text-xl font-semibold">Allied Services</h3>
-              </div>
-              <div class="space-y-2 mb-4">
-                <p class="text-sm text-gray-600"><span class="font-medium">Years Available:</span> 2017-2023</p>
-                <p class="text-sm text-gray-600"><span class="font-medium">Papers:</span> 5 Solved, 3 Unsolved</p>
-              </div>
-              <a href="/papers/hppsc/allied-services.html" class="btn-primary inline-block">View Papers</a>
-            </div>
-          </div>
-          
-          <!-- Lecturer -->
-          <div class="bg-white exam-card shadow rounded-lg overflow-hidden">
-            <div class="p-6">
-              <div class="flex items-center mb-4">
-                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Tehsildar Exam 2021</h4>
+                    <p class="text-sm text-gray-600">Complete question paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
                 </div>
-                <h3 class="text-xl font-semibold">Lecturer/TGT/PGT</h3>
-              </div>
-              <div class="space-y-2 mb-4">
-                <p class="text-sm text-gray-600"><span class="font-medium">Years Available:</span> 2018-2023</p>
-                <p class="text-sm text-gray-600"><span class="font-medium">Papers:</span> 12 Solved, 8 Unsolved</p>
-              </div>
-              <a href="/papers/hppsc/lecturer.html" class="btn-primary inline-block">View Papers</a>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Police & Patwari Papers -->
-      <section class="mb-12">
-        <h2 class="section-heading">Police & Revenue Department Papers</h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- HP Police Constable -->
-          <div class="bg-white exam-card shadow rounded-lg overflow-hidden">
-            <div class="p-6">
-              <div class="flex items-center mb-4">
-                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Block Development Officer 2020</h4>
+                    <p class="text-sm text-gray-600">With answer key</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
                 </div>
-                <h3 class="text-xl font-semibold">HP Police Constable</h3>
-              </div>
-              <div class="space-y-2 mb-4">
-                <p class="text-sm text-gray-600"><span class="font-medium">Years Available:</span> 2010-2023</p>
-                <p class="text-sm text-gray-600"><span class="font-medium">Papers:</span> 10 Solved, 5 Unsolved</p>
-              </div>
-              <a href="/papers/police/constable.html" class="btn-primary inline-block">View Papers</a>
-            </div>
-          </div>
-          
-          <!-- HP Police SI -->
-          <div class="bg-white exam-card shadow rounded-lg overflow-hidden">
-            <div class="p-6">
-              <div class="flex items-center mb-4">
-                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                  </svg>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Excise & Taxation Officer 2019</h4>
+                    <p class="text-sm text-gray-600">Complete question paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
                 </div>
-                <h3 class="text-xl font-semibold">HP Police SI</h3>
               </div>
-              <div class="space-y-2 mb-4">
-                <p class="text-sm text-gray-600"><span class="font-medium">Years Available:</span> 2012-2023</p>
-                <p class="text-sm text-gray-600"><span class="font-medium">Papers:</span> 8 Solved, 4 Unsolved</p>
+              <div class="mt-4 text-right">
+                <a href="/papers/hppsc/allied.html" class="text-blue-600 hover:underline font-medium">View all PSC papers →</a>
               </div>
-              <a href="/papers/police/si.html" class="btn-primary inline-block">View Papers</a>
-            </div>
-          </div>
-          
-          <!-- Patwari -->
-          <div class="bg-white exam-card shadow rounded-lg overflow-hidden">
-            <div class="p-6">
-              <div class="flex items-center mb-4">
-                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                  </svg>
-                </div>
-                <h3 class="text-xl font-semibold">Patwari/Revenue</h3>
-              </div>
-              <div class="space-y-2 mb-4">
-                <p class="text-sm text-gray-600"><span class="font-medium">Years Available:</span> 2015-2023</p>
-                <p class="text-sm text-gray-600"><span class="font-medium">Papers:</span> 7 Solved, 3 Unsolved</p>
-              </div>
-              <a href="/papers/revenue/patwari.html" class="btn-primary inline-block">View Papers</a>
             </div>
           </div>
         </div>
       </section>
-      
-      <!-- Other Department Papers -->
-      <section>
-        <h2 class="section-heading">Other Department Papers</h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Forest Guard -->
-          <div class="bg-white exam-card shadow rounded-lg overflow-hidden">
+
+      <!-- Police & Revenue Papers -->
+      <section id="police" class="mb-16">
+        <h2 class="text-3xl font-bold mb-6 text-blue-800 border-b pb-2">Police & Revenue Department Papers</h2>
+        
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+          <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+            <!-- Police Papers -->
             <div class="p-6">
-              <div class="flex items-center mb-4">
-                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                  </svg>
+              <h3 class="text-xl font-semibold mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                Police Department Exams
+              </h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">HP Police SI 2023</h4>
+                    <p class="text-sm text-gray-600">Complete question paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
                 </div>
-                <h3 class="text-xl font-semibold">Forest Guard</h3>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Constable Exam 2022</h4>
+                    <p class="text-sm text-gray-600">With answer key</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Driver Constable 2021</h4>
+                    <p class="text-sm text-gray-600">Written exam paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Female Constable 2020</h4>
+                    <p class="text-sm text-gray-600">Complete question paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
               </div>
-              <div class="space-y-2 mb-4">
-                <p class="text-sm text-gray-600"><span class="font-medium">Years Available:</span> 2016-2023</p>
-                <p class="text-sm text-gray-600"><span class="font-medium">Papers:</span> 5 Solved, 2 Unsolved</p>
+              <div class="mt-4 text-right">
+                <a href="/papers/police/" class="text-blue-600 hover:underline font-medium">View all Police papers →</a>
               </div>
-              <a href="/papers/forest/guard.html" class="btn-primary inline-block">View Papers</a>
             </div>
-          </div>
-          
-          <!-- JBT -->
-          <div class="bg-white exam-card shadow rounded-lg overflow-hidden">
+            
+            <!-- Revenue Papers -->
             <div class="p-6">
-              <div class="flex items-center mb-4">
-                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
+              <h3 class="text-xl font-semibold mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2zM10 8.5a.5.5 0 11-1 0 .5.5 0 011 0zm5 5a.5.5 0 11-1 0 .5.5 0 011 0z" />
+                </svg>
+                Revenue Department Exams
+              </h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Patwari Exam 2023</h4>
+                    <p class="text-sm text-gray-600">With answer key</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
                 </div>
-                <h3 class="text-xl font-semibold">JBT/D.El.Ed</h3>
-              </div>
-              <div class="space-y-2 mb-4">
-                <p class="text-sm text-gray-600"><span class="font-medium">Years Available:</span> 2014-2023</p>
-                <p class="text-sm text-gray-600"><span class="font-medium">Papers:</span> 9 Solved, 4 Unsolved</p>
-              </div>
-              <a href="/papers/education/jbt.html" class="btn-primary inline-block">View Papers</a>
-            </div>
-          </div>
-          
-          <!-- Class III/IV -->
-          <div class="bg-white exam-card shadow rounded-lg overflow-hidden">
-            <div class="p-6">
-              <div class="flex items-center mb-4">
-                <div class="bg-blue-100 p-2 rounded-full mr-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                  </svg>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Kanungo Exam 2022</h4>
+                    <p class="text-sm text-gray-600">Complete question paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
                 </div>
-                <h3 class="text-xl font-semibold">Class III/IV Exams</h3>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Patwari Exam 2021</h4>
+                    <p class="text-sm text-gray-600">With solved questions</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Revenue Officer 2020</h4>
+                    <p class="text-sm text-gray-600">Complete question paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
               </div>
-              <div class="space-y-2 mb-4">
-                <p class="text-sm text-gray-600"><span class="font-medium">Years Available:</span> 2010-2023</p>
-                <p class="text-sm text-gray-600"><span class="font-medium">Papers:</span> 15 Solved, 10 Unsolved</p>
+              <div class="mt-4 text-right">
+                <a href="/papers/revenue/" class="text-blue-600 hover:underline font-medium">View all Revenue papers →</a>
               </div>
-              <a href="/papers/misc/class-iii-iv.html" class="btn-primary inline-block">View Papers</a>
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- Teaching & Medical Papers -->
+      <section id="teaching" class="mb-16">
+        <h2 class="text-3xl font-bold mb-6 text-blue-800 border-b pb-2">Teaching & Medical Exams</h2>
+        
+        <div class="bg-white rounded-xl shadow overflow-hidden">
+          <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+            <!-- Teaching Papers -->
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                </svg>
+                Teaching Exams
+              </h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">TGT (Arts) 2023</h4>
+                    <p class="text-sm text-gray-600">Complete question paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">PGT (Science) 2022</h4>
+                    <p class="text-sm text-gray-600">With answer key</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">JBT Exam 2021</h4>
+                    <p class="text-sm text-gray-600">Complete question paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Lecturer (College) 2020</h4>
+                    <p class="text-sm text-gray-600">Subject-wise papers</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+              </div>
+              <div class="mt-4 text-right">
+                <a href="/papers/teaching/" class="text-blue-600 hover:underline font-medium">View all Teaching papers →</a>
+              </div>
+            </div>
+            
+            <!-- Medical Papers -->
+            <div class="p-6">
+              <h3 class="text-xl font-semibold mb-4 flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                </svg>
+                Medical & Paramedical Exams
+              </h3>
+              <div class="space-y-3">
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Medical Officer 2023</h4>
+                    <p class="text-sm text-gray-600">Complete question paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">Staff Nurse 2022</h4>
+                    <p class="text-sm text-gray-600">With answer key</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">ANM Exam 2021</h4>
+                    <p class="text-sm text-gray-600">Complete question paper</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+                <div class="flex justify-between items-center p-3 hover:bg-blue-50 rounded">
+                  <div>
+                    <h4 class="font-medium">BSc Nursing Entrance 2020</h4>
+                    <p class="text-sm text-gray-600">With solved questions</p>
+                  </div>
+                  <a href="#" class="text-blue-600 hover:underline font-medium">Download</a>
+                </div>
+              </div>
+              <div class="mt-4 text-right">
+                <a href="/papers/medical/" class="text-blue-600 hover:underline font-medium">View all Medical papers →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How to Use Section -->
+      <section class="bg-blue-50 rounded-xl p-8 mb-12">
+        <h2 class="text-2xl font-bold mb-6 text-blue-800">How to Use These Papers Effectively</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-3 flex items-center">
+              <span class="bg-blue-600 text-white rounded-full h-6 w-6 flex items-center justify-center mr-3">1</span>
+              Understand the Exam Pattern
+            </h3>
+            <p class="text-gray-700">Analyze multiple years' papers to identify recurring question patterns, marking schemes, and important topics that are frequently asked.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-3 flex items-center">
+              <span class="bg-blue-600 text-white rounded-full h-6 w-6 flex items-center justify-center mr-3">2</span>
+              Time Yourself
+            </h3>
+            <p class="text-gray-700">Solve papers under timed conditions to improve your speed and accuracy, simulating real exam pressure.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-3 flex items-center">
+              <span class="bg-blue-600 text-white rounded-full h-6 w-6 flex items-center justify-center mr-3">3</span>
+              Identify Weak Areas
+            </h3>
+            <p class="text-gray-700">After solving, analyze mistakes to find which topics need more focus. Compare your answers with provided solutions.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-3 flex items-center">
+              <span class="bg-blue-600 text-white rounded-full h-6 w-6 flex items-center justify-center mr-3">4</span>
+              Track Progress
+            </h3>
+            <p class="text-gray-700">Regularly attempt papers to measure improvement. Focus on increasing scores while reducing time taken.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Request Papers Section -->
+      <section class="bg-white rounded-xl shadow p-8 text-center">
+        <h2 class="text-2xl font-bold mb-4 text-blue-800">Can't Find a Specific Paper?</h2>
+        <p class="text-gray-700 mb-6 max-w-2xl mx-auto">Our volunteer team is constantly adding new papers. Let us know which exam papers you need and we'll prioritize adding them to our collection.</p>
+        <a href="/request-papers.html" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">Request Papers</a>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-8 pb-6">
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
       <div class="max-w-7xl mx-auto px-4">
-        <div class="text-center">
-          <p class="mb-2">HP Exam Hub - Free Resources for Himachal Pradesh Competitive Exams</p>
-          <p class="text-gray-400 text-sm">&copy; 2025 HP Exam Hub. A Public Welfare Initiative.</p>
+        <div class="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">HP Exam Hub</h3>
+            <p class="text-gray-400">A public welfare initiative providing free exam resources to Himachal Pradesh aspirants since 2023.</p>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2">
+              <li><a href="/" class="text-gray-400 hover:text-white transition">Home</a></li>
+              <li><a href="/papers/" class="text-gray-400 hover:text-white transition">Previous Papers</a></li>
+              <li><a href="/exams/" class="text-gray-400 hover:text-white transition">Exam Categories</a></li>
+              <li><a href="/notifications/" class="text-gray-400 hover:text-white transition">Notifications</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Support</h3>
+            <ul class="space-y-2">
+              <li><a href="/about.html" class="text-gray-400 hover:text-white transition">About Us</a></li>
+              <li><a href="/contact.html" class="text-gray-400 hover:text-white transition">Contact</a></li>
+              <li><a href="/volunteer.html" class="text-gray-400 hover:text-white transition">Volunteer</a></li>
+              <li><a href="/donate.html" class="text-gray-400 hover:text-white transition">Donate</a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Connect With Us</h3>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                </svg>
+              </a>
+              <a href="#" class="text-gray-400 hover:text-white transition">
+                <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
+          <p>&copy; 2025 HP Exam Hub. A Public Welfare Initiative for Himachal Pradesh. All content is provided for educational purposes only.</p>
+          <div class="mt-2">
+            <a href="/privacy.html" class="hover:text-white transition">Privacy Policy</a> | 
+            <a href="/terms.html" class="hover:text-white transition">Terms of Use</a> | 
+            <a href="/disclaimer.html" class="hover:text-white transition">Disclaimer</a>
+          </div>
         </div>
       </div>
     </footer>
