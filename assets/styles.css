@@ -1,0 +1,19 @@
+/* Common font family */
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Header styles */
+header {
+  /* maybe some padding or background */
+}
+
+/* Footer styles */
+footer {
+  /* maybe fixed height, background color, etc */
+}
+
+/* Responsive tweaks (you can override Tailwind if needed) */
+@media (max-width: 640px) {
+  /* small screen fixes */
+}
