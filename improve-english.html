@@ -6,53 +6,166 @@
     <title>Improve English for Bank Exams | HPExamHub</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
+            color: #333;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            background-color: #f9f9f9;
         }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .content-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
         .lecture-list {
             margin-top: 30px;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: none; /* Hidden by default */
         }
+        
         .lecture-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f5f5f5;
+            border-radius: 5px;
         }
+        
+        .lecture-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
         .watch-btn {
             background-color: #3498db;
             color: white;
-            padding: 5px 15px;
+            padding: 8px 15px;
             border-radius: 4px;
             text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .watch-btn:hover {
+            background-color: #2980b9;
         }
     </style>
 </head>
 <body>
-    <h1>How to Improve English for Bank Exams</h1>
-    
-    <p>Here are some proven techniques to improve your English for banking exams...</p>
-    <!-- Your existing content here -->
-    
-    <div class="lecture-list">
-        <h2>Video Lectures</h2>
+    <div class="content-section">
+        <h1>How to Improve English for Bank Exams</h1>
         
-        <div class="lecture-item">
-            <span>Cloze Test 1: Fundamentals and Techniques</span>
-            <a href="https://banklect2.ct.ws/subject/english.html?video=cloze1&ref=hpexamhub" class="watch-btn">Watch Now</a>
-        </div>
+        <h2>Reading Comprehension</h2>
+        <p>Regular reading of newspapers, magazines, and quality literature helps improve vocabulary and comprehension skills. Focus on editorials from The Hindu or Economic Times for exam-specific preparation.</p>
         
-        <div class="lecture-item">
-            <span>Cloze Test 2: Advanced Practice</span>
-            <a href="https://banklect2.ct.ws/subject/english.html?video=cloze2&ref=hpexamhub" class="watch-btn">Watch Now</a>
-        </div>
+        <h2>Grammar Fundamentals</h2>
+        <p>Master the basics of English grammar including tenses, articles, prepositions, and sentence structure. Practice with Wren & Martin or other standard grammar books.</p>
         
-        <!-- Add other lectures in same format -->
+        <h2>Vocabulary Building</h2>
+        <p>Learn 10-15 new words daily with their meanings, synonyms, antonyms, and usage. Maintain a personal dictionary and revise regularly.</p>
+        
+        <h2>Practice Tests</h2>
+        <p>Solve previous year question papers and take mock tests to understand the exam pattern and identify weak areas.</p>
     </div>
+    
+    <div id="lectureSection" class="lecture-list">
+        <h2>Premium Video Lectures</h2>
+        
+        <div class="lecture-item">
+            <span class="lecture-title">Cloze Test 1: Fundamentals and Techniques</span>
+            <a href="https://banklect2.ct.ws/subject/english" class="watch-btn" data-video="cloze1">Watch Now</a>
+        </div>
+        
+        <div class="lecture-item">
+            <span class="lecture-title">Cloze Test 2: Advanced Practice</span>
+            <a href="https://banklect2.ct.ws/subject/english" class="watch-btn" data-video="cloze2">Watch Now</a>
+        </div>
+        
+        <div class="lecture-item">
+            <span class="lecture-title">Parajumbles 1: Basic Sequencing</span>
+            <a href="https://banklect2.ct.ws/subject/english" class="watch-btn" data-video="para1">Watch Now</a>
+        </div>
+        
+        <div class="lecture-item">
+            <span class="lecture-title">Parajumbles 2: Complex Cases</span>
+            <a href="https://banklect2.ct.ws/subject/english" class="watch-btn" data-video="para2">Watch Now</a>
+        </div>
+        
+        <div class="lecture-item">
+            <span class="lecture-title">Spotting Errors 1: Common Mistakes</span>
+            <a href="https://banklect2.ct.ws/subject/english" class="watch-btn" data-video="error1">Watch Now</a>
+        </div>
+        
+        <div class="lecture-item">
+            <span class="lecture-title">Spotting Errors 2: Tricky Grammar Rules</span>
+            <a href="https://banklect2.ct.ws/subject/english" class="watch-btn" data-video="error2">Watch Now</a>
+        </div>
+        
+        <div class="lecture-item">
+            <span class="lecture-title">Spotting Errors 3: Advanced Error Detection</span>
+            <a href="https://banklect2.ct.ws/subject/english" class="watch-btn" data-video="error3">Watch Now</a>
+        </div>
+    </div>
+
+    <script>
+        // Check if coming from getjobfast.html
+        function checkReferrer() {
+            // Method 1: Check document.referrer
+            if (document.referrer.includes('hpexamhub.in/getjobfast.html')) {
+                return true;
+            }
+            
+            // Method 2: Check session storage (set by getjobfast.html)
+            if (sessionStorage.getItem('fromGetJobFast') === 'true') {
+                return true;
+            }
+            
+            return false;
+        }
+
+        // Setup video links with secure tokens
+        function setupVideoLinks() {
+            const videoLinks = document.querySelectorAll('.watch-btn');
+            
+            videoLinks.forEach(link => {
+                const videoId = link.getAttribute('data-video');
+                
+                // Generate a simple token (for better security, use server-side generation)
+                const token = btoa(`hpexamhub_${videoId}_${Date.now()}`);
+                
+                // Store video info in session storage
+                sessionStorage.setItem('currentVideo', videoId);
+                sessionStorage.setItem('videoToken', token);
+                
+                // Update link (no video ID in URL)
+                link.href = `https://banklect2.ct.ws/subject/english?token=${encodeURIComponent(token)}`;
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            if (checkReferrer()) {
+                // Show lecture section if coming from getjobfast.html
+                document.getElementById('lectureSection').style.display = 'block';
+                setupVideoLinks();
+            }
+        });
+    </script>
 </body>
 </html>
