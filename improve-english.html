@@ -3,192 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Video Lectures | HPExamHub</title>
+    <title>Improve English for Bank Exams | HPExamHub</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f9f9f9;
         }
-        
-        header {
-            background-color: #2c3e50;
-            color: white;
-            padding: 20px;
-            border-radius: 5px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-        
-        h1 {
-            margin: 0;
-            font-size: 28px;
-        }
-        
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
+        .lecture-list {
             margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
         }
-        
-        .video-list {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .video-item {
-            padding: 15px;
-            margin: 10px 0;
-            background-color: #f5f5f5;
-            border-radius: 5px;
+        .lecture-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
         }
-        
-        .video-title {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
         .watch-btn {
             background-color: #3498db;
             color: white;
-            padding: 8px 15px;
+            padding: 5px 15px;
             border-radius: 4px;
             text-decoration: none;
-            transition: background-color 0.3s;
-        }
-        
-        .watch-btn:hover {
-            background-color: #2980b9;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            color: #7f8c8d;
-            font-size: 14px;
         }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>English Video Lectures</h1>
-        <p>High-quality instructional videos for competitive exams</p>
-    </header>
+    <h1>How to Improve English for Bank Exams</h1>
     
-    <div class="video-list">
-        <h2>Available Video Lectures</h2>
+    <p>Here are some proven techniques to improve your English for banking exams...</p>
+    <!-- Your existing content here -->
+    
+    <div class="lecture-list">
+        <h2>Video Lectures</h2>
         
-        <div class="video-item">
-            <span class="video-title">Cloze Test 1: Fundamentals and Techniques</span>
-            <a href="#" class="watch-btn" id="cloze1">Watch Now</a>
+        <div class="lecture-item">
+            <span>Cloze Test 1: Fundamentals and Techniques</span>
+            <a href="https://banklect2.ct.ws/subject/english.html?video=cloze1&ref=hpexamhub" class="watch-btn">Watch Now</a>
         </div>
         
-        <div class="video-item">
-            <span class="video-title">Cloze Test 2: Advanced Practice</span>
-            <a href="#" class="watch-btn" id="cloze2">Watch Now</a>
+        <div class="lecture-item">
+            <span>Cloze Test 2: Advanced Practice</span>
+            <a href="https://banklect2.ct.ws/subject/english.html?video=cloze2&ref=hpexamhub" class="watch-btn">Watch Now</a>
         </div>
         
-        <div class="video-item">
-            <span class="video-title">Parajumbles 1: Basic Sequencing</span>
-            <a href="#" class="watch-btn" id="para1">Watch Now</a>
-        </div>
-        
-        <div class="video-item">
-            <span class="video-title">Parajumbles 2: Complex Cases</span>
-            <a href="#" class="watch-btn" id="para2">Watch Now</a>
-        </div>
-        
-        <div class="video-item">
-            <span class="video-title">Spotting Errors 1: Common Mistakes</span>
-            <a href="#" class="watch-btn" id="error1">Watch Now</a>
-        </div>
-        
-        <div class="video-item">
-            <span class="video-title">Spotting Errors 2: Tricky Grammar Rules</span>
-            <a href="#" class="watch-btn" id="error2">Watch Now</a>
-        </div>
-        
-        <div class="video-item">
-            <span class="video-title">Spotting Errors 3: Advanced Error Detection</span>
-            <a href="#" class="watch-btn" id="error3">Watch Now</a>
-        </div>
+        <!-- Add other lectures in same format -->
     </div>
-
-    <footer>
-        <p>&copy; 2023 HPExamHub.in | All Rights Reserved</p>
-    </footer>
-
-    <script>
-        // Configuration - MUST MATCH THE SECRET ON VIDEO SITE
-        const VIDEO_SECRET = "hpexamhub_secure_123!@#";
-        const VIDEO_SITE = "https://banklect.rf.gd/video-player.php";
-        
-        // Video database mapping to actual files
-        const videoDatabase = {
-            'cloze1': {
-                'title': 'Cloze Test 1: Fundamentals and Techniques',
-                'file': 'https://files.catbox.moe/cnudwg.mp4'
-            },
-            'cloze2': {
-                'title': 'Cloze Test 2: Advanced Practice',
-                'file': 'YOUR_CLOZE_TEST_2_LINK'
-            },
-            'para1': {
-                'title': 'Parajumbles 1: Basic Sequencing',
-                'file': 'YOUR_PARAJUMBLES_1_LINK'
-            },
-            'para2': {
-                'title': 'Parajumbles 2: Complex Cases',
-                'file': 'YOUR_PARAJUMBLES_2_LINK'
-            },
-            'error1': {
-                'title': 'Spotting Errors 1: Common Mistakes',
-                'file': 'YOUR_ERRORS_1_LINK'
-            },
-            'error2': {
-                'title': 'Spotting Errors 2: Tricky Grammar Rules',
-                'file': 'YOUR_ERRORS_2_LINK'
-            },
-            'error3': {
-                'title': 'Spotting Errors 3: Advanced Error Detection',
-                'file': 'YOUR_ERRORS_3_LINK'
-            }
-        };
-
-        // Generate secure token
-        function generateToken(videoId) {
-            const timestamp = Date.now();
-            const data = `${videoId}|${timestamp}`;
-            const token = CryptoJS.HmacSHA256(data, VIDEO_SECRET).toString();
-            return `${token}|${data}`;
-        }
-
-        // Set up video links
-        function setupVideoLinks() {
-            Object.keys(videoDatabase).forEach(videoId => {
-                const btn = document.getElementById(videoId);
-                if (btn) {
-                    const token = generateToken(videoId);
-                    const title = encodeURIComponent(videoDatabase[videoId].title);
-                    btn.href = `${VIDEO_SITE}?token=${encodeURIComponent(token)}&title=${title}`;
-                }
-            });
-        }
-
-        // Initialize when page loads
-        window.onload = setupVideoLinks;
-    </script>
 </body>
 </html>
