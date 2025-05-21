@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Exam Preparation | HPExamHub</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        
+        .exam-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        
+        .passage {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        .question {
+            margin: 15px 0;
+            padding-left: 10px;
+            border-left: 2px solid #e74c3c;
+        }
+        
+        .video-links {
+            margin-top: 40px;
+            background-color: #eaf7fd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .video-link {
+            display: block;
+            padding: 12px 15px;
+            margin: 10px 0;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .video-link:hover {
+            background-color: #2980b9;
+        }
+        
+        .hidden-video {
+            display: none;
+        }
+        
+        .domain-message {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>English Exam Preparation</h1>
+        <p>Comprehensive resources for competitive exam preparation</p>
+    </header>
+    
+    <div class="exam-section">
+        <h2>Cloze Test 1</h2>
+        <div class="passage">
+            <p>In the following passage, some words have been omitted. Read the passage carefully and select the most appropriate word from the given options.</p>
+            <p>The Internet has (1) ______ revolutionized the way we communicate. It has made the world a (2) ______ place where information can be (3) ______ instantly. However, this convenience comes (4) ______ certain risks that we must be (5) ______ of.</p>
+        </div>
+        
+        <div class="question">
+            <p>1. (a) completely (b) partial (c) hardly (d) seldom</p>
+            <p>2. (a) smaller (b) larger (c) wider (d) narrower</p>
+            <p>3. (a) shared (b) hidden (c) lost (d) forgotten</p>
+            <p>4. (a) with (b) without (c) for (d) to</p>
+            <p>5. (a) careful (b) aware (c) sure (d) certain</p>
+        </div>
+    </div>
+    
+    <div class="exam-section">
+        <h2>Cloze Test 2</h2>
+        <div class="passage">
+            <p>Fill in the blanks with the most appropriate words from the options given below:</p>
+            <p>The importance of reading (1) ______ be overstated. It is through reading that we (2) ______ knowledge, expand our vocabulary, and (3) ______ our imagination. Good readers tend to (4) ______ better writers as they are (5) ______ to various writing styles.</p>
+        </div>
+        
+        <div class="question">
+            <p>1. (a) can (b) cannot (c) should (d) must</p>
+            <p>2. (a) acquire (b) lose (c) forget (d) ignore</p>
+            <p>3. (a) limit (b) expand (c) reduce (d) contract</p>
+            <p>4. (a) become (b) avoid (c) hate (d) refuse</p>
+            <p>5. (a) closed (b) limited (c) exposed (d) restricted</p>
+        </div>
+    </div>
+    
+    <div class="video-links" id="videoLinks">
+        <h2>Video Lectures</h2>
+        <div id="hiddenVideos" class="hidden-video">
+            <a href="#" class="video-link" id="clozeTest1">Cloze Test 1: Mastering the Technique</a>
+            <a href="#" class="video-link" id="clozeTest2">Cloze Test 2: Advanced Practice</a>
+            <a href="#" class="video-link" id="parajumbles1">Parajumbles 1: Logical Sequencing</a>
+            <a href="#" class="video-link" id="parajumbles2">Parajumbles 2: Complex Cases</a>
+            <a href="#" class="video-link" id="spottingErrors1">Spotting Errors 1: Common Mistakes</a>
+            <a href="#" class="video-link" id="spottingErrors2">Spotting Errors 2: Tricky Cases</a>
+        </div>
+        <div id="domainMessage" class="domain-message">
+            <p>Video lectures are only available when accessing this page from <strong>https://hpexamhub.in/getjobfast.html</strong></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 HPExamHub.in | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Configuration - MUST MATCH THE SECRET ON VIDEO SITE
+        const VIDEO_SECRET = "hpexamhub_secure_123!@#";
+        const ALLOWED_REFERRER = "https://hpexamhub.in/getjobfast.html";
+        
+        // Video database
+        const videoDatabase = [
+            { id: "cloze1", title: "Cloze Test 1: Mastering the Technique" },
+            { id: "cloze2", title: "Cloze Test 2: Advanced Practice" },
+            { id: "para1", title: "Parajumbles 1: Logical Sequencing" },
+            { id: "para2", title: "Parajumbles 2: Complex Cases" },
+            { id: "error1", title: "Spotting Errors 1: Common Mistakes" },
+            { id: "error2", title: "Spotting Errors 2: Tricky Cases" }
+        ];
+
+        // Generate secure token
+        function generateToken(videoId) {
+            const timestamp = Date.now();
+            const data = `${videoId}|${timestamp}`;
+            const token = CryptoJS.HmacSHA256(data, VIDEO_SECRET).toString();
+            return `${token}|${data}`;
+        }
+
+        // Check if coming from allowed referrer
+        function isFromAllowedDomain() {
+            try {
+                const referrer = new URL(document.referrer);
+                return referrer.href === ALLOWED_REFERRER;
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // Initialize video links
+        function initVideoLinks() {
+            const hiddenVideos = document.getElementById('hiddenVideos');
+            const domainMessage = document.getElementById('domainMessage');
+            
+            if (isFromAllowedDomain()) {
+                // Show videos and set up links
+                hiddenVideos.classList.remove('hidden-video');
+                domainMessage.style.display = 'none';
+                
+                // Set up video links with secure tokens
+                videoDatabase.forEach(video => {
+                    const link = document.getElementById(video.id.replace(/\d/g, '') + video.id.match(/\d+/)[0]);
+                    if (link) {
+                        const token = generateToken(video.id);
+                        link.href = `https://banklect.rf.gd/video-player.php?token=${encodeURIComponent(token)}&title=${encodeURIComponent(video.title)}`;
+                    }
+                });
+            } else {
+                // Hide videos and show message
+                hiddenVideos.classList.add('hidden-video');
+                domainMessage.style.display = 'block';
+            }
+        }
+
+        // Initialize when page loads
+        window.onload = initVideoLinks;
+    </script>
+</body>
+</html>
