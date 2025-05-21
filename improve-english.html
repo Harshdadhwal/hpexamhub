@@ -3,90 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master English for banking exams with free video lessons on cloze tests, parajumbles, spotting errors and more. Essential preparation for IBPS, SBI, RBI and other banking exams.">
     <title>Banking Exam English Mastery Guide | HPExamHub</title>
+    <link rel="icon" href="/assets/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800 font-nunito">
+
+    <!-- Header -->
     <div id="header-placeholder"></div>
 
-    <main class="container">
-        <h1>Master English for Banking Exams</h1>
-        
-        <section class="video-recommendations">
-            <h2>Practice Videos</h2>
-            
-            <!-- Cloze Tests -->
-            <div class="video-card">
-                <h3>Cloze Test 1</h3>
-                <button class="watch-btn" 
-                        data-video-id="cloze-test-1" 
-                        data-video-url="https://files.catbox.moe/cnudwg.mp4">
-                    Watch Now
-                </button>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold mb-4">Master English for Banking Exams</h1>
+            <p class="text-xl sm:text-2xl mb-6">Free video lessons covering all key English topics for IBPS, SBI, RBI and other banking exams</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#cloze-tests" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-6 rounded-lg transition">Cloze Tests</a>
+                <a href="#parajumbles" class="bg-white hover:bg-gray-100 text-blue-800 font-bold py-3 px-6 rounded-lg transition">Parajumbles</a>
+                <a href="#spotting-errors" class="bg-white hover:bg-gray-100 text-blue-800 font-bold py-3 px-6 rounded-lg transition">Spotting Errors</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-blue-800 mb-4">Why English Matters in Banking Exams</h2>
+                <div class="max-w-3xl mx-auto">
+                    <p class="text-lg text-gray-700">
+                        English language section carries significant weightage in all banking sector exams. Our comprehensive video lessons break down each question type with proven strategies to help you maximize your score. These resources are completely free as part of our mission to make quality exam preparation accessible to all.
+                    </p>
+                </div>
             </div>
             
-            <div class="video-card">
-                <h3>Cloze Test 2</h3>
-                <button class="watch-btn" 
-                        data-video-id="cloze-test-2" 
-                        data-video-url="https://files.catbox.moe/example2.mp4">
-                    Watch Now
-                </button>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-blue-50 p-6 rounded-xl">
+                    <div class="text-blue-600 text-4xl mb-4">✍️</div>
+                    <h3 class="text-xl font-semibold mb-3">Exam Pattern Coverage</h3>
+                    <p class="text-gray-700">Videos cover all English question types asked in IBPS PO, SBI Clerk, RBI Grade B and other banking exams.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-xl">
+                    <div class="text-blue-600 text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-semibold mb-3">Time-Saving Techniques</h3>
+                    <p class="text-gray-700">Learn shortcut methods to solve comprehension, grammar and vocabulary questions quickly.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-xl">
+                    <div class="text-blue-600 text-4xl mb-4">📈</div>
+                    <h3 class="text-xl font-semibold mb-3">Score Improvement</h3>
+                    <p class="text-gray-700">Master the English section to gain an edge over competitors in competitive banking exams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Lessons Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">English Practice Videos</h2>
+            
+            <!-- Cloze Tests -->
+            <div id="cloze-tests" class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 text-blue-700 border-b-2 border-blue-200 pb-2">Cloze Tests</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                        <h4 class="text-xl font-semibold mb-3">Cloze Test 1</h4>
+                        <p class="text-gray-700 mb-4">Master the strategy to solve cloze test passages with maximum accuracy.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition"
+                                data-video-id="cloze-test-1" 
+                                data-video-url="https://files.catbox.moe/cnudwg.mp4">
+                            Watch Lesson
+                        </button>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                        <h4 class="text-xl font-semibold mb-3">Cloze Test 2</h4>
+                        <p class="text-gray-700 mb-4">Advanced techniques for solving complex cloze test questions.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition"
+                                data-video-id="cloze-test-2" 
+                                data-video-url="https://files.catbox.moe/example2.mp4">
+                            Watch Lesson
+                        </button>
+                    </div>
+                </div>
             </div>
             
             <!-- Parajumbles -->
-            <div class="video-card">
-                <h3>Parajumbles 1</h3>
-                <button class="watch-btn" 
-                        data-video-id="parajumbles-1" 
-                        data-video-url="https://files.catbox.moe/example3.mp4">
-                    Watch Now
-                </button>
-            </div>
-            
-            <div class="video-card">
-                <h3>Parajumbles 2</h3>
-                <button class="watch-btn" 
-                        data-video-id="parajumbles-2" 
-                        data-video-url="https://files.catbox.moe/example4.mp4">
-                    Watch Now
-                </button>
+            <div id="parajumbles" class="mb-16">
+                <h3 class="text-2xl font-semibold mb-6 text-blue-700 border-b-2 border-blue-200 pb-2">Parajumbles</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                        <h4 class="text-xl font-semibold mb-3">Parajumbles 1</h4>
+                        <p class="text-gray-700 mb-4">Learn the logical sequence approach to solve paragraph jumbles.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition"
+                                data-video-id="parajumbles-1" 
+                                data-video-url="https://files.catbox.moe/example3.mp4">
+                            Watch Lesson
+                        </button>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                        <h4 class="text-xl font-semibold mb-3">Parajumbles 2</h4>
+                        <p class="text-gray-700 mb-4">Advanced techniques for solving complex paragraph rearrangement.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition"
+                                data-video-id="parajumbles-2" 
+                                data-video-url="https://files.catbox.moe/example4.mp4">
+                            Watch Lesson
+                        </button>
+                    </div>
+                </div>
             </div>
             
             <!-- Spotting Errors -->
-            <div class="video-card">
-                <h3>Spotting Errors 1</h3>
-                <button class="watch-btn" 
-                        data-video-id="spotting-errors-1" 
-                        data-video-url="https://files.catbox.moe/example5.mp4">
-                    Watch Now
-                </button>
+            <div id="spotting-errors">
+                <h3 class="text-2xl font-semibold mb-6 text-blue-700 border-b-2 border-blue-200 pb-2">Spotting Errors</h3>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                        <h4 class="text-xl font-semibold mb-3">Spotting Errors 1</h4>
+                        <p class="text-gray-700 mb-4">Common grammatical errors and how to identify them quickly.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition"
+                                data-video-id="spotting-errors-1" 
+                                data-video-url="https://files.catbox.moe/example5.mp4">
+                            Watch Lesson
+                        </button>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                        <h4 class="text-xl font-semibold mb-3">Spotting Errors 2</h4>
+                        <p class="text-gray-700 mb-4">Advanced grammar rules and error detection techniques.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition"
+                                data-video-id="spotting-errors-2" 
+                                data-video-url="https://files.catbox.moe/example6.mp4">
+                            Watch Lesson
+                        </button>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+                        <h4 class="text-xl font-semibold mb-3">Spotting Errors 3</h4>
+                        <p class="text-gray-700 mb-4">Tricky error spotting questions and how to approach them.</p>
+                        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition"
+                                data-video-id="spotting-errors-3" 
+                                data-video-url="https://files.catbox.moe/example7.mp4">
+                            Watch Lesson
+                        </button>
+                    </div>
+                </div>
             </div>
-            
-            <div class="video-card">
-                <h3>Spotting Errors 2</h3>
-                <button class="watch-btn" 
-                        data-video-id="spotting-errors-2" 
-                        data-video-url="https://files.catbox.moe/example6.mp4">
-                    Watch Now
-                </button>
-            </div>
-            
-            <div class="video-card">
-                <h3>Spotting Errors 3</h3>
-                <button class="watch-btn" 
-                        data-video-id="spotting-errors-3" 
-                        data-video-url="https://files.catbox.moe/example7.mp4">
-                    Watch Now
-                </button>
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Testimonials -->
+    <section class="py-12 bg-blue-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800">What Aspirants Say</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 text-blue-800 h-12 w-12 rounded-full mr-4 flex items-center justify-center font-bold">RK</div>
+                        <div>
+                            <h4 class="font-semibold">Rajesh Kumar</h4>
+                            <p class="text-sm text-gray-600">IBPS PO 2023 Qualifier</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"The cloze test videos helped me improve my accuracy from 60% to 90%. English section became my strength thanks to these lessons."</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 text-blue-800 h-12 w-12 rounded-full mr-4 flex items-center justify-center font-bold">PS</div>
+                        <div>
+                            <h4 class="font-semibold">Priya Sharma</h4>
+                            <p class="text-sm text-gray-600">SBI Clerk 2023</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"As someone weak in English, these videos were a game-changer. The error spotting techniques helped me score 28/30 in English section."</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 text-blue-800 h-12 w-12 rounded-full mr-4 flex items-center justify-center font-bold">VT</div>
+                        <div>
+                            <h4 class="font-semibold">Vikram Thakur</h4>
+                            <p class="text-sm text-gray-600">RBI Assistant 2022</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">"The parajumbles strategy saved me so much time in the exam. I could solve all 5 questions in just 4 minutes with 100% accuracy."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-blue-800 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-6">Start Mastering Banking Exam English Today</h2>
+            <p class="text-xl mb-8">Free video lessons with proven strategies to boost your English score</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#cloze-tests" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-lg transition">Begin Learning</a>
+                <a href="/banking-exams/" class="bg-white hover:bg-gray-100 text-blue-800 font-bold py-3 px-8 rounded-lg transition">More Banking Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <div id="footer-placeholder"></div>
 
     <script>
-        document.querySelectorAll('.watch-btn').forEach(btn => {
+        document.querySelectorAll('[data-video-id]').forEach(btn => {
             btn.addEventListener('click', function() {
                 const videoId = this.getAttribute('data-video-id');
                 const videoUrl = this.getAttribute('data-video-url');
