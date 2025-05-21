@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Tutorial | HPExamHub</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .video-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .video-title {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        video {
+            width: 100%;
+            max-height: 450px;
+            background: #222;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container" id="video-container">
+        <!-- Content loaded dynamically -->
+    </div>
+
+    <script>
+        const container = document.getElementById('video-container');
+        const params = new URLSearchParams(window.location.search);
+        const videoId = params.get('video');
+        const videoUrl = decodeURIComponent(params.get('url'));
+        const source = params.get('source');
+
+        if (source === 'english-mastery' && videoId && videoUrl) {
+            // Set video title based on ID
+            let videoTitle;
+            switch(videoId) {
+                case 'cloze-test-1': videoTitle = "Cloze Test 1"; break;
+                case 'cloze-test-2': videoTitle = "Cloze Test 2"; break;
+                case 'parajumbles-1': videoTitle = "Parajumbles 1"; break;
+                case 'parajumbles-2': videoTitle = "Parajumbles 2"; break;
+                case 'spotting-errors-1': videoTitle = "Spotting Errors 1"; break;
+                case 'spotting-errors-2': videoTitle = "Spotting Errors 2"; break;
+                case 'spotting-errors-3': videoTitle = "Spotting Errors 3"; break;
+                default: videoTitle = "Banking Exam Video";
+            }
+            
+            // Create video player
+            container.innerHTML = `
+                <h1 class="video-title">${videoTitle}</h1>
+                <video controls autoplay>
+                    <source src="${videoUrl}" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <p><a href="/improve-english.html" style="color: #2c7be5;">← Back to all videos</a></p>
+            `;
+        } else {
+            container.innerHTML = `
+                <p>Invalid video request</p>
+                <p><a href="/improve-english.html" style="color: #2c7be5;">Go back to videos</a></p>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Exam English Mastery Guide | HPExamHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <h1>Master English for Banking Exams</h1>
+        
+        <section class="video-recommendations">
+            <h2>Practice Videos</h2>
+            
+            <!-- Cloze Tests -->
+            <div class="video-card">
+                <h3>Cloze Test 1</h3>
+                <button class="watch-btn" 
+                        data-video-id="cloze-test-1" 
+                        data-video-url="https://files.catbox.moe/cnudwg.mp4">
+                    Watch Now
+                </button>
+            </div>
+            
+            <div class="video-card">
+                <h3>Cloze Test 2</h3>
+                <button class="watch-btn" 
+                        data-video-id="cloze-test-2" 
+                        data-video-url="https://files.catbox.moe/example2.mp4">
+                    Watch Now
+                </button>
+            </div>
+            
+            <!-- Parajumbles -->
+            <div class="video-card">
+                <h3>Parajumbles 1</h3>
+                <button class="watch-btn" 
+                        data-video-id="parajumbles-1" 
+                        data-video-url="https://files.catbox.moe/example3.mp4">
+                    Watch Now
+                </button>
+            </div>
+            
+            <div class="video-card">
+                <h3>Parajumbles 2</h3>
+                <button class="watch-btn" 
+                        data-video-id="parajumbles-2" 
+                        data-video-url="https://files.catbox.moe/example4.mp4">
+                    Watch Now
+                </button>
+            </div>
+            
+            <!-- Spotting Errors -->
+            <div class="video-card">
+                <h3>Spotting Errors 1</h3>
+                <button class="watch-btn" 
+                        data-video-id="spotting-errors-1" 
+                        data-video-url="https://files.catbox.moe/example5.mp4">
+                    Watch Now
+                </button>
+            </div>
+            
+            <div class="video-card">
+                <h3>Spotting Errors 2</h3>
+                <button class="watch-btn" 
+                        data-video-id="spotting-errors-2" 
+                        data-video-url="https://files.catbox.moe/example6.mp4">
+                    Watch Now
+                </button>
+            </div>
+            
+            <div class="video-card">
+                <h3>Spotting Errors 3</h3>
+                <button class="watch-btn" 
+                        data-video-id="spotting-errors-3" 
+                        data-video-url="https://files.catbox.moe/example7.mp4">
+                    Watch Now
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        document.querySelectorAll('.watch-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const videoId = this.getAttribute('data-video-id');
+                const videoUrl = this.getAttribute('data-video-url');
+                window.location.href = `/video-player.html?video=${videoId}&url=${encodeURIComponent(videoUrl)}&source=english-mastery`;
+            });
+        });
+    </script>
+
+    <script src="load-components.js"></script>
+</body>
+</html>
