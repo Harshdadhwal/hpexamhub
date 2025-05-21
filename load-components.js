@@ -1,14 +1,14 @@
 // Function to load header and footer
 function loadCommonComponents() {
     // Load header
-    fetch('/header.html')
+    fetch('assets/header.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('header-placeholder').innerHTML = data;
         });
     
     // Load footer
-    fetch('/footer.html')
+    fetch('assets/footer.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('footer-placeholder').innerHTML = data;
