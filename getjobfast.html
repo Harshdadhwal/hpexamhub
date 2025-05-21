@@ -3,106 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Job Fast | HPExamHub</title>
+    <title>Get a Job Fast | HPExamHub</title>
+    <link rel="stylesheet" href="/styles.css">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
             background-color: #f9f9f9;
         }
         
+        header {
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        
         h1 {
             color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+            margin-bottom: 10px;
         }
         
-        .content-section {
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+        
+        .card {
             background-color: white;
-            padding: 25px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
         }
         
-        .button-container {
-            text-align: center;
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
             margin-top: 30px;
         }
         
-        .access-button {
-            background-color: #3498db;
-            color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
+        .resource-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .access-button:hover {
-            background-color: #2980b9;
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .feature-list {
-            margin-top: 30px;
+        .resource-title {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
         
-        .feature-item {
-            display: flex;
-            align-items: center;
+        .resource-desc {
+            color: #7f8c8d;
             margin-bottom: 15px;
         }
         
-        .feature-icon {
-            margin-right: 10px;
-            color: #3498db;
-            font-weight: bold;
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .premium-tag {
+            background-color: #e74c3c;
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin-left: 5px;
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
-    <div class="content-section">
-        <h1>Fast-Track Your Bank Exam Preparation</h1>
-        
-        <p>Are you preparing for bank exams? Access our exclusive premium content designed to help you ace the English section of banking examinations.</p>
-        
-        <div class="feature-list">
-            <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span>Expert video lectures on Cloze Tests, Parajumbles, and Error Spotting</span>
-            </div>
-            <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span>Proven techniques to solve complex English questions</span>
-            </div>
-            <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span>Step-by-step approach to improve your accuracy and speed</span>
-            </div>
-            <div class="feature-item">
-                <span class="feature-icon">✓</span>
-                <span>Practice with real exam pattern questions</span>
-            </div>
+    <header>
+        <h1>Fast-Track Your Bank Job Preparation</h1>
+        <div class="subtitle">Expert resources and strategies to help you succeed</div>
+    </header>
+    
+    <section class="card">
+        <h2>Why Bank Jobs Are Worth Pursuing</h2>
+        <p>Bank jobs in India offer stability, competitive salaries, and excellent benefits. With the financial sector growing rapidly, banks are constantly hiring qualified candidates. Here's what makes bank jobs attractive:</p>
+        <ul>
+            <li><strong>Job Security:</strong> Banks offer stable employment with minimal layoff risks</li>
+            <li><strong>Growth Opportunities:</strong> Clear career progression paths for dedicated employees</li>
+            <li><strong>Work-Life Balance:</strong> Regulated working hours and holiday benefits</li>
+            <li><strong>Prestige:</strong> Banking careers carry significant social respect</li>
+            <li><strong>Competitive Salary:</strong> Good compensation packages with regular increments</li>
+        </ul>
+    </section>
+    
+    <section class="resource-grid">
+        <div class="resource-card">
+            <div class="resource-title">Quantitative Aptitude Mastery</div>
+            <div class="resource-desc">Strengthen your math skills with our comprehensive quant resources.</div>
+            <a href="/papers/bsc-1-maths.html" class="btn">Access Resources</a>
         </div>
         
-        <div class="button-container">
-            <button id="accessButton" class="access-button">Access Premium Content</button>
+        <div class="resource-card">
+            <div class="resource-title">Reasoning Ability Practice</div>
+            <div class="resource-desc">Enhance your logical and analytical thinking with our reasoning exercises.</div>
+            <a href="/papers/college-previous-year.html" class="btn">Access Resources</a>
         </div>
-    </div>
-
+        
+        <div class="resource-card">
+            <div class="resource-title">English Language Improvement <span class="premium-tag">PREMIUM</span></div>
+            <div class="resource-desc">Perfect your grammar, vocabulary, and comprehension with expert guidance.</div>
+            <a href="improve-english.html" class="btn" id="englishResourceBtn">Access Resources</a>
+        </div>
+        
+        <div class="resource-card">
+            <div class="resource-title">General Awareness Updates</div>
+            <div class="resource-desc">Stay current with banking, finance, and economy news.</div>
+            <a href="/notifications/govt.html" class="btn">Access Resources</a>
+        </div>
+        
+        <div class="resource-card">
+            <div class="resource-title">Computer Knowledge</div>
+            <div class="resource-desc">Learn essential computer concepts for banking exams.</div>
+            <a href="/papers/bsc-3-physics.html" class="btn">Access Resources</a>
+        </div>
+        
+        <div class="resource-card">
+            <div class="resource-title">Mock Tests & Practice Papers</div>
+            <div class="resource-desc">Test your preparation with our comprehensive mock tests.</div>
+            <a href="/papers/previous-year.html" class="btn">Access Resources</a>
+        </div>
+    </section>
+    
     <script>
-        document.getElementById('accessButton').addEventListener('click', function() {
-            // Set session storage flag to indicate coming from this page
-            sessionStorage.setItem('fromGetJobFast', 'true');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up access token for the English resources
+            const englishResourceBtn = document.getElementById('englishResourceBtn');
             
-            // Redirect to the English preparation page
-            window.location.href = 'https://hpexamhub.in/improve-english.html';
+            if (englishResourceBtn) {
+                englishResourceBtn.addEventListener('click', function(e) {
+                    // Set access token in localStorage
+                    localStorage.setItem('hpexamhub_access_token', 'enabled_' + Date.now());
+                    
+                    // For added security, use sessionStorage too
+                    sessionStorage.setItem('fromGetJobFast', 'true');
+                    
+                    // Continue to the resource
+                    // We'll let the default link behavior happen
+                });
+            }
         });
     </script>
 </body>
