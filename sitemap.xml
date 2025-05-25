@@ -46,7 +46,7 @@
 
   <!-- Popular College Papers (Prioritize STEM subjects) -->
   <url>
-    <loc>https://www.hpexamhub.in/papers/entrance/hpu-mca</loc>
+    <loc>https://hpexamhub.in/entrance-exams/mca/mca.html</loc>
     <lastmod>2024-06-20</lastmod>  <!-- Update with today's date -->
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
