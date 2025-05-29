@@ -849,56 +849,100 @@
         }
 
         // Calculate score
-        function calculateScore() {
-            let score = 0;
-            let sectionScores = {};
+function calculateScore() {
+    try {
+        let score = 0;
+        let sectionScores = {};
 
-            testData.sections.forEach(section => {
-                let sectionScore = 0;
-                section.questions.forEach(question => {
-                    const userAnswer = currentState.answers[question.id];
-                    if (userAnswer !== undefined && userAnswer === question.correct) {
-                        score++;
-                        sectionScore++;
-                    }
-                });
-                sectionScores[section.name] = {
-                    score: sectionScore,
-                    total: section.questions.length,
-                    percentage: Math.round((sectionScore / section.questions.length) * 100)
-                };
-            });
-
-            return { total: score, sections: sectionScores };
+        if (!testData || !testData.sections) {
+            console.error('Test data not available');
+            return { total: 0, sections: {} };
         }
 
-        // Submit test
-        function submitTest(autoSubmit = false) {
-            if (!autoSubmit && !confirm('Are you sure you want to submit the test? You cannot change your answers after submission.')) {
+        testData.sections.forEach(section => {
+            let sectionScore = 0;
+            if (!section.questions) {
+                console.warn('Section has no questions:', section);
                 return;
             }
 
-            // Stop timer
-            stopTimer();
+            section.questions.forEach(question => {
+                const userAnswer = currentState.answers[question.id];
+                if (userAnswer !== undefined && userAnswer === question.correct) {
+                    score++;
+                    sectionScore++;
+                }
+            });
 
-            // Mark test as inactive
-            currentState.isTestActive = false;
+            sectionScores[section.name || section.title] = {
+                score: sectionScore,
+                total: section.questions.length,
+                percentage: Math.round((sectionScore / section.questions.length) * 100)
+            };
+        });
 
-            // Remove beforeunload listener
-            window.removeEventListener('beforeunload', handleBeforeUnload);
+        return { total: score, sections: sectionScores };
+    } catch (error) {
+        console.error('Error calculating score:', error);
+        return { total: 0, sections: {} };
+    }
+}
 
-            // Calculate score
-            const results = calculateScore();
-
-            // Show results
-            testScore.textContent = results.total;
-            testCompleteModal.classList.remove('hidden');
-
-            // Store results for review
-            currentState.testResults = results;
-
-            console.log('Test submitted successfully!', results);
+        // Submit test
+        // Submit test - Fixed version with error handling
+function submitTest(autoSubmit = false) {
+    try {
+        if (!autoSubmit && !confirm('Are you sure you want to submit the test? You cannot change your answers after submission.')) {
+            return;
         }
+
+        console.log('Submitting test...'); // Debug log
+
+        // Stop timer
+        stopTimer();
+        console.log('Timer stopped'); // Debug log
+
+        // Mark test as inactive
+        currentState.isTestActive = false;
+
+        // Remove beforeunload listener
+        window.removeEventListener('beforeunload', handleBeforeUnload);
+
+        // Calculate score
+        console.log('Calculating score...'); // Debug log
+        const results = calculateScore();
+        console.log('Score calculated:', results); // Debug log
+
+        // Check if modal exists
+        const modal = document.getElementById('test-complete-modal');
+        if (!modal) {
+            console.error('Test complete modal not found!');
+            alert(`Test completed! Your score: ${results.total}`);
+            return;
+        }
+
+        // Show results
+        const scoreElement = document.getElementById('test-score');
+        if (scoreElement) {
+            scoreElement.textContent = results.total;
+        } else {
+            console.error('Test score element not found!');
+        }
+
+        // Show modal
+        modal.classList.remove('hidden');
+        console.log('Modal should be visible now'); // Debug log
+
+        // Store results for review
+        currentState.testResults = results;
+
+        console.log('Test submitted successfully!', results);
+
+    } catch (error) {
+        console.error('Error in submitTest:', error);
+        alert('An error occurred while submitting the test. Please try again.');
+    }
+}
 
         // Review test answers
         function reviewTest() {
@@ -1010,7 +1054,7 @@
                 document.exitFullscreen();
             }
         }
-        
+
     </script>
 
     <!-- Footer -->
