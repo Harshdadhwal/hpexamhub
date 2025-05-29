@@ -1,256 +1,78 @@
 {
-  "title": "HP JBT 2025 Mock Test",
-  "duration": 120,
-  "year": 2025,
-  "sections": [
-    {
-      "name": "hindi",
-      "title": "Hindi",
-      "questions": [
+    "title": "HP JBT 2025 Mock Test",
+    "duration": 120,
+    "sections": [
         {
-          "id": "hindi-1",
-          "text": "निम्नलिखित में से कौन सा शब्द संज्ञा है?",
-          "options": ["काला", "खुश", "स्कूल", "दौड़ना"],
-          "correct": 2,
-          "explanation": "'स्कूल' एक संज्ञा है क्योंकि यह किसी स्थान का नाम है"
+            "name": "hindi",
+            "title": "Hindi",
+            "questions": [
+                {
+                    "id": "h1",
+                    "text": "निम्नलिखित में से कौन सा शब्द 'पुत्र' का पर्यायवाची है?",
+                    "options": ["बेटा", "लड़का", "सुत", "सभी सही हैं"],
+                    "correct": 3
+                },
+                {
+                    "id": "h2", 
+                    "text": "'गंगा' का पर्यायवाची शब्द क्या है?",
+                    "options": ["नदी", "सुरसरि", "जल", "प्रवाह"],
+                    "correct": 1
+                }
+            ]
         },
         {
-          "id": "hindi-2",
-          "text": "'प्रेम' शब्द का पर्यायवाची क्या है?",
-          "options": ["द्वेष", "प्यार", "घृणा", "क्रोध"],
-          "correct": 1,
-          "explanation": "'प्यार' 'प्रेम' का पर्यायवाची शब्द है"
+            "name": "english",
+            "title": "English",
+            "questions": [
+                {
+                    "id": "e1",
+                    "text": "Choose the correct synonym of 'Beautiful':",
+                    "options": ["Ugly", "Pretty", "Bad", "Worst"],
+                    "correct": 1
+                },
+                {
+                    "id": "e2",
+                    "text": "What is the past tense of 'Go'?",
+                    "options": ["Gone", "Went", "Going", "Goes"],
+                    "correct": 1
+                }
+            ]
+        },
+        {
+            "name": "numerical",
+            "title": "Numerical Ability", 
+            "questions": [
+                {
+                    "id": "n1",
+                    "text": "What is 15 + 25?",
+                    "options": ["35", "40", "45", "50"],
+                    "correct": 1
+                },
+                {
+                    "id": "n2",
+                    "text": "What is 12 × 8?",
+                    "options": ["84", "96", "108", "120"],
+                    "correct": 1
+                }
+            ]
+        },
+        {
+            "name": "general",
+            "title": "General Awareness",
+            "questions": [
+                {
+                    "id": "g1",
+                    "text": "Who is the current Prime Minister of India?",
+                    "options": ["Rahul Gandhi", "Narendra Modi", "Amit Shah", "Yogi Adityanath"],
+                    "correct": 1
+                },
+                {
+                    "id": "g2",
+                    "text": "What is the capital of Himachal Pradesh?",
+                    "options": ["Shimla", "Dharamshala", "Mandi", "Kullu"],
+                    "correct": 0
+                }
+            ]
         }
-     
-      ]
-    },
-    {
-      "name": "english",
-      "title": "English",
-      "questions": [
-        {
-          "id": "english-1",
-          "text": "Choose the correct synonym for 'happy':",
-          "options": ["Joyful", "Sad", "Angry", "Confused"],
-          "correct": 0,
-          "explanation": "The correct answer is Joyful as it means the same as happy"
-        },
-        {
-          "id": "english-2",
-          "text": "Identify the correct sentence:",
-          "options": [
-            "She don't like apples",
-            "She doesn't likes apples",
-            "She doesn't like apples",
-            "She didn't likes apples"
-          ],
-          "correct": 2,
-          "explanation": "Correct subject-verb agreement is 'doesn't like'"
-        }
-
-      ]
-    },
-    {
-      "name": "numerical",
-      "title": "Numerical Ability",
-      "questions": [
-        {
-          "id": "numerical-1",
-          "text": "If a train covers 300 km in 5 hours, what is its speed?",
-          "options": ["50 km/h", "60 km/h", "65 km/h", "70 km/h"],
-          "correct": 1,
-          "explanation": "Speed = Distance/Time = 300/5 = 60 km/h"
-        },
-        {
-          "id": "numerical-2",
-          "text": "What is 15% of 200?",
-          "options": ["15", "20", "30", "45"],
-          "correct": 2,
-          "explanation": "15% of 200 = (15/100) × 200 = 30"
-        }
-
-      ]
-    },
-    {
-      "name": "general",
-      "title": "General Awareness",
-      "questions": [
-        {
-          "id": "general-1",
-          "text": "Which country joined BRICS as a full member in January 2025?",
-          "options": ["Indonesia", "Saudi Arabia", "Egypt", "Argentina"],
-          "correct": 0,
-          "explanation": "Indonesia joined BRICS as a full member in January 2025"
-        },
-        {
-          "id": "general-2",
-          "text": "When was IMD (India Meteorological Department) established?",
-          "options": ["1855", "1865", "1875", "1885"],
-          "correct": 2,
-          "explanation": "IMD was established in 1875"
-        },
-        {
-          "id": "general-3",
-          "text": "Who appoints the Chairman of UPSC?",
-          "options": ["Prime Minister", "President", "Chief Justice", "Parliament"],
-          "correct": 1,
-          "explanation": "The President appoints the Chairman of UPSC"
-        },
-        {
-          "id": "general-4",
-          "text": "In which state is Kandla Port located?",
-          "options": ["Maharashtra", "Tamil Nadu", "Gujarat", "Odisha"],
-          "correct": 2,
-          "explanation": "Kandla Port is located in Gujarat"
-        },
-        {
-          "id": "general-5",
-          "text": "Which state won the 33rd Santosh Trophy in 2025?",
-          "options": ["West Bengal", "Kerala", "Punjab", "Karnataka"],
-          "correct": 0,
-          "explanation": "West Bengal won the 33rd Santosh Trophy in 2025"
-        },
-        {
-          "id": "general-6",
-          "text": "When is National Girl Child Day celebrated?",
-          "options": ["22 January", "23 January", "24 December", "24 January"],
-          "correct": 3,
-          "explanation": "National Girl Child Day is celebrated on 24 January"
-        },
-        {
-          "id": "general-7",
-          "text": "What is the study of bones called?",
-          "options": ["Biology", "Cardiology", "Neurology", "Osteology"],
-          "correct": 3,
-          "explanation": "The study of bones is called Osteology"
-        },
-        {
-          "id": "general-8",
-          "text": "When did the Shimla Conference take place?",
-          "options": ["1935", "1940", "1942", "1945"],
-          "correct": 3,
-          "explanation": "The Shimla Conference took place in 1945"
-        },
-        {
-          "id": "general-9",
-          "text": "Who wrote the book 'The Great Rebellion'?",
-          "options": ["Jawaharlal Nehru", "Ashok Mehta", "Bipin Chandra", "R.C. Majumdar"],
-          "correct": 1,
-          "explanation": "Ashok Mehta wrote 'The Great Rebellion'"
-        },
-        {
-          "id": "general-10",
-          "text": "Which vitamin is essential for blood clotting?",
-          "options": ["Vitamin A", "Vitamin B", "Vitamin C", "Vitamin K"],
-          "correct": 3,
-          "explanation": "Vitamin K is essential for blood clotting"
-        },
-        {
-          "id": "general-11",
-          "text": "In which year did the Sirmaur Peasants' Movement occur?",
-          "options": ["1942", "1947", "1950", "1955"],
-          "correct": 0,
-          "explanation": "The Sirmaur Peasants' Movement occurred in 1942"
-        },
-        {
-          "id": "general-12",
-          "text": "Who won the ICC Women's World Cup 2024?",
-          "options": ["India", "Australia", "England", "New Zealand"],
-          "correct": 3,
-          "explanation": "New Zealand won the ICC Women's World Cup 2024"
-        },
-        {
-          "id": "general-13",
-          "text": "Who discovered cells?",
-          "options": ["Louis Pasteur", "Robert Hooke", "Charles Darwin", "Gregor Mendel"],
-          "correct": 1,
-          "explanation": "Robert Hooke discovered cells"
-        },
-        {
-          "id": "general-14",
-          "text": "Where is Aman Cricket Stadium located in Himachal Pradesh?",
-          "options": ["Shimla", "Dharamshala", "Hamirpur district", "Solan"],
-          "correct": 2,
-          "explanation": "Aman Cricket Stadium is located in Hamirpur district (near Nadon)"
-        },
-        {
-          "id": "general-15",
-          "text": "As Chief Justice of India, what was Sanjeev Khanna's position in the sequence?",
-          "options": ["49th", "50th", "51st", "52nd"],
-          "correct": 2,
-          "explanation": "Sanjeev Khanna was the 51st Chief Justice of India"
-        },
-        {
-          "id": "general-16",
-          "text": "How many princely states were merged to form Himachal Pradesh on 15 April 1948?",
-          "options": ["25", "28", "30", "32"],
-          "correct": 2,
-          "explanation": "30 princely states were merged to form Himachal Pradesh"
-        },
-        {
-          "id": "general-17",
-          "text": "On which river is the Largi Hydroelectric Project built?",
-          "options": ["Yamuna", "Beas River", "Satluj", "Ravi"],
-          "correct": 1,
-          "explanation": "Largi Hydroelectric Project is built on the Beas River"
-        },
-        {
-          "id": "general-18",
-          "text": "From which plant is the malaria drug Quinine derived?",
-          "options": ["Neem", "Tulsi", "Cinchona tree", "Aloe Vera"],
-          "correct": 2,
-          "explanation": "Quinine is derived from the Cinchona tree"
-        },
-        {
-          "id": "general-19",
-          "text": "Which city will host the 2028 Summer Olympics?",
-          "options": ["Los Angeles (LA)", "Paris", "Tokyo", "London"],
-          "correct": 0,
-          "explanation": "Los Angeles will host the 2028 Summer Olympics"
-        },
-        {
-          "id": "general-20",
-          "text": "Which articles of the Indian Constitution relate to the Right to Equality?",
-          "options": ["Articles 12-15", "Articles 14-18", "Articles 19-22", "Articles 21-24"],
-          "correct": 1,
-          "explanation": "Articles 14-18 relate to the Right to Equality"
-        },
-        {
-          "id": "general-21",
-          "text": "Who was the first Governor of Himachal Pradesh?",
-          "options": ["R.N. Banerjee", "V. Shankar", "K. Abraham", "S. Chakravarti"],
-          "correct": 3,
-          "explanation": "S. Chakravarti was the first Governor of Himachal Pradesh"
-        },
-        {
-          "id": "general-22",
-          "text": "How many Lok Sabha seats does Himachal Pradesh have?",
-          "options": ["2", "3", "4", "5"],
-          "correct": 2,
-          "explanation": "Himachal Pradesh has 4 Lok Sabha seats"
-        },
-        {
-          "id": "general-23",
-          "text": "Where are the Rocky Mountains located?",
-          "options": ["South America", "Europe", "North America", "Asia"],
-          "correct": 2,
-          "explanation": "The Rocky Mountains are located in North America"
-        },
-        {
-          "id": "general-24",
-          "text": "When was NITI Aayog established?",
-          "options": ["1 January 2010", "1 January 2015", "26 January 2015", "15 August 2014"],
-          "correct": 1,
-          "explanation": "NITI Aayog was established on 1 January 2015"
-        },
-        {
-          "id": "general-25",
-          "text": "Who is the current Foreign Secretary of India?",
-          "options": ["Harsh Vardhan Shringla", "Subrahmanyam Jaishankar", "Vikram Misri", "S. Jaishankar"],
-          "correct": 2,
-          "explanation": "Vikram Misri is the current Foreign Secretary of India"
-        }
-      ]
-    }
-  ]
+    ]
 }

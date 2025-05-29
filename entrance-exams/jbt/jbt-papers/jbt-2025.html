@@ -498,7 +498,6 @@
         // Configuration - Update this path to your JSON file location
         const JSON_DATA_URL = 'pyq-2025.json'; // Change this to your GitHub raw URL
 
-        // Test state management
         let testData = null;
         let currentState = {
             currentSection: 0,
@@ -507,7 +506,8 @@
             startTime: null,
             timerInterval: null,
             timeRemaining: 120 * 60, // 120 minutes in seconds
-            isTestActive: false
+            isTestActive: false,
+            testResults: null
         };
 
         // DOM elements
@@ -531,15 +531,37 @@
         const progressBar = document.getElementById('progress-bar');
         const loadingOverlay = document.getElementById('loading-overlay');
 
-        // Load test data from JSON
+        // Load test data
         async function loadTestData() {
             try {
                 loadingOverlay.classList.remove('hidden');
-                const response = await fetch(JSON_DATA_URL);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+
+                // Try to load from JSON file first, fallback to sample data
+                try {
+                    const response = await fetch('pyq-2025.json');
+                    if (response.ok) {
+                        testData = await response.json();
+                    } else {
+                        throw new Error('JSON file not found');
+                    }
+                } catch (error) {
+                    console.log('Loading sample data instead of JSON file');
+                    testData = SAMPLE_TEST_DATA;
                 }
-                testData = await response.json();
+
+                // Ensure each section has at least 25 questions by duplicating existing ones
+                testData.sections.forEach(section => {
+                    const originalQuestions = [...section.questions];
+                    while (section.questions.length < 25) {
+                        const sourceQuestion = originalQuestions[section.questions.length % originalQuestions.length];
+                        const newQuestion = {
+                            ...sourceQuestion,
+                            id: `${sourceQuestion.id}_${Math.floor(section.questions.length / originalQuestions.length) + 1}`,
+                            text: sourceQuestion.text + ` (Variant ${Math.floor(section.questions.length / originalQuestions.length) + 1})`
+                        };
+                        section.questions.push(newQuestion);
+                    }
+                });
 
                 // Update duration from JSON
                 currentState.timeRemaining = testData.duration * 60;
@@ -556,8 +578,13 @@
             } catch (error) {
                 console.error('Error loading test data:', error);
                 loadingOverlay.classList.add('hidden');
-                alert('Failed to load test questions. Please check your internet connection and try again.');
-                return false;
+
+                // Fallback to sample data
+                testData = SAMPLE_TEST_DATA;
+                generateSectionTabs();
+                const total = testData.sections.reduce((sum, section) => sum + section.questions.length, 0);
+                totalQuestions.textContent = total;
+                return true;
             }
         }
 
@@ -603,12 +630,16 @@
             updateUI();
 
             // Prevent page refresh/back
-            window.addEventListener('beforeunload', (e) => {
-                if (currentState.isTestActive) {
-                    e.preventDefault();
-                    e.returnValue = 'Your test progress will be lost. Are you sure you want to leave?';
-                }
-            });
+            window.addEventListener('beforeunload', handleBeforeUnload);
+        }
+
+        // Handle before unload
+        function handleBeforeUnload(e) {
+            if (currentState.isTestActive) {
+                e.preventDefault();
+                e.returnValue = 'Your test progress will be lost. Are you sure you want to leave?';
+                return e.returnValue;
+            }
         }
 
         // Load a section
@@ -685,16 +716,18 @@
             updateUI();
 
             // Add visual feedback
-            const selectedOption = document.querySelector(`input[name="question-${questionId}"][value="${answerIndex}"]`).parentElement;
-            selectedOption.classList.add('border-blue-500', 'bg-blue-50');
+            const selectedOption = document.querySelector(`input[name="question-${questionId}"][value="${answerIndex}"]`)?.parentElement;
+            if (selectedOption) {
+                selectedOption.classList.add('border-blue-500', 'bg-blue-50');
 
-            // Remove selection from other options
-            document.querySelectorAll(`input[name="question-${questionId}"]`).forEach((input, index) => {
-                if (index !== answerIndex) {
-                    input.parentElement.classList.remove('border-blue-500', 'bg-blue-50');
-                    input.parentElement.classList.add('border-gray-200');
-                }
-            });
+                // Remove selection from other options
+                document.querySelectorAll(`input[name="question-${questionId}"]`).forEach((input, index) => {
+                    if (index !== answerIndex) {
+                        input.parentElement.classList.remove('border-blue-500', 'bg-blue-50');
+                        input.parentElement.classList.add('border-gray-200');
+                    }
+                });
+            }
         }
 
         // Get answer for a question
@@ -712,6 +745,10 @@
             } else if (currentState.currentSection < testData.sections.length - 1) {
                 // Move to next section
                 loadSection(currentState.currentSection + 1);
+            } else {
+                // Last question of last section - submit test
+                submitTest();
+                return;
             }
 
             updateUI();
@@ -748,8 +785,8 @@
             answeredCount.textContent = totalAnswered;
 
             // Update progress bar
-            const totalQuestions = testData.sections.reduce((sum, s) => sum + s.questions.length, 0);
-            const progressPercentage = (totalAnswered / totalQuestions) * 100;
+            const totalQuestionsCount = testData.sections.reduce((sum, s) => sum + s.questions.length, 0);
+            const progressPercentage = (totalAnswered / totalQuestionsCount) * 100;
             progressBar.style.width = `${progressPercentage}%`;
 
             // Update navigation buttons
@@ -758,7 +795,16 @@
                 currentState.currentQuestion === testData.sections[testData.sections.length - 1].questions.length - 1;
 
             prevBtn.disabled = isFirstQuestion;
-            nextBtn.textContent = isLastQuestion ? 'Finish' : 'Next';
+
+            if (isLastQuestion) {
+                nextBtn.textContent = 'Submit Test';
+                nextBtn.classList.remove('btn-primary');
+                nextBtn.classList.add('bg-red-600', 'hover:bg-red-700');
+            } else {
+                nextBtn.textContent = 'Next';
+                nextBtn.classList.add('btn-primary');
+                nextBtn.classList.remove('bg-red-600', 'hover:bg-red-700');
+            }
 
             if (isFirstQuestion) {
                 prevBtn.classList.add('opacity-50', 'cursor-not-allowed');
@@ -780,17 +826,16 @@
                 timerElement.textContent = timeString;
 
                 // Add warning styles
+                timerElement.classList.remove('timer-warning', 'timer-critical');
                 if (currentState.timeRemaining <= 300) { // 5 minutes
                     timerElement.classList.add('timer-critical');
-                    timerElement.classList.remove('timer-warning');
                 } else if (currentState.timeRemaining <= 900) { // 15 minutes
                     timerElement.classList.add('timer-warning');
-                    timerElement.classList.remove('timer-critical');
                 }
 
                 // Auto submit when time is up
                 if (currentState.timeRemaining <= 0) {
-                    submitTest();
+                    submitTest(true); // Auto-submit
                 }
             }, 1000);
         }
@@ -828,8 +873,8 @@
         }
 
         // Submit test
-        function submitTest() {
-            if (!confirm('Are you sure you want to submit the test? You cannot change your answers after submission.')) {
+        function submitTest(autoSubmit = false) {
+            if (!autoSubmit && !confirm('Are you sure you want to submit the test? You cannot change your answers after submission.')) {
                 return;
             }
 
@@ -838,6 +883,9 @@
 
             // Mark test as inactive
             currentState.isTestActive = false;
+
+            // Remove beforeunload listener
+            window.removeEventListener('beforeunload', handleBeforeUnload);
 
             // Calculate score
             const results = calculateScore();
@@ -848,13 +896,15 @@
 
             // Store results for review
             currentState.testResults = results;
+
+            console.log('Test submitted successfully!', results);
         }
 
         // Review test answers
         function reviewTest() {
             testCompleteModal.classList.add('hidden');
-            // You can implement a review mode here that shows correct/incorrect answers
             alert('Review mode will show all questions with correct answers and explanations.');
+            // You can implement detailed review functionality here
         }
 
         // Retake test
@@ -868,7 +918,8 @@
                     startTime: null,
                     timerInterval: null,
                     timeRemaining: testData.duration * 60,
-                    isTestActive: false
+                    isTestActive: false,
+                    testResults: null
                 };
 
                 // Hide modal and restart
@@ -884,7 +935,7 @@
 
             // Button event listeners
             startTestBtn.addEventListener('click', initTest);
-            submitTestBtn.addEventListener('click', submitTest);
+            submitTestBtn.addEventListener('click', () => submitTest(false));
             reviewTestBtn.addEventListener('click', reviewTest);
             retakeTestBtn.addEventListener('click', retakeTest);
             nextBtn.addEventListener('click', nextQuestion);
@@ -913,7 +964,7 @@
                 case '2':
                 case '3':
                 case '4':
-                    if (e.ctrlKey || e.metaKey) return; // Ignore if Ctrl/Cmd is pressed
+                    if (e.ctrlKey || e.metaKey) return;
 
                     const section = testData.sections[currentState.currentSection];
                     const question = section.questions[currentState.currentQuestion];
@@ -933,14 +984,12 @@
             }
         });
 
-        // Auto-save functionality (using memory storage)
+        // Auto-save functionality
         function autoSave() {
             const saveData = {
                 currentState: currentState,
                 timestamp: new Date().toISOString()
             };
-
-            // Store in memory (you could extend this to use localStorage if needed in your own environment)
             window.testSaveData = saveData;
         }
 
@@ -961,24 +1010,16 @@
                 document.exitFullscreen();
             }
         }
-
-        // Add fullscreen button functionality (optional)
-        const fullscreenBtn = document.createElement('button');
-        fullscreenBtn.innerHTML = '⛶';
-        fullscreenBtn.className = 'bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-3 rounded-lg transition';
-        fullscreenBtn.title = 'Toggle Fullscreen';
-        fullscreenBtn.addEventListener('click', toggleFullscreen);
-
-        // You can uncomment this if you want to add the fullscreen button to the test header
-        // document.querySelector('#test-mode .flex.items-center.space-x-4').appendChild(fullscreenBtn); 
-    </script> 
+        
+    </script>
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
-   <!-- Include the component loader -->
-  <script src="/load-components.js"></script>
-  <!-- Load Analytics Dynamically -->
-<script src="/assets/load-analytics.js"></script>
+    <!-- Include the component loader -->
+    <script src="/load-components.js"></script>
+    <!-- Load Analytics Dynamically -->
+    <script src="/assets/load-analytics.js"></script>
 
-    </body>
+</body>
+
 </html>
