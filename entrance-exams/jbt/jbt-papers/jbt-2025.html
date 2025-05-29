@@ -154,6 +154,34 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
         }
+
+        /* Make sure your modal has these CSS properties */
+        #test-complete-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #test-complete-modal.hidden {
+            display: none !important;
+        }
+
+        /* Modal content */
+        #test-complete-modal .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -849,100 +877,100 @@
         }
 
         // Calculate score
-function calculateScore() {
-    try {
-        let score = 0;
-        let sectionScores = {};
+        function calculateScore() {
+            try {
+                let score = 0;
+                let sectionScores = {};
 
-        if (!testData || !testData.sections) {
-            console.error('Test data not available');
-            return { total: 0, sections: {} };
-        }
-
-        testData.sections.forEach(section => {
-            let sectionScore = 0;
-            if (!section.questions) {
-                console.warn('Section has no questions:', section);
-                return;
-            }
-
-            section.questions.forEach(question => {
-                const userAnswer = currentState.answers[question.id];
-                if (userAnswer !== undefined && userAnswer === question.correct) {
-                    score++;
-                    sectionScore++;
+                if (!testData || !testData.sections) {
+                    console.error('Test data not available');
+                    return { total: 0, sections: {} };
                 }
-            });
 
-            sectionScores[section.name || section.title] = {
-                score: sectionScore,
-                total: section.questions.length,
-                percentage: Math.round((sectionScore / section.questions.length) * 100)
-            };
-        });
+                testData.sections.forEach(section => {
+                    let sectionScore = 0;
+                    if (!section.questions) {
+                        console.warn('Section has no questions:', section);
+                        return;
+                    }
 
-        return { total: score, sections: sectionScores };
-    } catch (error) {
-        console.error('Error calculating score:', error);
-        return { total: 0, sections: {} };
-    }
-}
+                    section.questions.forEach(question => {
+                        const userAnswer = currentState.answers[question.id];
+                        if (userAnswer !== undefined && userAnswer === question.correct) {
+                            score++;
+                            sectionScore++;
+                        }
+                    });
+
+                    sectionScores[section.name || section.title] = {
+                        score: sectionScore,
+                        total: section.questions.length,
+                        percentage: Math.round((sectionScore / section.questions.length) * 100)
+                    };
+                });
+
+                return { total: score, sections: sectionScores };
+            } catch (error) {
+                console.error('Error calculating score:', error);
+                return { total: 0, sections: {} };
+            }
+        }
 
         // Submit test
         // Submit test - Fixed version with error handling
-function submitTest(autoSubmit = false) {
-    try {
-        if (!autoSubmit && !confirm('Are you sure you want to submit the test? You cannot change your answers after submission.')) {
-            return;
+        function submitTest(autoSubmit = false) {
+            try {
+                if (!autoSubmit && !confirm('Are you sure you want to submit the test? You cannot change your answers after submission.')) {
+                    return;
+                }
+
+                console.log('Submitting test...'); // Debug log
+
+                // Stop timer
+                stopTimer();
+                console.log('Timer stopped'); // Debug log
+
+                // Mark test as inactive
+                currentState.isTestActive = false;
+
+                // Remove beforeunload listener
+                window.removeEventListener('beforeunload', handleBeforeUnload);
+
+                // Calculate score
+                console.log('Calculating score...'); // Debug log
+                const results = calculateScore();
+                console.log('Score calculated:', results); // Debug log
+
+                // Check if modal exists
+                const modal = document.getElementById('test-complete-modal');
+                if (!modal) {
+                    console.error('Test complete modal not found!');
+                    alert(`Test completed! Your score: ${results.total}`);
+                    return;
+                }
+
+                // Show results
+                const scoreElement = document.getElementById('test-score');
+                if (scoreElement) {
+                    scoreElement.textContent = results.total;
+                } else {
+                    console.error('Test score element not found!');
+                }
+
+                // Show modal
+                modal.classList.remove('hidden');
+                console.log('Modal should be visible now'); // Debug log
+
+                // Store results for review
+                currentState.testResults = results;
+
+                console.log('Test submitted successfully!', results);
+
+            } catch (error) {
+                console.error('Error in submitTest:', error);
+                alert('An error occurred while submitting the test. Please try again.');
+            }
         }
-
-        console.log('Submitting test...'); // Debug log
-
-        // Stop timer
-        stopTimer();
-        console.log('Timer stopped'); // Debug log
-
-        // Mark test as inactive
-        currentState.isTestActive = false;
-
-        // Remove beforeunload listener
-        window.removeEventListener('beforeunload', handleBeforeUnload);
-
-        // Calculate score
-        console.log('Calculating score...'); // Debug log
-        const results = calculateScore();
-        console.log('Score calculated:', results); // Debug log
-
-        // Check if modal exists
-        const modal = document.getElementById('test-complete-modal');
-        if (!modal) {
-            console.error('Test complete modal not found!');
-            alert(`Test completed! Your score: ${results.total}`);
-            return;
-        }
-
-        // Show results
-        const scoreElement = document.getElementById('test-score');
-        if (scoreElement) {
-            scoreElement.textContent = results.total;
-        } else {
-            console.error('Test score element not found!');
-        }
-
-        // Show modal
-        modal.classList.remove('hidden');
-        console.log('Modal should be visible now'); // Debug log
-
-        // Store results for review
-        currentState.testResults = results;
-
-        console.log('Test submitted successfully!', results);
-
-    } catch (error) {
-        console.error('Error in submitTest:', error);
-        alert('An error occurred while submitting the test. Please try again.');
-    }
-}
 
         // Review test answers
         function reviewTest() {
