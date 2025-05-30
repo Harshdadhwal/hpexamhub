@@ -645,309 +645,308 @@
         {
             "name": "general",
             "title": "General Awareness",
-            {
-                "questions": [
-                    {
-                        "id": "gk1",
-                        "text": "Which country joined BRICS as a full member in January 2025?",
-                        "options": [
-                            "Indonesia",
-                            "Egypt",
-                            "Saudi Arabia",
-                            "Argentina"
-                        ],
-                        "correct": 0,
-                        "explanation": "As per recent developments, Indonesia joined BRICS as a full member in January 2025."
-                    },
-                    {
-                        "id": "gk2",
-                        "text": "When was the Indian Meteorological Department (IMD) established?",
-                        "options": [
-                            "1855",
-                            "1905",
-                            "1875",
-                            "1895"
-                        ],
-                        "correct": 2,
-                        "explanation": "The India Meteorological Department was established in 1875, making it one of the oldest meteorological services in the world."
-                    },
-                    {
-                        "id": "gk3",
-                        "text": "Who appoints the Chairman of the Union Public Service Commission (UPSC)?",
-                        "options": [
-                            "Prime Minister",
-                            "President",
-                            "Chief Justice",
-                            "Parliament"
-                        ],
-                        "correct": 1,
-                        "explanation": "The President of India appoints the UPSC Chairman as per Article 316 of the Indian Constitution."
-                    },
-                    {
-                        "id": "gk4",
-                        "text": "In which state is Kandla Port located?",
-                        "options": [
-                            "Maharashtra",
-                            "Tamil Nadu",
-                            "Gujarat",
-                            "Odisha"
-                        ],
-                        "correct": 2,
-                        "explanation": "Kandla Port is located in the Kutch district of Gujarat and is one of India's major ports on the west coast."
-                    },
-                    {
-                        "id": "gk5",
-                        "text": "Which state won the 33rd Santosh Trophy in 2025?",
-                        "options": [
-                            "West Bengal",
-                            "Kerala",
-                            "Punjab",
-                            "Goa"
-                        ],
-                        "correct": 0,
-                        "explanation": "West Bengal won the 33rd edition of the Santosh Trophy, India's premier football tournament, in 2025."
-                    },
-                    {
-                        "id": "gk6",
-                        "text": "When is National Girl Child Day celebrated in India?",
-                        "options": [
-                            "11 October",
-                            "8 March",
-                            "14 November",
-                            "24 January"
-                        ],
-                        "correct": 3,
-                        "explanation": "National Girl Child Day is celebrated annually on 24th January to promote awareness about girls' rights and education."
-                    },
-                    {
-                        "id": "gk7",
-                        "text": "What is the study of bones called?",
-                        "options": [
-                            "Cardiology",
-                            "Neurology",
-                            "Hematology",
-                            "Osteology"
-                        ],
-                        "correct": 3,
-                        "explanation": "Osteology is the scientific study of bones, their structure, and function."
-                    },
-                    {
-                        "id": "gk8",
-                        "text": "When was the Shimla Conference held?",
-                        "options": [
-                            "1935",
-                            "1940",
-                            "1942",
-                            "1945"
-                        ],
-                        "correct": 3,
-                        "explanation": "The Shimla Conference was held in June-July 1945 to discuss the Wavell Plan for Indian self-government."
-                    },
-                    {
-                        "id": "gk9",
-                        "text": "Who is the author of 'The Great Rebellion'?",
-                        "options": [
-                            "Ramachandra Guha",
-                            "Ashok Mehta",
-                            "Bipan Chandra",
-                            "R.C. Majumdar"
-                        ],
-                        "correct": 1,
-                        "explanation": "'The Great Rebellion' about the 1857 revolt was written by Indian historian Ashok Mehta."
-                    },
-                    {
-                        "id": "gk10",
-                        "text": "Which vitamin is essential for blood clotting?",
-                        "options": [
-                            "Vitamin A",
-                            "Vitamin D",
-                            "Vitamin K",
-                            "Vitamin E"
-                        ],
-                        "correct": 2,
-                        "explanation": "Vitamin K is essential for the synthesis of proteins required for blood coagulation."
-                    },
-                    {
-                        "id": "gk11",
-                        "text": "When did the Panjhautha farmers' movement occur in Sirmaur?",
-                        "options": [
-                            "1942",
-                            "1930",
-                            "1947",
-                            "1955"
-                        ],
-                        "correct": 0,
-                        "explanation": "The Panjhautha farmers' movement in Sirmaur, Himachal Pradesh occurred in 1942 against oppressive land revenue policies."
-                    },
-                    {
-                        "id": "gk12",
-                        "text": "Who won the ICC Women's T20 World Cup 2024?",
-                        "options": [
-                            "Australia",
-                            "England",
-                            "India",
-                            "New Zealand"
-                        ],
-                        "correct": 0,
-                        "explanation": "Australia won the ICC Women's T20 World Cup 2024, continuing their dominance in women's cricket."
-                    },
-                    {
-                        "id": "gk13",
-                        "text": "Who discovered cells?",
-                        "options": [
-                            "Anton van Leeuwenhoek",
-                            "Robert Hooke",
-                            "Louis Pasteur",
-                            "Gregor Mendel"
-                        ],
-                        "correct": 1,
-                        "explanation": "Robert Hooke discovered cells in 1665 while examining cork under a microscope."
-                    },
-                    {
-                        "id": "gk14",
-                        "text": "In which district is the Atal Cricket Stadium located?",
-                        "options": [
-                            "Shimla",
-                            "Kangra",
-                            "Hamirpur",
-                            "Mandi"
-                        ],
-                        "correct": 2,
-                        "explanation": "The Atal Cricket Stadium is located in Hamirpur district of Himachal Pradesh."
-                    },
-                    {
-                        "id": "gk15",
-                        "text": "As Chief Justice of India, which number judge was Sanjeev Khanna?",
-                        "options": [
-                            "49th",
-                            "50th",
-                            "51st",
-                            "52nd"
-                        ],
-                        "correct": 2,
-                        "explanation": "Justice Sanjeev Khanna served as the 51st Chief Justice of India."
-                    },
-                    {
-                        "id": "gk16",
-                        "text": "How many princely states were merged to form Himachal Pradesh on 15 April 1948?",
-                        "options": [
-                            "20",
-                            "25",
-                            "30",
-                            "35"
-                        ],
-                        "correct": 2,
-                        "explanation": "Himachal Pradesh was formed by merging 30 princely states in 1948."
-                    },
-                    {
-                        "id": "gk17",
-                        "text": "On which river is the Largi Hydroelectric Project built?",
-                        "options": [
-                            "Satluj",
-                            "Beas",
-                            "Ravi",
-                            "Yamuna"
-                        ],
-                        "correct": 1,
-                        "explanation": "The Largi Hydroelectric Project is located on the Beas river in Kullu district."
-                    },
-                    {
-                        "id": "gk18",
-                        "text": "From which plant is the malaria drug quinine obtained?",
-                        "options": [
-                            "Neem",
-                            "Eucalyptus",
-                            "Cinchona",
-                            "Tulsi"
-                        ],
-                        "correct": 2,
-                        "explanation": "Quinine, used to treat malaria, is derived from the bark of the Cinchona tree."
-                    },
-                    {
-                        "id": "gk19",
-                        "text": "Which city will host the 2028 Summer Olympics?",
-                        "options": [
-                            "Los Angeles",
-                            "Paris",
-                            "Tokyo",
-                            "London"
-                        ],
-                        "correct": 0,
-                        "explanation": "Los Angeles will host the 2028 Summer Olympics, marking its third time hosting the Games."
-                    },
-                    {
-                        "id": "gk20",
-                        "text": "Which articles of the Indian Constitution relate to the Right to Equality?",
-                        "options": [
-                            "Articles 19-22",
-                            "Articles 23-24",
-                            "Articles 25-28",
-                            "Articles 14-18"
-                        ],
-                        "correct": 3,
-                        "explanation": "Articles 14-18 of the Indian Constitution guarantee the Right to Equality."
-                    },
-                    {
-                        "id": "gk21",
-                        "text": "Who was the first Governor of Himachal Pradesh?",
-                        "options": [
-                            "Raja Bajrang Bahadur Singh",
-                            "Vishnu Sadashiv Kokje",
-                            "Sheila Kaul",
-                            "S. Chakravarti"
-                        ],
-                        "correct": 3,
-                        "explanation": "Shri S. Chakravarti served as the first Governor of Himachal Pradesh after it became a union territory in 1951."
-                    },
-                    {
-                        "id": "gk22",
-                        "text": "How many members does Himachal Pradesh have in the Lok Sabha?",
-                        "options": [
-                            "2",
-                            "3",
-                            "5",
-                            "4"
-                        ],
-                        "correct": 3,
-                        "explanation": "Himachal Pradesh has 4 Lok Sabha constituencies."
-                    },
-                    {
-                        "id": "gk23",
-                        "text": "Where are the Rocky Mountains located?",
-                        "options": [
-                            "South America",
-                            "Europe",
-                            "Asia",
-                            "North America"
-                        ],
-                        "correct": 3,
-                        "explanation": "The Rocky Mountains are a major mountain range in western North America."
-                    },
-                    {
-                        "id": "gk24",
-                        "text": "When was NITI Aayog established?",
-                        "options": [
-                            "January 2014",
-                            "January 2015",
-                            "August 2014",
-                            "August 2015"
-                        ],
-                        "correct": 1,
-                        "explanation": "NITI Aayog (National Institution for Transforming India) replaced the Planning Commission and was established on 1 January 2015."
-                    },
-                    {
-                        "id": "gk25",
-                        "text": "Who is the current Foreign Secretary of India (as of 2025)?",
-                        "options": [
-                            "Harsh Vardhan Shringla",
-                            "Vikram Misri",
-                            "Subrahmanyam Jaishankar",
-                            "S. Jaishankar"
-                        ],
-                        "correct": 1,
-                        "explanation": "As of 2025, Vikram Misri serves as India's Foreign Secretary, the senior-most position in the Indian Foreign Service."
-                    }
-                ]
-            }
-        ]
-    }
+            "questions": [
+                {
+                    "id": "gk1",
+                    "text": "Which country joined BRICS as a full member in January 2025?",
+                    "options": [
+                        "Indonesia",
+                        "Egypt",
+                        "Saudi Arabia",
+                        "Argentina"
+                    ],
+                    "correct": 0,
+                    "explanation": "As per recent developments, Indonesia joined BRICS as a full member in January 2025."
+                },
+                {
+                    "id": "gk2",
+                    "text": "When was the Indian Meteorological Department (IMD) established?",
+                    "options": [
+                        "1855",
+                        "1905",
+                        "1875",
+                        "1895"
+                    ],
+                    "correct": 2,
+                    "explanation": "The India Meteorological Department was established in 1875, making it one of the oldest meteorological services in the world."
+                },
+                {
+                    "id": "gk3",
+                    "text": "Who appoints the Chairman of the Union Public Service Commission (UPSC)?",
+                    "options": [
+                        "Prime Minister",
+                        "President",
+                        "Chief Justice",
+                        "Parliament"
+                    ],
+                    "correct": 1,
+                    "explanation": "The President of India appoints the UPSC Chairman as per Article 316 of the Indian Constitution."
+                },
+                {
+                    "id": "gk4",
+                    "text": "In which state is Kandla Port located?",
+                    "options": [
+                        "Maharashtra",
+                        "Tamil Nadu",
+                        "Gujarat",
+                        "Odisha"
+                    ],
+                    "correct": 2,
+                    "explanation": "Kandla Port is located in the Kutch district of Gujarat and is one of India's major ports on the west coast."
+                },
+                {
+                    "id": "gk5",
+                    "text": "Which state won the 33rd Santosh Trophy in 2025?",
+                    "options": [
+                        "West Bengal",
+                        "Kerala",
+                        "Punjab",
+                        "Goa"
+                    ],
+                    "correct": 0,
+                    "explanation": "West Bengal won the 33rd edition of the Santosh Trophy, India's premier football tournament, in 2025."
+                },
+                {
+                    "id": "gk6",
+                    "text": "When is National Girl Child Day celebrated in India?",
+                    "options": [
+                        "11 October",
+                        "8 March",
+                        "14 November",
+                        "24 January"
+                    ],
+                    "correct": 3,
+                    "explanation": "National Girl Child Day is celebrated annually on 24th January to promote awareness about girls' rights and education."
+                },
+                {
+                    "id": "gk7",
+                    "text": "What is the study of bones called?",
+                    "options": [
+                        "Cardiology",
+                        "Neurology",
+                        "Hematology",
+                        "Osteology"
+                    ],
+                    "correct": 3,
+                    "explanation": "Osteology is the scientific study of bones, their structure, and function."
+                },
+                {
+                    "id": "gk8",
+                    "text": "When was the Shimla Conference held?",
+                    "options": [
+                        "1935",
+                        "1940",
+                        "1942",
+                        "1945"
+                    ],
+                    "correct": 3,
+                    "explanation": "The Shimla Conference was held in June-July 1945 to discuss the Wavell Plan for Indian self-government."
+                },
+                {
+                    "id": "gk9",
+                    "text": "Who is the author of 'The Great Rebellion'?",
+                    "options": [
+                        "Ramachandra Guha",
+                        "Ashok Mehta",
+                        "Bipan Chandra",
+                        "R.C. Majumdar"
+                    ],
+                    "correct": 1,
+                    "explanation": "'The Great Rebellion' about the 1857 revolt was written by Indian historian Ashok Mehta."
+                },
+                {
+                    "id": "gk10",
+                    "text": "Which vitamin is essential for blood clotting?",
+                    "options": [
+                        "Vitamin A",
+                        "Vitamin D",
+                        "Vitamin K",
+                        "Vitamin E"
+                    ],
+                    "correct": 2,
+                    "explanation": "Vitamin K is essential for the synthesis of proteins required for blood coagulation."
+                },
+                {
+                    "id": "gk11",
+                    "text": "When did the Panjhautha farmers' movement occur in Sirmaur?",
+                    "options": [
+                        "1942",
+                        "1930",
+                        "1947",
+                        "1955"
+                    ],
+                    "correct": 0,
+                    "explanation": "The Panjhautha farmers' movement in Sirmaur, Himachal Pradesh occurred in 1942 against oppressive land revenue policies."
+                },
+                {
+                    "id": "gk12",
+                    "text": "Who won the ICC Women's T20 World Cup 2024?",
+                    "options": [
+                        "Australia",
+                        "England",
+                        "India",
+                        "New Zealand"
+                    ],
+                    "correct": 0,
+                    "explanation": "Australia won the ICC Women's T20 World Cup 2024, continuing their dominance in women's cricket."
+                },
+                {
+                    "id": "gk13",
+                    "text": "Who discovered cells?",
+                    "options": [
+                        "Anton van Leeuwenhoek",
+                        "Robert Hooke",
+                        "Louis Pasteur",
+                        "Gregor Mendel"
+                    ],
+                    "correct": 1,
+                    "explanation": "Robert Hooke discovered cells in 1665 while examining cork under a microscope."
+                },
+                {
+                    "id": "gk14",
+                    "text": "In which district is the Atal Cricket Stadium located?",
+                    "options": [
+                        "Shimla",
+                        "Kangra",
+                        "Hamirpur",
+                        "Mandi"
+                    ],
+                    "correct": 2,
+                    "explanation": "The Atal Cricket Stadium is located in Hamirpur district of Himachal Pradesh."
+                },
+                {
+                    "id": "gk15",
+                    "text": "As Chief Justice of India, which number judge was Sanjeev Khanna?",
+                    "options": [
+                        "49th",
+                        "50th",
+                        "51st",
+                        "52nd"
+                    ],
+                    "correct": 2,
+                    "explanation": "Justice Sanjeev Khanna served as the 51st Chief Justice of India."
+                },
+                {
+                    "id": "gk16",
+                    "text": "How many princely states were merged to form Himachal Pradesh on 15 April 1948?",
+                    "options": [
+                        "20",
+                        "25",
+                        "30",
+                        "35"
+                    ],
+                    "correct": 2,
+                    "explanation": "Himachal Pradesh was formed by merging 30 princely states in 1948."
+                },
+                {
+                    "id": "gk17",
+                    "text": "On which river is the Largi Hydroelectric Project built?",
+                    "options": [
+                        "Satluj",
+                        "Beas",
+                        "Ravi",
+                        "Yamuna"
+                    ],
+                    "correct": 1,
+                    "explanation": "The Largi Hydroelectric Project is located on the Beas river in Kullu district."
+                },
+                {
+                    "id": "gk18",
+                    "text": "From which plant is the malaria drug quinine obtained?",
+                    "options": [
+                        "Neem",
+                        "Eucalyptus",
+                        "Cinchona",
+                        "Tulsi"
+                    ],
+                    "correct": 2,
+                    "explanation": "Quinine, used to treat malaria, is derived from the bark of the Cinchona tree."
+                },
+                {
+                    "id": "gk19",
+                    "text": "Which city will host the 2028 Summer Olympics?",
+                    "options": [
+                        "Los Angeles",
+                        "Paris",
+                        "Tokyo",
+                        "London"
+                    ],
+                    "correct": 0,
+                    "explanation": "Los Angeles will host the 2028 Summer Olympics, marking its third time hosting the Games."
+                },
+                {
+                    "id": "gk20",
+                    "text": "Which articles of the Indian Constitution relate to the Right to Equality?",
+                    "options": [
+                        "Articles 19-22",
+                        "Articles 23-24",
+                        "Articles 25-28",
+                        "Articles 14-18"
+                    ],
+                    "correct": 3,
+                    "explanation": "Articles 14-18 of the Indian Constitution guarantee the Right to Equality."
+                },
+                {
+                    "id": "gk21",
+                    "text": "Who was the first Governor of Himachal Pradesh?",
+                    "options": [
+                        "Raja Bajrang Bahadur Singh",
+                        "Vishnu Sadashiv Kokje",
+                        "Sheila Kaul",
+                        "S. Chakravarti"
+                    ],
+                    "correct": 3,
+                    "explanation": "Shri S. Chakravarti served as the first Governor of Himachal Pradesh after it became a union territory in 1951."
+                },
+                {
+                    "id": "gk22",
+                    "text": "How many members does Himachal Pradesh have in the Lok Sabha?",
+                    "options": [
+                        "2",
+                        "3",
+                        "5",
+                        "4"
+                    ],
+                    "correct": 3,
+                    "explanation": "Himachal Pradesh has 4 Lok Sabha constituencies."
+                },
+                {
+                    "id": "gk23",
+                    "text": "Where are the Rocky Mountains located?",
+                    "options": [
+                        "South America",
+                        "Europe",
+                        "Asia",
+                        "North America"
+                    ],
+                    "correct": 3,
+                    "explanation": "The Rocky Mountains are a major mountain range in western North America."
+                },
+                {
+                    "id": "gk24",
+                    "text": "When was NITI Aayog established?",
+                    "options": [
+                        "January 2014",
+                        "January 2015",
+                        "August 2014",
+                        "August 2015"
+                    ],
+                    "correct": 1,
+                    "explanation": "NITI Aayog (National Institution for Transforming India) replaced the Planning Commission and was established on 1 January 2015."
+                },
+                {
+                    "id": "gk25",
+                    "text": "Who is the current Foreign Secretary of India (as of 2025)?",
+                    "options": [
+                        "Harsh Vardhan Shringla",
+                        "Vikram Misri",
+                        "Subrahmanyam Jaishankar",
+                        "S. Jaishankar"
+                    ],
+                    "correct": 1,
+                    "explanation": "As of 2025, Vikram Misri serves as India's Foreign Secretary, the senior-most position in the Indian Foreign Service."
+                }
+            ]
+        }
+    ]
+}
