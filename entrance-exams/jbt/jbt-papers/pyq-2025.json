@@ -8,15 +8,303 @@
             "questions": [
                 {
                     "id": "h1",
-                    "text": "निम्नलिखित में से कौन सा शब्द 'पुत्र' का पर्यायवाची है?",
-                    "options": ["बेटा", "लड़का", "सुत", "सभी सही हैं"],
-                    "correct": 3
+                    "text": "पवित्रता से विशेषण कौन सा बनेगा?",
+                    "options": [
+                        "पवित्र",
+                        "पवित्र आत्मा",
+                        "पवित्रम",
+                        "इनमें से कोई नहीं"
+                    ],
+                    "correct": 0,
+                    "explanation": "पवित्रता एक संज्ञा है जिससे 'पवित्र' विशेषण बनता है। विशेषण वह शब्द है जो संज्ञा या सर्वनाम की विशेषता बताता है।"
                 },
                 {
-                    "id": "h2", 
-                    "text": "'गंगा' का पर्यायवाची शब्द क्या है?",
-                    "options": ["नदी", "सुरसरि", "जल", "प्रवाह"],
-                    "correct": 1
+                    "id": "h2",
+                    "text": "पूर्ण विराम से कम देर तक रुकने पर कौन सा विराम चिन्ह लगता है?",
+                    "options": [
+                        "अल्पविराम",
+                        "अर्धविराम",
+                        "प्रश्न सूचक",
+                        "पूर्ण विराम"
+                    ],
+                    "correct": 1,
+                    "explanation": "अर्धविराम (;) पूर्ण विराम से कम और अल्पविराम से अधिक देर रुकने के लिए प्रयोग होता है। यह दो वाक्यों के बीच संबंध दिखाता है।"
+                },
+                {
+                    "id": "h3",
+                    "text": "चौपाई के प्रत्येक चरण में कितनी मात्राएं होती हैं?",
+                    "options": [
+                        "11",
+                        "13",
+                        "16",
+                        "15"
+                    ],
+                    "correct": 2,
+                    "explanation": "चौपाई एक छंद है जिसके हर चरण में 16 मात्राएं होती हैं। यह तुलसीदास और अन्य कवियों द्वारा बहुत प्रयोग किया गया है।"
+                },
+                {
+                    "id": "h4",
+                    "text": "सभी स्वर कौन सी कैटेगरी में आते हैं?",
+                    "options": [
+                        "घोष",
+                        "अघोष",
+                        "महाप्राण",
+                        "तीनों में से कोई भी नहीं"
+                    ],
+                    "correct": 0,
+                    "explanation": "स्वर ध्वनियां सभी घोष होती हैं क्योंकि इनके उच्चारण में स्वर तंत्रियों में कंपन होता है। घोष का अर्थ है आवाज़ के साथ।"
+                },
+                {
+                    "id": "h5",
+                    "text": "अनिश्चयवाचक सर्वनाम कौन सा है?",
+                    "options": [
+                        "कौन",
+                        "क्या",
+                        "कुछ",
+                        "कैसे"
+                    ],
+                    "correct": 2,
+                    "explanation": "'कुछ' अनिश्चयवाचक सर्वनाम है क्योंकि यह किसी अनिश्चित वस्तु या व्यक्ति का बोध कराता है। यह निश्चित रूप से किसी का संकेत नहीं करता।"
+                },
+                {
+                    "id": "h6",
+                    "text": "क्रिया के मूल रूप को क्या कहा जाता है?",
+                    "options": [
+                        "रूप",
+                        "भेद",
+                        "धातु",
+                        "प्रकार"
+                    ],
+                    "correct": 2,
+                    "explanation": "धातु क्रिया का मूल रूप है जिससे विभिन्न काल, वचन और पुरुष के अनुसार क्रिया के रूप बनाए जाते हैं। जैसे 'लिख्' धातु से लिखना, लिखता आदि।"
+                },
+                {
+                    "id": "h7",
+                    "text": "'ना तीन में ना तेरह में' मुहावरे का अर्थ क्या है?",
+                    "options": [
+                        "बहुत उपयोगी होना",
+                        "नष्ट कर देना",
+                        "बुद्धिहीन होना",
+                        "किसी काम का ना होना"
+                    ],
+                    "correct": 3,
+                    "explanation": "यह मुहावरा किसी ऐसे व्यक्ति के लिए प्रयोग होता है जो किसी भी काम का नहीं है, कहीं भी फिट नहीं बैठता।"
+                },
+                {
+                    "id": "h8",
+                    "text": "'इंदिरा जी एक बार पटना आई थी' में 'जी' कौन सा निपात है?",
+                    "options": [
+                        "स्वीकारार्थक",
+                        "बलदायक",
+                        "सीमाबोधक",
+                        "आदरबोधक"
+                    ],
+                    "correct": 3,
+                    "explanation": "'जी' आदरबोधक निपात है जो सम्मान और आदर प्रकट करने के लिए प्रयोग होता है। यह व्यक्ति के नाम के साथ जुड़कर आदर दिखाता है।"
+                },
+                {
+                    "id": "h9",
+                    "text": "जो मांस नहीं खाता है, इसके लिए एक शब्द क्या होगा?",
+                    "options": [
+                        "सामिश",
+                        "निरामिष",
+                        "मानुष",
+                        "राक्षस"
+                    ],
+                    "correct": 1,
+                    "explanation": "निरामिष का अर्थ है जो मांस न खाए, शाकाहारी। 'निर' का अर्थ है 'बिना' और 'आमिष' का अर्थ है 'मांस'।"
+                },
+                {
+                    "id": "h10",
+                    "text": "शब्द के जिस रूप से एक या अनेक का बोध हो उसे क्या कहा जाता है?",
+                    "options": [
+                        "लिंग",
+                        "कारक",
+                        "वचन",
+                        "काल"
+                    ],
+                    "correct": 2,
+                    "explanation": "वचन से संख्या का पता चलता है कि कोई व्यक्ति या वस्तु एक है या अनेक। हिंदी में एकवचन और बहुवचन होते हैं।"
+                },
+                {
+                    "id": "h11",
+                    "text": "चतुर्भुज में कौन सा समास है?",
+                    "options": [
+                        "बहुव्रीहि समास",
+                        "द्वंद्व समास",
+                        "तत्पुरुष समास",
+                        "कर्मधारय समास"
+                    ],
+                    "correct": 0,
+                    "explanation": "चतुर्भुज में बहुव्रीहि समास है। यह ब्रह्मा के लिए प्रयोग होता है जिसकी चार भुजाएं हैं। बहुव्रीहि में दोनों पद मिलकर तीसरे का बोध कराते हैं।"
+                },
+                {
+                    "id": "h12",
+                    "text": "चूहे का पर्यायवाची शब्द क्या है?",
+                    "options": [
+                        "मूषक",
+                        "खनक",
+                        "कृंतक",
+                        "कीट"
+                    ],
+                    "correct": 1,
+                    "explanation": "'खनक' चूहे का पर्यायवाची शब्द है। पर्यायवाची का अर्थ है समानार्थी शब्द जो एक ही अर्थ देते हैं।"
+                },
+                {
+                    "id": "h13",
+                    "text": "अखबार किस भाषा का शब्द है?",
+                    "options": [
+                        "फारसी",
+                        "तुर्की",
+                        "अरबी",
+                        "अंग्रेजी"
+                    ],
+                    "correct": 2,
+                    "explanation": "'अखबार' अरबी भाषा का शब्द है। हिंदी में कई अरबी, फारसी और उर्दू के शब्द प्रचलित हैं।"
+                },
+                {
+                    "id": "h14",
+                    "text": "द + अ + क + श + अ से कौन सा शब्द बनेगा?",
+                    "options": [
+                        "दशक",
+                        "दक्ष",
+                        "दाक्ष",
+                        "दक्षिण"
+                    ],
+                    "correct": 1,
+                    "explanation": "द्+अ+क्+श्+अ = दक्ष। यह वर्ण संयोजन से शब्द निर्माण का उदाहरण है। दक्ष का अर्थ है कुशल या योग्य।"
+                },
+                {
+                    "id": "h15",
+                    "text": "सुभद्रा कुमारी चौहान देश प्रेम की भावना को व्यक्त करने वाली क्या हैं?",
+                    "options": [
+                        "लेखिका",
+                        "कवि",
+                        "नाटककार",
+                        "कवयित्री"
+                    ],
+                    "correct": 3,
+                    "explanation": "सुभद्रा कुमारी चौहान एक प्रसिद्ध कवयित्री थीं। 'झांसी की रानी' जैसी देशभक्ति की कविताएं लिखीं। कवयित्री स्त्रीलिंग शब्द है।"
+                },
+                {
+                    "id": "h16",
+                    "text": "'उधों का लेना ना माधवों का देना' का अर्थ क्या है?",
+                    "options": [
+                        "अपने काम से काम",
+                        "दूसरों से मतलब",
+                        "व्यापार करना",
+                        "झगड़ा करना"
+                    ],
+                    "correct": 0,
+                    "explanation": "यह मुहावरा 'अपने काम से काम रखना' के अर्थ में प्रयोग होता है। किसी के साथ लेन-देन न होना।"
+                },
+                {
+                    "id": "h17",
+                    "text": "छंद का सर्वप्रथम उल्लेख कहां मिलता है?",
+                    "options": [
+                        "ऋग्वेद",
+                        "सामवेद",
+                        "यजुर्वेद",
+                        "अथर्ववेद"
+                    ],
+                    "correct": 0,
+                    "explanation": "छंद का सबसे पहला उल्लेख ऋग्वेद में मिलता है। छंद का अर्थ है लय और ताल के साथ काव्य रचना।"
+                },
+                {
+                    "id": "h18",
+                    "text": "जिस काव्य में समान शब्द के अलग-अलग अर्थों में आवृत्ति हो वहां कौन सा अलंकार होता है?",
+                    "options": [
+                        "यमक",
+                        "अनुप्रास",
+                        "श्लेष",
+                        "वक्रोक्ति"
+                    ],
+                    "correct": 1,
+                    "explanation": "अनुप्रास अलंकार में समान वर्णों की आवृत्ति होती है। जब एक ही वर्ण बार-बार आता है तो वह अनुप्रास कहलाता है।"
+                },
+                {
+                    "id": "h19",
+                    "text": "निम्नलिखित में से किस शब्द में प्रत्यय लगा हुआ है?",
+                    "options": [
+                        "विद्यालय",
+                        "पुस्तक",
+                        "लेखक",
+                        "जादूगर"
+                    ],
+                    "correct": 3,
+                    "explanation": "'जादूगर' में 'गर' प्रत्यय है। प्रत्यय वे शब्दांश हैं जो मूल शब्द के अंत में जुड़कर नया अर्थ देते हैं।"
+                },
+                {
+                    "id": "h20",
+                    "text": "जंगल में लगने वाली आग को क्या कहते हैं?",
+                    "options": [
+                        "अग्नि",
+                        "दावाग्नि",
+                        "वनाग्नि",
+                        "प्राकृतिक अग्नि"
+                    ],
+                    "correct": 1,
+                    "explanation": "जंगल में लगने वाली आग को 'दावाग्नि' या 'दावानल' कहते हैं। यह प्राकृतिक आपदा का रूप है।"
+                },
+                {
+                    "id": "h21",
+                    "text": "प्रेरणार्थक क्रिया के कितने रूप होते हैं?",
+                    "options": [
+                        "दो",
+                        "तीन",
+                        "चार",
+                        "पांच"
+                    ],
+                    "correct": 0,
+                    "explanation": "प्रेरणार्थक क्रिया के दो रूप होते हैं - प्रथम प्रेरणार्थक और द्वितीय प्रेरणार्थक। जैसे पढ़ना-पढ़ाना-पढ़वाना।"
+                },
+                {
+                    "id": "h22",
+                    "text": "संज्ञा और सर्वनाम शब्द कैसे हैं?",
+                    "options": [
+                        "विकारी शब्द",
+                        "अविकारी शब्द",
+                        "योजक शब्द",
+                        "संबंधबोधक शब्द"
+                    ],
+                    "correct": 0,
+                    "explanation": "संज्ञा और सर्वनाम विकारी शब्द हैं क्योंकि इनमें लिंग, वचन, कारक के अनुसार रूप परिवर्तन होता है।"
+                },
+                {
+                    "id": "h23",
+                    "text": "स्मरण का विलोमार्थी शब्द क्या है?",
+                    "options": [
+                        "भूलना",
+                        "याद",
+                        "विस्मरण",
+                        "स्मृति"
+                    ],
+                    "correct": 2,
+                    "explanation": "'स्मरण' का विलोम 'विस्मरण' है। विलोम का अर्थ है विपरीत अर्थ वाला शब्द। स्मरण यानी याद करना, विस्मरण यानी भूल जाना।"
+                },
+                {
+                    "id": "h24",
+                    "text": "'राम अयोध्या से वन को गए' इस वाक्य में 'से' किस कारक का बोधक है?",
+                    "options": [
+                        "करण कारक",
+                        "संप्रदान कारक",
+                        "अपादान कारक",
+                        "अधिकरण कारक"
+                    ],
+                    "correct": 2,
+                    "explanation": "'से' अपादान कारक का चिह्न है जो अलगाव या जुदाई का बोध कराता है। यहां राम अयोध्या से अलग होकर वन में गए।"
+                },
+                {
+                    "id": "h25",
+                    "text": "'मैं आप चला जाऊंगा' इस वाक्य में 'आप' कौन सा सर्वनाम है?",
+                    "options": [
+                        "पुरुषवाचक",
+                        "निश्चयवाचक",
+                        "निजवाचक",
+                        "अनिश्चयवाचक"
+                    ],
+                    "correct": 2,
+                    "explanation": "यहां 'आप' निजवाचक सर्वनाम है जो 'स्वयं' के अर्थ में प्रयुक्त हुआ है। निजवाचक सर्वनाम अपनेपन का भाव दिखाता है।"
                 }
             ]
         },
@@ -26,32 +314,330 @@
             "questions": [
                 {
                     "id": "e1",
-                    "text": "Choose the correct synonym of 'Beautiful':",
-                    "options": ["Ugly", "Pretty", "Bad", "Worst"],
-                    "correct": 1
+                    "text": "Identify the correctly spelled word: 'sarmon'",
+                    "options": [
+                        "sarmon",
+                        "sermon",
+                        "sarmoan",
+                        "sermoan"
+                    ],
+                    "correct": 1,
+                    "explanation": "The correct spelling is 'sermon' which means a religious discourse."
                 },
                 {
                     "id": "e2",
-                    "text": "What is the past tense of 'Go'?",
-                    "options": ["Gone", "Went", "Going", "Goes"],
-                    "correct": 1
+                    "text": "Identify the correct spelling of 'resilience'",
+                    "options": [
+                        "resilance",
+                        "resiliance",
+                        "resilience",
+                        "reselience"
+                    ],
+                    "correct": 2,
+                    "explanation": "The correct spelling is 'resilience' meaning the capacity to recover quickly from difficulties."
+                },
+                {
+                    "id": "e3",
+                    "text": "Identify the correct spelling of 'souvenir'",
+                    "options": [
+                        "souveneer",
+                        "souvenir",
+                        "sovenir",
+                        "souvenire"
+                    ],
+                    "correct": 1,
+                    "explanation": "The correct spelling is 'souvenir' meaning a keepsake or memento."
+                },
+                {
+                    "id": "e4",
+                    "text": "Convert the sentence to passive voice: 'I hope to win the medal'",
+                    "options": [
+                        "It is hoped that the medal will be won by me",
+                        "The medal is hoped to be won by me",
+                        "I am hoped to win the medal",
+                        "It is hope that the medal will be won by me"
+                    ],
+                    "correct": 0,
+                    "explanation": "The correct passive form changes the subject-object relationship and uses 'it is hoped that...' construction."
+                },
+                {
+                    "id": "e5",
+                    "text": "Convert the imperative sentence to passive: 'Hate none'",
+                    "options": [
+                        "Let none be hate",
+                        "Let none be hated",
+                        "None should be hated",
+                        "Hating none is good"
+                    ],
+                    "correct": 1,
+                    "explanation": "Imperative sentences starting with verbs convert to passive using 'Let + object + be + past participle'."
+                },
+                {
+                    "id": "e6",
+                    "text": "Fill in the blank: 'How ___ you enter my room'",
+                    "options": [
+                        "dare",
+                        "did",
+                        "can",
+                        "could"
+                    ],
+                    "correct": 0,
+                    "explanation": "'How dare you' is the correct expression showing indignation at someone's boldness."
+                },
+                {
+                    "id": "e7",
+                    "text": "Complete the sentence: 'Walk fast ___ you miss the train'",
+                    "options": [
+                        "because",
+                        "lest",
+                        "although",
+                        "unless"
+                    ],
+                    "correct": 1,
+                    "explanation": "'Lest' is used to indicate something should be avoided, typically followed by 'should'."
+                },
+                {
+                    "id": "e8",
+                    "text": "Change the gender: 'Louse' (female)",
+                    "options": [
+                        "Lice",
+                        "Louse",
+                        "Lousy",
+                        "No change"
+                    ],
+                    "correct": 0,
+                    "explanation": "The female form of 'louse' is 'lice', though this is actually the plural form in modern usage."
+                },
+                {
+                    "id": "e9",
+                    "text": "What is the feminine of 'wizard'?",
+                    "options": [
+                        "Witch",
+                        "Wizardess",
+                        "Wizardette",
+                        "No feminine form"
+                    ],
+                    "correct": 0,
+                    "explanation": "The feminine counterpart of 'wizard' is 'witch'."
+                },
+                {
+                    "id": "e10",
+                    "text": "Collective noun for bees flying together",
+                    "options": [
+                        "Hive",
+                        "Swarm",
+                        "Colony",
+                        "Flock"
+                    ],
+                    "correct": 1,
+                    "explanation": "A group of bees in flight is called a 'swarm', while a settled group is a 'hive' or 'colony'."
+                },
+                {
+                    "id": "e11",
+                    "text": "Superlative degree of 'out'",
+                    "options": [
+                        "Outer",
+                        "Outest",
+                        "Utmost",
+                        "Outmost"
+                    ],
+                    "correct": 2,
+                    "explanation": "The superlative form is 'utmost', meaning to the greatest extent or degree."
+                },
+                {
+                    "id": "e12",
+                    "text": "Antonym of 'astonishment'",
+                    "options": [
+                        "Amazement",
+                        "Expectation",
+                        "Disappointment",
+                        "Indifference"
+                    ],
+                    "correct": 1,
+                    "explanation": "While 'astonishment' means great surprise, its opposite would be 'expectation' (something anticipated)."
+                },
+                {
+                    "id": "e13",
+                    "text": "Antonym of 'lewd'",
+                    "options": [
+                        "Crude",
+                        "Modest",
+                        "Shy",
+                        "Quiet"
+                    ],
+                    "correct": 1,
+                    "explanation": "'Lewd' means crude and offensive in a sexual way, so its opposite is 'modest'."
+                },
+                {
+                    "id": "e14",
+                    "text": "Antonym of 'harness'",
+                    "options": [
+                        "Release",
+                        "Neglect",
+                        "Free",
+                        "Untie"
+                    ],
+                    "correct": 1,
+                    "explanation": "To 'harness' means to utilize or control, so its opposite is 'neglect' (fail to utilize)."
+                },
+                {
+                    "id": "e15",
+                    "text": "Synonym of 'repulsive'",
+                    "options": [
+                        "Attractive",
+                        "Disgusting",
+                        "Revolting",
+                        "Both B and C"
+                    ],
+                    "correct": 3,
+                    "explanation": "'Repulsive' means causing intense dislike, with synonyms being 'disgusting' and 'revolting'."
+                },
+                {
+                    "id": "e16",
+                    "text": "Synonym of 'devoted'",
+                    "options": [
+                        "Dedicated",
+                        "Divided",
+                        "Loyal",
+                        "Both A and C"
+                    ],
+                    "correct": 3,
+                    "explanation": "'Devoted' means very loving or loyal, with synonyms being 'dedicated' and 'loyal'."
+                },
+                {
+                    "id": "e17",
+                    "text": "Synonym of 'confide'",
+                    "options": [
+                        "Hide",
+                        "Confess",
+                        "Trust",
+                        "Believe"
+                    ],
+                    "correct": 1,
+                    "explanation": "To 'confide' means to tell someone a secret privately, with 'confess' being a close synonym."
+                },
+                {
+                    "id": "e18",
+                    "text": "Fill the preposition: 'The country is ___ peace'",
+                    "options": [
+                        "at",
+                        "in",
+                        "for",
+                        "with"
+                    ],
+                    "correct": 1,
+                    "explanation": "The correct phrase is 'in peace' meaning not at war or in a peaceful state."
+                },
+                {
+                    "id": "e19",
+                    "text": "Fill the preposition: 'There is disagreement ___ these two friends'",
+                    "options": [
+                        "among",
+                        "between",
+                        "amidst",
+                        "with"
+                    ],
+                    "correct": 1,
+                    "explanation": "'Between' is used for two items/people, while 'among' is for more than two."
+                },
+                {
+                    "id": "e20",
+                    "text": "Complete the comparative degree: 'He is taller ___ me'",
+                    "options": [
+                        "than",
+                        "then",
+                        "to",
+                        "from"
+                    ],
+                    "correct": 0,
+                    "explanation": "Comparative adjectives are followed by 'than' when making comparisons."
+                },
+                {
+                    "id": "e21",
+                    "text": "Complete the proverb: 'Look ___ you leap'",
+                    "options": [
+                        "after",
+                        "before",
+                        "while",
+                        "when"
+                    ],
+                    "correct": 1,
+                    "explanation": "The complete proverb is 'Look before you leap' meaning think carefully before acting."
+                },
+                {
+                    "id": "e22",
+                    "text": "Correct the sentence: 'She is best singer in our class'",
+                    "options": [
+                        "She is the best singer in our class",
+                        "She is a best singer in our class",
+                        "She is best singer in our class",
+                        "She is bestest singer in our class"
+                    ],
+                    "correct": 0,
+                    "explanation": "Superlative adjectives like 'best' require the definite article 'the'."
+                },
+                {
+                    "id": "e23",
+                    "text": "Fill the article: 'She has ___ unique idea'",
+                    "options": [
+                        "a",
+                        "an",
+                        "the",
+                        "no article"
+                    ],
+                    "correct": 0,
+                    "explanation": "Although 'unique' starts with a vowel letter, it begins with a consonant sound (/j/), so 'a' is correct."
+                },
+                {
+                    "id": "e24",
+                    "text": "Convert to reported speech: 'She says, 'I shall do my duty''",
+                    "options": [
+                        "She says that she will do her duty",
+                        "She says that I shall do my duty",
+                        "She said that she would do her duty",
+                        "She says that she shall do her duty"
+                    ],
+                    "correct": 0,
+                    "explanation": "When the reporting verb is in present tense, we don't change the tense in reported speech. 'I' changes to 'she' and 'my' to 'her'."
+                },
+                {
+                    "id": "e25",
+                    "text": "Convert to reported speech: 'He said, 'Alas! I have failed''",
+                    "options": [
+                        "He exclaimed with sorrow that he had failed",
+                        "He said alas that he has failed",
+                        "He exclaimed that alas he had failed",
+                        "He said that he had failed alas"
+                    ],
+                    "correct": 0,
+                    "explanation": "Exclamatory sentences with 'Alas!' convert to 'exclaimed with sorrow' in reported speech, and present perfect changes to past perfect."
                 }
             ]
         },
         {
             "name": "numerical",
-            "title": "Numerical Ability", 
+            "title": "Numerical Ability",
             "questions": [
                 {
                     "id": "n1",
                     "text": "What is 15 + 25?",
-                    "options": ["35", "40", "45", "50"],
+                    "options": [
+                        "35",
+                        "40",
+                        "45",
+                        "50"
+                    ],
                     "correct": 1
                 },
                 {
                     "id": "n2",
                     "text": "What is 12 × 8?",
-                    "options": ["84", "96", "108", "120"],
+                    "options": [
+                        "84",
+                        "96",
+                        "108",
+                        "120"
+                    ],
                     "correct": 1
                 }
             ]
@@ -63,13 +649,23 @@
                 {
                     "id": "g1",
                     "text": "Who is the current Prime Minister of India?",
-                    "options": ["Rahul Gandhi", "Narendra Modi", "Amit Shah", "Yogi Adityanath"],
+                    "options": [
+                        "Rahul Gandhi",
+                        "Narendra Modi",
+                        "Amit Shah",
+                        "Yogi Adityanath"
+                    ],
                     "correct": 1
                 },
                 {
                     "id": "g2",
                     "text": "What is the capital of Himachal Pradesh?",
-                    "options": ["Shimla", "Dharamshala", "Mandi", "Kullu"],
+                    "options": [
+                        "Shimla",
+                        "Dharamshala",
+                        "Mandi",
+                        "Kullu"
+                    ],
                     "correct": 0
                 }
             ]
