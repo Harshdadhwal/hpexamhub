@@ -619,30 +619,306 @@
             "title": "Numerical Ability",
             "questions": [
                 {
-                    "id": "n1",
-                    "text": "What is 15 + 25?",
+                    "id": "m1",
+                    "text": "What is the value of 1⁰ × 2⁰ × 3⁰?",
                     "options": [
-                        "35",
-                        "40",
-                        "45",
-                        "50"
+                        "0",
+                        "1",
+                        "6",
+                        "Undefined"
                     ],
-                    "correct": 1
+                    "correct": 1,
+                    "explanation": "Any non-zero number raised to the power 0 equals 1. Therefore, 1⁰ × 2⁰ × 3⁰ = 1 × 1 × 1 = 1."
                 },
                 {
-                    "id": "n2",
-                    "text": "What is 12 × 8?",
+                    "id": "m2",
+                    "text": "Which is the smallest fraction among 4/9, 3/7, 5/11, 2/5?",
                     "options": [
-                        "84",
-                        "96",
-                        "108",
-                        "120"
+                        "4/9",
+                        "3/7",
+                        "5/11",
+                        "2/5"
                     ],
-                    "correct": 1
+                    "correct": 1,
+                    "explanation": "Converting to decimals: 4/9 ≈ 0.444, 3/7 ≈ 0.428, 5/11 ≈ 0.454, 2/5 = 0.4. The smallest is 3/7."
+                },
+                {
+                    "id": "m3",
+                    "text": "If two sides of a triangle are 60 and 70, then the third side will be?",
+                    "options": [
+                        "10",
+                        "130",
+                        "Between 10 and 130",
+                        "Exactly 50"
+                    ],
+                    "correct": 2,
+                    "explanation": "By triangle inequality theorem, the third side must be greater than (70-60)=10 and less than (70+60)=130."
+                },
+                {
+                    "id": "m4",
+                    "text": "If 11% of a number exceeds 7% of the number by 18, then the number is",
+                    "options": [
+                        "450",
+                        "400",
+                        "350",
+                        "300"
+                    ],
+                    "correct": 0,
+                    "explanation": "Let the number be x. Then 0.11x - 0.07x = 18 ⇒ 0.04x = 18 ⇒ x = 18/0.04 = 450."
+                },
+                {
+                    "id": "m5",
+                    "text": "Value of (125)^(1/3)?",
+                    "options": [
+                        "25",
+                        "15",
+                        "5",
+                        "35"
+                    ],
+                    "correct": 2,
+                    "explanation": "The cube root of 125 is 5 because 5 × 5 × 5 = 125."
+                },
+                {
+                    "id": "m6",
+                    "text": "What is the circumference of a circle whose radius is 14 cm?",
+                    "options": [
+                        "44 cm",
+                        "88 cm",
+                        "66 cm",
+                        "154 cm"
+                    ],
+                    "correct": 1,
+                    "explanation": "Circumference = 2πr = 2 × (22/7) × 14 = 88 cm."
+                },
+                {
+                    "id": "m7",
+                    "text": "What is the product of roots of a quadratic equation ax² + bx + c = 0?",
+                    "options": [
+                        "-b/a",
+                        "b/a",
+                        "c/a",
+                        "-c/a"
+                    ],
+                    "correct": 2,
+                    "explanation": "For quadratic equation ax² + bx + c = 0, product of roots = c/a (constant term/coefficient of x²)."
+                },
+                {
+                    "id": "m8",
+                    "text": "__________ is the longest chord of a circle.",
+                    "options": [
+                        "Radius",
+                        "Diameter",
+                        "Arc",
+                        "Tangent"
+                    ],
+                    "correct": 1,
+                    "explanation": "The diameter is the longest chord of a circle, passing through the center and having twice the length of the radius."
+                },
+                {
+                    "id": "m9",
+                    "text": "Find the value of n when 8 × 2^(n+2) = 32",
+                    "options": [
+                        "0",
+                        "1",
+                        "-1",
+                        "2"
+                    ],
+                    "correct": 0,
+                    "explanation": "8 × 2^(n+2) = 32 ⇒ 2³ × 2^(n+2) = 2⁵ ⇒ 2^(n+5) = 2⁵ ⇒ n+5 = 5 ⇒ n = 0."
+                },
+                {
+                    "id": "m10",
+                    "text": "Simplify: (3/4) + (2/5) - (1/2)",
+                    "options": [
+                        "9/20",
+                        "13/20",
+                        "17/20",
+                        "21/20"
+                    ],
+                    "correct": 1,
+                    "explanation": "LCM of denominators (4,5,2) is 20. (15/20) + (8/20) - (10/20) = (15+8-10)/20 = 13/20."
+                },
+                {
+                    "id": "m11",
+                    "text": "Sum of all sides of a quadrilateral is called?",
+                    "options": [
+                        "Area",
+                        "Perimeter",
+                        "Diagonal",
+                        "Circumference"
+                    ],
+                    "correct": 1,
+                    "explanation": "The sum of all sides of any polygon (including quadrilaterals) is called its perimeter."
+                },
+                {
+                    "id": "m12",
+                    "text": "LCM of 26 and 91 is?",
+                    "options": [
+                        "182",
+                        "364",
+                        "91",
+                        "2366"
+                    ],
+                    "correct": 0,
+                    "explanation": "Prime factors: 26 = 2×13, 91 = 7×13. LCM = 2×7×13 = 182."
+                },
+                {
+                    "id": "m13",
+                    "text": "Find the median of: 13, 12, 16, 14, 19, 12, 14, 13, 14",
+                    "options": [
+                        "13",
+                        "14",
+                        "15",
+                        "16"
+                    ],
+                    "correct": 1,
+                    "explanation": "Arranged order: 12,12,13,13,14,14,14,16,19. Middle value (5th term) is 14."
+                },
+                {
+                    "id": "m14",
+                    "text": "Volume of a cone with radius 6 cm and height 7 cm is?",
+                    "options": [
+                        "264 cm³",
+                        "88 cm³",
+                        "132 cm³",
+                        "308 cm³"
+                    ],
+                    "correct": 0,
+                    "explanation": "Volume = (1/3)πr²h = (1/3)×(22/7)×6²×7 = (1/3)×22×36 = 264 cm³."
+                },
+                {
+                    "id": "m15",
+                    "text": "If CP of 5 bananas equals SP of 3 bananas, the gain percentage is?",
+                    "options": [
+                        "40%",
+                        "66⅔%",
+                        "60%",
+                        "33⅓%"
+                    ],
+                    "correct": 1,
+                    "explanation": "Let CP of 1 banana = ₹1. CP of 5 = ₹5 = SP of 3 ⇒ SP per banana = ₹5/3. Gain% = [(5/3 - 1)/1]×100 = 66⅔%."
+                },
+                {
+                    "id": "m16",
+                    "text": "Cot(90° - θ) = ?",
+                    "options": [
+                        "Tanθ",
+                        "Cotθ",
+                        "Sinθ",
+                        "Cosθ"
+                    ],
+                    "correct": 0,
+                    "explanation": "Cot(90° - θ) = Tanθ by trigonometric co-function identities."
+                },
+                {
+                    "id": "m17",
+                    "text": "Formula for compound interest compounded annually is?",
+                    "options": [
+                        "P(1 + r/100)^t",
+                        "P + (P×r×t)/100",
+                        "P(1 + r/100n)^(nt)",
+                        "P(1 + r)^t"
+                    ],
+                    "correct": 0,
+                    "explanation": "Annual compound interest formula: A = P(1 + r/100)^t where P=principal, r=rate, t=time in years."
+                },
+                {
+                    "id": "m18",
+                    "text": "Simplify √[(0.65)² - (0.16)²]",
+                    "options": [
+                        "0.49",
+                        "0.63",
+                        "0.81",
+                        "0.57"
+                    ],
+                    "correct": 1,
+                    "explanation": "Using a² - b² = (a+b)(a-b): √[(0.65+0.16)(0.65-0.16)] = √[0.81×0.49] = 0.9×0.7 = 0.63."
+                },
+                {
+                    "id": "m19",
+                    "text": "If nth term of AP is (5n + 1), sum of first n terms is?",
+                    "options": [
+                        "(5n² + 7n)/2",
+                        "5n² + n",
+                        "(5n² + n)/2",
+                        "5n + n²"
+                    ],
+                    "correct": 0,
+                    "explanation": "First term a₁=6, second term a₂=11 ⇒ d=5. Sum Sₙ = n/2[2a₁+(n-1)d] = n/2[12+5n-5] = (5n²+7n)/2."
+                },
+                {
+                    "id": "m20",
+                    "text": "Distance between points A(2,1) and B(3,2) is?",
+                    "options": [
+                        "√2",
+                        "2",
+                        "√3",
+                        "1"
+                    ],
+                    "correct": 0,
+                    "explanation": "Distance formula: √[(3-2)² + (2-1)²] = √(1 + 1) = √2."
+                },
+                {
+                    "id": "m21",
+                    "text": "Value of sin30° is?",
+                    "options": [
+                        "1/2",
+                        "√3/2",
+                        "1/√2",
+                        "0"
+                    ],
+                    "correct": 0,
+                    "explanation": "Sin30° = 1/2, a standard trigonometric value."
+                },
+                {
+                    "id": "m22",
+                    "text": "Present ages ratio 3:4, after 5 years becomes 4:5. Present age of younger person is?",
+                    "options": [
+                        "12",
+                        "15",
+                        "18",
+                        "20"
+                    ],
+                    "correct": 1,
+                    "explanation": "Let ages be 3x and 4x. (3x+5)/(4x+5) = 4/5 ⇒ 15x+25=16x+20 ⇒ x=5. Younger age = 3×5 = 15."
+                },
+                {
+                    "id": "m23",
+                    "text": "Express 0.666... in p/q form",
+                    "options": [
+                        "6/9",
+                        "2/3",
+                        "66/100",
+                        "1/3"
+                    ],
+                    "correct": 1,
+                    "explanation": "Let x=0.666... ⇒ 10x=6.666... ⇒ 9x=6 ⇒ x=6/9=2/3."
+                },
+                {
+                    "id": "m24",
+                    "text": "Multiplicative inverse of 3/5 is?",
+                    "options": [
+                        "-3/5",
+                        "-5/3",
+                        "5/3",
+                        "3/5"
+                    ],
+                    "correct": 2,
+                    "explanation": "Multiplicative inverse means reciprocal, so for 3/5 it's 5/3 (product gives 1)."
+                },
+                {
+                    "id": "m25",
+                    "text": "Supplementary angle of 20° is?",
+                    "options": [
+                        "70°",
+                        "160°",
+                        "20°",
+                        "90°"
+                    ],
+                    "correct": 1,
+                    "explanation": "Supplementary angles add to 180°, so 180° - 20° = 160°."
                 }
-            ]
-        },
-        {
+            ],
             "name": "general",
             "title": "General Awareness",
             "questions": [
