@@ -918,7 +918,9 @@
                     "correct": 1,
                     "explanation": "Supplementary angles add to 180°, so 180° - 20° = 160°."
                 }
-            ],
+            ]
+        },
+            {
             "name": "general",
             "title": "General Awareness",
             "questions": [
@@ -1224,5 +1226,7 @@
                 }
             ]
         }
+    
     ]
 }
+
