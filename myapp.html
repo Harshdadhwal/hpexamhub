@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data and Quiz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+<style>
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.container {
+    max-width: 1800px;
+}
+
+.card {
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: #2a2a2a;
+    border: none;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: white;
+}
+
+.quiz-container {
+    background-color: #34495e;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 100%;
+    max-width: 600px;
+}
+
+h1, h3 {
+    color: #ecf0f1;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.question {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #191818;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #007bff;
+}
+
+.question-text {
+    font-weight: bold;
+    color: white;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+label:hover {
+    background-color: #3c5568;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #2980b9;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #1c5d82;
+}
+
+.answer {
+    margin-top: 10px;
+    color: white;
+}
+
+.btn-primary {
+    margin-top: 10px;
+    color: white;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.container select,
+.container input,
+.form-control {
+    background-color: #3a3a3a;
+    color: white;
+    margin-bottom: 15px;
+    border: 1px solid #4a4a4a;
+}
+
+.form-control:focus,
+select:focus {
+    background-color: #3a3a3a;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    color: #f0f0f0;
+}
+
+.form-control::placeholder {
+    color: #ccc;
+}
+
+#loadingAnimation {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#loadingAnimation-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loadingAnimation p, #loadingAnimation-1 p {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #3498db;
+}
+
+.nav-pills .nav-link {
+    color: #f0f0f0;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.tab-content {
+    padding-top: 20px;
+}
+
+.btn-outline-primary,
+.btn-outline-secondary,
+.btn-outline-info {
+    color: #f0f0f0;
+    border-color: #f0f0f0;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-secondary:hover,
+.btn-outline-info:hover {
+    color: #111112;
+    background-color: #f0f0f0;
+}
+
+#quizCategory, #quizChapter {
+    margin-bottom: 15px;
+}
+
+#mcq-quiz label, #quiz strong {
+    font-weight: bold;
+    color: white;
+} 
+
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.center-content > * {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Trivia Quiz specific styles */
+#trivia-quiz h3,
+#trivia-quiz p,
+#trivia-quiz label,
+#trivia-content .question-text,
+#trivia-content .form-check-label {
+    color: white;
+}
+
+#trivia-content .question {
+    background-color: #191818;
+    border-left: 4px solid #007bff;
+}
+
+#trivia-content .form-check-input:checked + .form-check-label {
+    color: #007bff;
+}
+
+
+
+
+/* Container for all tabs */
+.tab-content-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Trivia quiz tab */
+#trivia-quiz {
+    display: none; /* Hidden by default */
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Active state for trivia quiz tab */
+#trivia-quiz.active {
+    display: block;
+}
+
+/* Quiz container */
+#trivia-quiz-div {
+    width: 100%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #trivia-quiz {
+        padding: 10px;
+    }
+}
+
+/* Optional: Style for other tabs if needed */
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+
+#start-trivia {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+#start-trivia:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.result {
+    background-color: #34495e;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    color: #ecf0f1;
+}
+
+.result h2 {
+    color: #ecf0f1;
+    margin-bottom: 20px;
+}
+
+.score {
+    font-size: 48px;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.result:not(.hidden) {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Summary styles */
+.summary-container {
+    background-color: #2c3e50;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.summary {
+    margin-bottom: 20px;
+}
+
+.summary h3 {
+    color: #ecf0f1;
+    margin-bottom: 10px;
+}
+
+.summary p {
+    color: #ecf0f1;
+    margin-bottom: 5px;
+}
+
+.correct-answer {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.incorrect-answer {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.summary-header h2 {
+    color: #ecf0f1;
+    margin: 0;
+}
+
+.summary-header button {
+    background-color: #2980b9;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.summary-header button:hover {
+    background-color: #1c5d82;
+}
+
+.correct-count, .incorrect-count {
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.correct-count {
+    background-color: #27ae60;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.incorrect-count {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+.correct-answer, .incorrect-answer {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.correct-answer {
+    background-color: #27ae60;
+    color: #ffffff;
+}
+
+.incorrect-answer {
+    background-color: #e74c3c;
+    color: #ffffff;
+}
+
+
+
+</style>
+
+
+
+</head>
+
+<body>
+    <div class="container mt-4">
+    <div class="card p-4">
+        <div class="card text-center">
+            <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active rounded-5" id="new-question-tab" data-bs-toggle="tab" data-bs-target="#new-question" type="button" role="tab" aria-selected="true">New Question</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-5" id="mcq-quiz-tab" data-bs-toggle="tab" data-bs-target="#mcq-quiz" type="button" role="tab" aria-selected="false">MCQ Quiz</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-5" id="trivia-quiz-tab" data-bs-toggle="tab" data-bs-target="#trivia-quiz" type="button" role="tab" aria-selected="false">Trivia Quiz</button>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="new-question" role="tabpanel" aria-labelledby="new-question-tab">
+                <div id="myDIV" class="form-group">
+                    <form action="" name="data" id="dataform" class="px-4 py-3">
+    <div class="form-group">
+        <label for="questionInput">Question</label>
+        <textarea class="form-control" name="Question" id="questionInput" placeholder="Type Question here" rows="2" required></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label for="answerInput">Answer</label>
+        <input type="text" name="Answer" id="answerInput" class="form-control" placeholder="Type Answer here" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="detailInput">Explanation</label>
+        <textarea class="form-control" name="About" id="detailInput" rows="4" required></textarea>
+    </div>
+    
+    <div class="form-group">
+        <label for="imageSolution">Solution Image</label>
+        <input type="file" id="imageSolution" name="photo" accept="image/*" class="form-control-file">
+    </div>
+    
+    <div class="form-group">
+        <label for="categorySelect">Category</label>
+        <select name="Category" id="categorySelect" class="form-control">
+            <option value="">Select Category</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="newCategory">New Category</label>
+        <input type="text" id="newCategory" class="form-control" placeholder="Add new category">
+    </div>
+    
+    <div class="form-group">
+        <label for="chapterSelect">Chapter</label>
+        <select name="Chapter" id="chapterSelect" class="form-control">
+            <option value="">Select Chapter</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label for="newChapter">New Chapter</label>
+        <input type="text" id="newChapter" class="form-control" placeholder="Add new chapter">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+                </div> 
+
+                <div id="loadingAnimation-saving" style="display: none;">
+                    <div class="spinner"></div>
+                </div>
+
+            </div>
+
+            <div class="tab-pane fade" id="mcq-quiz" role="tabpanel" aria-labelledby="mcq-quiz-tab">
+                <div class="mt-4">
+                    <label for="quizCategory">Select Category:</label>
+                    <select id="quizCategory" class="form-control">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <div class="mt-2">
+                    <label for="quizChapter">Select Chapter:</label>
+                    <select id="quizChapter" class="form-control">
+                        <option value="">All</option>
+                    </select>
+                </div>
+                <div class="mt-2">
+                    <button id="show-question" class="btn btn-primary">Show Question</button>
+                </div>
+                
+                <div id="quiz" class="mt-4"></div>
+            </div>
+
+
+
+<div class="tab-content-container">
+    <div class="tab-pane fade" id="trivia-quiz" role="tabpanel" aria-labelledby="trivia-quiz-tab">
+        <div id="trivia-quiz-div" class="quiz-container">
+            <h1>Trivia Quiz</h1>
+            <div id="loadingAnimation-1">
+                <div class="spinner"></div> <br>
+                <p>Loading questions...</p>
+            </div>
+            <div id="button-div"></div>
+            <form id="quiz-form" style="display: none;">
+                <!-- Questions will be inserted here dynamically -->
+            </form>
+        </div>
+        <div id="result" class="result hidden">
+            <h2>Your Result</h2>
+            <div class="score">
+                <span id="score">0</span>/<span id="total-questions">0</span>
+            </div>
+            <p id="message"></p>
+            <button id="show-summary-btn">Show Summary</button>
+        </div>
+        <div id="summary" class="summary-container hidden">
+            <!-- Summary content will be inserted here dynamically -->
+        </div>
+    </div>
+</div>
+
+            
+
+ 
+        </div>
+    </div>
+    </div>
+
+
+
+<script>
+
+
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwpvKTv6Mx6t7AYoE50hVtjPC0PavQs7eRXKx29HzjjDcLqnSKn5lik3907BS__qmXB/exec';
+const form = document.getElementById("dataform"); // Replace with your form's ID
+let allQuestions = [];   // Array containing all questions
+let filteredQuestions = [];  // Array for questions that match any filtering criteria
+let currentQuestions = [];  // Array for the current set of questions being displayed
+let questionsPerPage = 50;  // Number of questions to show per page
+let shownQuestions = [];  // Array to keep track of shown questions
+let isFirstClick = true;
+
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    toggleFormVisibility();
+
+    const newCategory = document.getElementById("newCategory").value;
+    const categorySelect = document.getElementById("categorySelect");
+    const newChapter = document.getElementById("newChapter").value;
+    const chapterSelect = document.getElementById("chapterSelect");
+    const photo = document.getElementById("imageSolution").files[0];
+
+    if (newCategory) {
+        const option = document.createElement("option");
+        option.text = newCategory;
+        option.value = newCategory;
+        categorySelect.add(option);
+        categorySelect.value = newCategory;
+        filterSubmitChapters();
+    }
+
+    if (newChapter) {
+        const option = document.createElement("option");
+        option.text = newChapter;
+        option.value = newChapter;
+        chapterSelect.add(option);
+        chapterSelect.value = newChapter;
+    }
+
+    if (photo) {
+        const reader = new FileReader();
+        reader.readAsDataURL(photo);
+        reader.onloadend = function() {
+            const photoData = reader.result;
+            const formData = new FormData(form);
+            formData.append('photo', photoData);
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => handleSaveResponse(data))
+            .catch(error => handleError(error, 'saving'));
+        };
+    } else {
+        const formData = new FormData(form);
+        fetch(scriptURL, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => handleSaveResponse(data))
+        .catch(error => handleError(error, 'saving'));
+    }
+});
+
+function toggleFormVisibility() {
+    const formDiv = document.getElementById("myDIV");
+    const loadingDiv = document.getElementById("loadingAnimation-saving");
+
+    formDiv.style.display = "none";
+    loadingDiv.style.display = "flex";
+}
+
+function toggleFullscreen(img) {
+    if (!document.fullscreenElement) {
+        if (img.requestFullscreen) {
+            img.requestFullscreen();
+        } else if (img.mozRequestFullScreen) { // Firefox
+            img.mozRequestFullScreen();
+        } else if (img.webkitRequestFullscreen) { // Chrome, Safari and Opera
+            img.webkitRequestFullscreen();
+        } else if (img.msRequestFullscreen) { // IE/Edge
+            img.msRequestFullscreen();
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) { // Firefox
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) { // Chrome, Safari and Opera
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) { // IE/Edge
+            document.msExitFullscreen();
+        }
+    }
+}
+
+function handleSaveResponse(data) {
+    const formDiv = document.getElementById("myDIV");
+    const loadingDiv = document.getElementById("loadingAnimation-saving");
+    
+    if (data.result === 'success') {
+        alert("Question Saved");
+        formDiv.style.display = "block";
+        loadingDiv.style.display = "none";
+    } else {
+        console.error('Error saving question:', data.error);
+        
+        if (data.error && data.error.startsWith("Same question is present with UID:")) {
+            // Extract the UID from the error message
+            const uid = data.error.split("UID:")[1].trim();
+            alert(`A similar question already exists with UID: ${uid}`);
+        } else {
+            alert("Failed to save question.");
+        }
+        
+        formDiv.style.display = "block";
+        loadingDiv.style.display = "none";
+    }
+}
+
+
+function handleError(error, context) {
+    console.error(`Error ${context}!`, error.message);
+    alert(`Failed to ${context} question.`);
+    const formDiv = document.getElementById("myDIV");
+    const loadingDiv = document.getElementById("loadingAnimation-saving");
+    formDiv.style.display = "block";
+    loadingDiv.style.display = "none";
+}
+
+function fetchQuestions() {
+    fetch(scriptURL)
+        .then(response => response.json())
+        .then(data => {
+            if (data.result === 'success') {
+                allQuestions = data.questions;
+                console.log('Fetched Questions:', allQuestions);
+                populateDropdowns();
+            } else {
+                console.error('Failed to fetch questions:', data.error);
+            }
+        })
+        .catch(error => handleError(error, 'fetching'));
+}
+
+
+function populateDropdowns() {
+    const categories = [...new Set(allQuestions.map(q => q.category))];
+    populateSelect('categorySelect', categories, false);
+    populateSelect('quizCategory', categories, true);
+    filterSubmitChapters();
+    filterQuizChapters();
+}
+
+function filterSubmitChapters() {
+    const selectedCategory = document.getElementById('categorySelect').value;
+    const chapters = selectedCategory === 'All' ? [] : allQuestions.filter(q => q.category === selectedCategory).map(q => q.chapter);
+    const uniqueChapters = [...new Set(chapters)];
+    populateSelect('chapterSelect', uniqueChapters, false);
+}
+
+function filterQuizChapters() {
+    const selectedCategory = document.getElementById('quizCategory').value;
+    const chapters = selectedCategory === 'All' ? [] : allQuestions.filter(q => q.category === selectedCategory).map(q => q.chapter);
+    const uniqueChapters = [...new Set(chapters)];
+    populateSelect('quizChapter', uniqueChapters, true);
+}
+
+function populateSelect(selectId, items, addAllOption) {
+    const selectElement = document.getElementById(selectId);
+    selectElement.innerHTML = '';
+
+    if (addAllOption) {
+        const allOption = document.createElement('option');
+        allOption.text = 'All';
+        allOption.value = 'All';
+        selectElement.add(allOption);
+    }
+
+    items.forEach(item => {
+        const option = document.createElement('option');
+        option.text = item;
+        option.value = item;
+        selectElement.add(option);
+    });
+}
+
+
+
+// Function to filter questions based on selected category and chapter
+function filterQuestions() {
+    const selectedCategory = document.getElementById('quizCategory').value;
+    const selectedChapter = document.getElementById('quizChapter').value;
+    
+    filteredQuestions = allQuestions;
+
+    // Filter questions by category if selected
+    if (selectedCategory && selectedCategory !== 'All') {
+        filteredQuestions = filteredQuestions.filter(q => q.category === selectedCategory);
+    }
+
+    // Filter questions by chapter if selected
+    if (selectedChapter && selectedChapter !== 'All') {
+        filteredQuestions = filteredQuestions.filter(q => q.chapter === selectedChapter);
+    }
+
+    // Shuffle the filtered questions
+    shuffleArray(filteredQuestions);
+}
+
+// Function to shuffle an array using the Fisher-Yates algorithm
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+// Function to render questions on the page
+function renderQuestions() {
+    const quizDiv = document.getElementById('quiz');
+    quizDiv.innerHTML = '';
+
+    // On the first click, initialize filteredQuestions with all questions and shuffle them
+    if (isFirstClick) {
+        filteredQuestions = [...allQuestions];
+        shuffleArray(filteredQuestions);
+        isFirstClick = false;
+    }
+
+    // Determine the number of questions to show on this page
+    const questionsToShow = Math.min(questionsPerPage, filteredQuestions.length);
+
+    // Display total questions count
+    const countElement = document.createElement('div');
+    countElement.classList.add('mb-3');
+    countElement.innerHTML = `<strong>Total Questions: ${allQuestions.length}</strong>`;
+    quizDiv.appendChild(countElement);
+
+    // Display range of questions shown
+    const shownCountElement = document.createElement('div');
+    shownCountElement.classList.add('mb-3');
+    shownCountElement.innerHTML = `<strong>Questions Shown: 1 to ${questionsToShow} of ${filteredQuestions.length}</strong>`;
+    quizDiv.appendChild(shownCountElement);
+
+    // Show the questions
+    currentQuestions = filteredQuestions.slice(0, questionsToShow);
+    for (let i = 0; i < currentQuestions.length; i++) {
+        const q = currentQuestions[i];
+        const questionElement = createQuestionElement(q, i + 1);
+        quizDiv.appendChild(questionElement);
+        shownQuestions.push(currentQuestions[i]);
+    }
+
+    // Remove shown questions from filteredQuestions
+    filteredQuestions = filteredQuestions.slice(questionsToShow);
+
+    // If all questions have been shown, reset filteredQuestions and shownQuestions, and shuffle again
+    if (filteredQuestions.length === 0) {
+        filteredQuestions = [...shownQuestions];
+        shownQuestions = [];
+        shuffleArray(filteredQuestions); // Shuffle the questions again for the next cycle
+    }
+}
+
+
+
+
+
+
+function createQuestionElement(q, index) {
+    const questionElement = document.createElement('div');
+    questionElement.classList.add('question');
+
+    const questionText = document.createElement('div');
+    questionText.classList.add('question-text');
+    questionText.innerHTML = formatText(`${index}. ${q.question}`);
+
+    const answerElement = document.createElement('div');
+    answerElement.classList.add('answer');
+    answerElement.style.display = 'none';
+    answerElement.innerHTML = formatText(`Answer: ${q.answer}<br><br>Explanation: ${q.detail}`);
+    
+    if (q.photoUrl) {
+        const convertedUrl = convertGoogleDriveUrl(q.photoUrl);
+        const iframeContainer = document.createElement('div');
+        iframeContainer.style.width = '100%';
+        iframeContainer.style.height = '300px';
+        iframeContainer.style.marginTop = '10px';
+        
+        const iframe = document.createElement('iframe');
+        iframe.src = convertedUrl;
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = 'none';
+        
+        iframeContainer.appendChild(iframe);
+        answerElement.appendChild(iframeContainer);
+
+        const fullscreenButton = document.createElement('button');
+        fullscreenButton.classList.add('btn', 'btn-outline-info', 'mt-2');
+        fullscreenButton.textContent = 'View Image in Full Screen';
+        fullscreenButton.addEventListener('click', () => window.open(convertedUrl, '_blank'));
+        
+        answerElement.appendChild(fullscreenButton);
+    }
+
+    const showAnswerButton = document.createElement('button');
+    showAnswerButton.classList.add('btn', 'btn-outline-primary', 'mt-2');
+    showAnswerButton.textContent = 'Show Answer';
+    showAnswerButton.addEventListener('click', () => {
+        answerElement.style.display = 'block';
+        showAnswerButton.style.display = 'none';
+    });
+
+    const editButton = document.createElement('button');
+    editButton.classList.add('btn', 'btn-outline-secondary', 'mt-2', 'ms-2');
+    editButton.textContent = 'Edit';
+    editButton.addEventListener('click', () => {
+        populateFormForEdit(q);
+    });
+
+    questionElement.appendChild(questionText);
+    questionElement.appendChild(showAnswerButton);
+    questionElement.appendChild(editButton);
+    questionElement.appendChild(answerElement);
+
+    return questionElement;
+}
+
+function convertGoogleDriveUrl(url) {
+    if (url.includes('drive.google.com')) {
+        let fileId;
+        if (url.includes('/file/d/')) {
+            fileId = url.split('/file/d/')[1].split('/')[0];
+        } else if (url.includes('id=')) {
+            fileId = url.split('id=')[1].split('&')[0];
+        }
+        if (fileId) {
+            return `https://drive.google.com/file/d/${fileId}/preview`;
+        }
+    }
+    return url;
+}
+
+function showImageSolution(photoUrl) {
+    const convertedUrl = convertGoogleDriveUrl(photoUrl);
+    window.open(convertedUrl, '_blank');
+}
+
+function populateFormForEdit(question) {
+    document.getElementById("questionInput").value = question.question;
+    document.getElementById("answerInput").value = question.answer;
+    document.getElementById("detailInput").value = question.detail;
+    document.getElementById("categorySelect").value = question.category;
+    filterSubmitChapters();
+    document.getElementById("chapterSelect").value = question.chapter;
+
+    let idInput = document.getElementById("idInput");
+    if (!idInput) {
+        idInput = document.createElement("input");
+        idInput.id = "idInput";
+        idInput.name = "UID";
+        idInput.type = "text";
+        idInput.classList.add("form-control", "mt-2");
+        
+        const label = document.createElement("label");
+        label.htmlFor = "idInput";
+        label.textContent = "Question UID:";
+        label.classList.add("form-label", "mt-2");
+
+        form.appendChild(label);
+        form.appendChild(idInput);
+    }
+    idInput.value = question.id;
+
+    document.getElementById('new-question-tab').click();
+}
+
+//Text Formatting 
+function formatText(text) {
+    function formatList(text, type) {
+        const items = text.split(',').map(item => item.trim()).filter(item => item.length > 0);
+        let listType = '';
+        
+        switch (type) {
+            case 'a':
+                listType = 'a';
+                break;
+            case '1':
+                listType = '1';
+                break;
+            case 'i':
+                listType = 'i';
+                break;
+            default:
+                listType = '';
+        }
+        
+        const listItems = items.map(item => `<li>${item}</li>`).join('');
+        return `<ol type="${listType}">${listItems}</ol>`;
+    }
+    
+    return text
+    .replace(/\/\/n/g, '\n')
+    .replace(/==>/g, ' ==>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/(https?:\/\/[^\s]+)/g, '$1')
+    .replace(/\/\/ol-([ai1])\s+([\s\S]+?)\/\/ol/g, (match, type, content) => formatList(content, type))
+    .replace(/\(pie\)/g, 'π')
+    .replace(/root\[(.*?)\]/g, (match, p1) => {
+        return '√<span style="text-decoration: overline;">' + 
+            p1.replace(/-sp\((.*?)\)/g, '<sup>$1</sup>')
+              .replace(/-sb\((.*?)\)/g, '<sub>$1</sub>') + 
+        '</span>';
+    })
+    .replace(/-sp\((.*?)\)/g, '<sup>$1</sup>')
+    .replace(/-sb\((.*?)\)/g, '<sub>$1</sub>')
+    .replace(/ {2,}/g, spaces => '&nbsp;'.repeat(spaces.length)) // Preserve spaces
+    .replace(/\n/g, '<br>');
+}
+
+
+
+
+document.getElementById('show-question').addEventListener('click', () => {
+    const button = document.getElementById('show-question');
+    
+    if (isFirstClick) {
+        filterQuestions();
+        isFirstClick = false;
+        button.textContent = 'Refresh';
+    } else {
+        shuffleArray(currentQuestions);
+    }
+    
+    renderQuestions();
+});
+
+
+    
+document.getElementById('quizCategory').addEventListener('change', () => {
+    filterQuestions();
+    filterQuizChapters();
+});
+
+    
+document.getElementById('quizChapter').addEventListener('change', () => {
+    filterQuestions();
+});
+
+document.getElementById('categorySelect').addEventListener('change', filterSubmitChapters);
+
+
+
+
+
+
+
+
+
+
+
+
+// Trivia 
+document.addEventListener('DOMContentLoaded', (event) => {
+    console.log('DOM fully loaded and parsed');
+    
+    document.getElementById('trivia-quiz-tab').addEventListener('click', () => {
+        console.log('Trivia Quiz tab clicked');
+    });
+
+    document.getElementById('mcq-quiz-tab').addEventListener('click', () => {
+        console.log('MCQ Quiz tab clicked');
+    });
+
+    document.getElementById('new-question-tab').addEventListener('click', () => {
+        console.log('New Question tab clicked');
+    });
+});
+ 
+
+// Call fetchQuestions to start the process
+fetchQuestions(); 
+
+
+
+
+
+
+
+    
+//Function Of Trivia Quiz 
+// All Trivial  Functions are here 
+   
+document.addEventListener('DOMContentLoaded', () => {
+    const quizForm = document.getElementById('quiz-form');
+    const resultDiv = document.getElementById('result');
+    const scoreSpan = document.getElementById('score');
+    const totalQuestionsSpan = document.getElementById('total-questions');
+    const messageP = document.getElementById('message');
+    const buttonDiv = document.getElementById('button-div'); // The div where the button will be placed
+    const summaryDiv = document.getElementById('summary');
+    const showSummaryBtn = document.getElementById('show-summary-btn');
+    const triviaDiv = document.getElementById('trivia-quiz-div');
+    const loadingDiv = document.getElementById("loadingAnimation-1");
+    let questions = [];
+    const categories = [17, 22, 9]; // General Knowledge, Science & Nature, Geography
+    const TIME_DELAY = 4500; // 4.5 seconds delay between API calls
+
+    console.log(`Script started. Preparing to fetch questions from categories ${categories.join(', ')}...`);
+
+    const showQuestionsBtn = document.createElement('button');
+    showQuestionsBtn.textContent = 'Show Questions';
+    showQuestionsBtn.disabled = true;
+    showQuestionsBtn.style.display = 'none'; // Initially hidden
+    buttonDiv.appendChild(showQuestionsBtn);
+
+    showQuestionsBtn.addEventListener('click', displayQuestions);
+
+    async function fetchQuestionsWithDelay(category, amount) {
+        const url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&type=multiple`;
+        try {
+            console.log(`Fetching ${amount} questions for category ${category}...`);
+            const response = await fetch(url);
+            console.log(`Fetch response status: ${response.status}`);
+            if (response.status === 429) {
+                console.log(`Rate limited. Retrying in 4.5 seconds...`);
+                await new Promise(resolve => setTimeout(resolve, TIME_DELAY));
+                return fetchQuestionsWithDelay(category, amount);
+            }
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log(`API response for category ${category}:`, data);
+            return data.results;
+        } catch (error) {
+            console.error(`Error fetching questions for category ${category}:`, error);
+            return [];
+        }
+    }
+
+    async function fetchAndDisplayQuestions() {
+        const amount = 10; // Fetch 10 questions from each category
+        
+        for (let category of categories) {
+            const categoryQuestions = await fetchQuestionsWithDelay(category, amount);
+            console.log(`Total questions fetched for category ${category}: ${categoryQuestions.length}`);
+            questions = questions.concat(categoryQuestions);
+            await new Promise(resolve => setTimeout(resolve, TIME_DELAY)); // Wait for 4 seconds before next API call
+        }
+        
+        showQuestionsBtn.disabled = false;
+        loadingDiv.style.display = "none";  
+        showQuestionsBtn.style.display = 'block'; // Make the button visible
+    }
+
+    
+
+
+
+
+
+
+    
+function formatQuestionText(text) {
+    // Replace newlines with <br> tags
+    text = text.replace(/\n/g, '<br>');
+    
+    // Decode HTML entities
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = text;
+    text = textarea.value;
+    
+    // Preserve existing HTML tags
+    return text;
+}
+
+function displayQuestions() {
+    console.log('Displaying questions...');
+    showQuestionsBtn.style.display = 'none';
+    quizForm.style.display = 'block';
+    quizForm.innerHTML = ''; // Clear existing questions
+    questions.forEach((question, index) => {
+        console.log(`Processing question ${index + 1}:`, question);
+        const questionDiv = document.createElement('div');
+        questionDiv.className = 'question';
+        
+        // Question title
+        const questionTitle = document.createElement('h3');
+        questionTitle.innerHTML = `${index + 1}. ${formatQuestionText(question.question)}`;
+        questionDiv.appendChild(questionTitle);
+        
+        // Create save button
+        const saveButton = document.createElement('button');
+        saveButton.textContent = 'Save Question';
+        saveButton.className = 'btn btn-sm btn-outline-primary save-question';
+        saveButton.style.marginBottom = '15px';
+        saveButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('questionInput').value = question.question;
+            document.getElementById('answerInput').value = question.correct_answer;
+            document.getElementById('new-question-tab').click();
+        });
+        questionDiv.appendChild(saveButton);
+        
+        const answers = [...question.incorrect_answers, question.correct_answer];
+        shuffleArray(answers);
+        answers.forEach((answer) => {
+            const label = document.createElement('label');
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = `q${index}`;
+            radio.value = answer;
+            label.appendChild(radio);
+            const answerText = document.createElement('span');
+            answerText.innerHTML = formatQuestionText(answer);
+            label.appendChild(answerText);
+            questionDiv.appendChild(label);
+            // Add event listener to the radio button
+            radio.addEventListener('change', () => {
+                // Make all options unclickable
+                questionDiv.querySelectorAll('input[type="radio"]').forEach((input) => {
+                    input.disabled = true;
+                });
+                // Mark the selected answer as green or red
+                if (answer === question.correct_answer) {
+                    label.style.backgroundColor = '#27ae60'; // Green for correct
+                } else {
+                    label.style.backgroundColor = '#c0392b'; // Red for incorrect
+                    // Mark the correct answer as green
+                    questionDiv.querySelectorAll('label').forEach((lbl) => {
+                        if (lbl.querySelector('span').innerHTML === formatQuestionText(question.correct_answer)) {
+                            lbl.style.backgroundColor = '#27ae60';
+                        }
+                    });
+                }
+            });
+        });
+        quizForm.appendChild(questionDiv);
+    });
+    const submitButton = document.createElement('button');
+    submitButton.type = 'submit';
+    submitButton.textContent = 'Submit Quiz';
+    quizForm.appendChild(submitButton);
+    console.log('Questions displayed. Adding submit event listener...');
+    quizForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        let score = 0;
+        questions.forEach((question, index) => {
+            const selectedAnswer = quizForm[`q${index}`].value;
+            if (selectedAnswer === question.correct_answer) {
+                score++;
+            }
+        });
+        scoreSpan.textContent = score;
+        totalQuestionsSpan.textContent = questions.length;
+        let message = '';
+        if (score === questions.length) {
+            message = 'Perfect score! Well done!';
+        } else if (score > questions.length / 2) {
+            message = 'Good job! You passed!';
+        } else {
+            message = 'Better luck next time!';
+        }
+        messageP.textContent = message;
+        resultDiv.classList.remove('hidden');
+        showSummaryBtn.addEventListener('click', displaySummary); // Add event listener for the summary button
+    });
+}
+
+
+
+
+
+function displaySummary() {
+    console.log('Displaying summary...');
+    summaryDiv.innerHTML = ''; // Clear existing summary content
+
+    let correctCount = 0;
+    let incorrectCount = 0;
+
+    questions.forEach((question, index) => {
+        const questionSummaryDiv = document.createElement('div');
+        questionSummaryDiv.className = 'summary';
+
+        const questionTitle = document.createElement('h3');
+        questionTitle.innerHTML = `${index + 1}. ${question.question}`;
+        questionSummaryDiv.appendChild(questionTitle);
+
+        const correctAnswer = document.createElement('p');
+        correctAnswer.className = 'correct-answer';
+        correctAnswer.innerHTML = `Correct Answer: ${question.correct_answer}`;
+        questionSummaryDiv.appendChild(correctAnswer);
+
+        const selectedAnswer = quizForm[`q${index}`].value;
+        if (selectedAnswer === question.correct_answer) {
+            correctCount++;
+        } else {
+            incorrectCount++;
+            const userAnswer = document.createElement('p');
+            userAnswer.className = 'incorrect-answer';
+            userAnswer.innerHTML = `Your Answer: ${selectedAnswer}`;
+            questionSummaryDiv.appendChild(userAnswer);
+        }
+
+        summaryDiv.appendChild(questionSummaryDiv);
+    });
+
+    const summaryHeader = document.createElement('div');
+    summaryHeader.className = 'summary-header';
+
+    const summaryTitle = document.createElement('h2');
+    summaryTitle.textContent = 'Quiz Summary';
+    summaryHeader.appendChild(summaryTitle);
+
+    const correctCountSpan = document.createElement('span');
+    correctCountSpan.className = 'correct-count';
+    correctCountSpan.textContent = `Correct: ${correctCount}`;
+    summaryHeader.appendChild(correctCountSpan);
+
+    const incorrectCountSpan = document.createElement('span');
+    incorrectCountSpan.className = 'incorrect-count';
+    incorrectCountSpan.textContent = `Incorrect: ${incorrectCount}`;
+    summaryHeader.appendChild(incorrectCountSpan);
+
+    const backToQuizBtn = document.createElement('button');
+    backToQuizBtn.textContent = 'Back to Quiz';
+    backToQuizBtn.addEventListener('click', () => {
+        triviaDiv.style.display = 'block';
+        resultDiv.classList.add('hidden');
+        summaryDiv.classList.add('hidden');
+    });
+    summaryHeader.appendChild(backToQuizBtn);
+
+    summaryDiv.insertBefore(summaryHeader, summaryDiv.firstChild);
+
+    triviaDiv.style.display = 'none'; // Hide questions
+    resultDiv.style.display = 'none'; // Hide result
+    summaryDiv.classList.remove('hidden');
+}
+
+
+
+    
+
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    fetchAndDisplayQuestions();
+});
+
+
+
+
+
+
+
+
+
+
+                       
+
+</script>
+
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
