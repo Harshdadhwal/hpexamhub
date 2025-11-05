@@ -141,13 +141,8 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2em;
-            font-weight: 700;
+            object-fit: cover;
+            border: 3px solid var(--primary);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
@@ -517,40 +512,76 @@
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .article-content,
+            .author-bar,
+            .article-footer,
+            .quote-section {
+                padding: 40px 40px;
+            }
+
+            .footer-bar {
+                padding: 30px 40px;
+            }
+        }
+
         @media (max-width: 768px) {
             .blog-container {
                 margin: 0;
+                box-shadow: none;
             }
 
             .hero {
-                height: 400px;
+                height: 350px;
             }
 
             .hero h1 {
-                font-size: 2.2em;
+                font-size: 1.8em;
+                padding: 0 10px;
             }
 
             .hero-subtitle {
-                font-size: 1.1em;
+                font-size: 1em;
+                padding: 0 10px;
+            }
+
+            .hero-content {
+                padding: 20px;
             }
 
             .article-content,
             .author-bar,
             .article-footer,
             .footer-bar {
-                padding: 30px 25px;
+                padding: 25px 20px;
             }
 
             .quote-section {
-                padding: 40px 25px;
+                padding: 35px 20px;
+            }
+
+            .quote-section::before {
+                font-size: 8em;
+                left: 10px;
             }
 
             .quote-section blockquote {
-                font-size: 1.3em;
+                font-size: 1.2em;
             }
 
             .section h2 {
-                font-size: 1.8em;
+                font-size: 1.6em;
+            }
+
+            .section-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5em;
+            }
+
+            .intro-text {
+                font-size: 1.05em;
+                padding: 20px;
             }
 
             .author-bar {
@@ -558,8 +589,76 @@
                 text-align: center;
             }
 
+            .author-info-left {
+                flex-direction: column;
+            }
+
             .read-stats {
                 justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .step-card {
+                padding: 20px;
+            }
+
+            .highlight-box,
+            .takeaways {
+                padding: 25px 20px;
+            }
+
+            .cta-section {
+                padding: 40px 20px;
+            }
+
+            .cta-section h3 {
+                font-size: 1.8em;
+            }
+
+            .share-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-buttons {
+                justify-content: center;
+            }
+
+            .tags {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5em;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95em;
+            }
+
+            .section h2 {
+                font-size: 1.4em;
+            }
+
+            .author-avatar {
+                width: 70px;
+                height: 70px;
+            }
+
+            .author-details h3 {
+                font-size: 1.1em;
+            }
+
+            .author-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .method p,
+            .section p {
+                font-size: 1em;
             }
         }
     </style>
@@ -578,14 +677,12 @@
         <!-- Author Bar -->
         <div class="author-bar">
             <div class="author-info-left">
-                <div class="author-avatar">
-  <img src="college_uniform.jpg" alt="Harsh Dadwal - College Uniform Photo">
-</div>
+                <img src="college_uniform.jpg" alt="Harsh Dadwal" class="author-avatar">
                 <div class="author-details">
                     <h3>Harsh Dadwal</h3>
                     <div class="author-meta">
-                        <span><i class="fas fa-graduation-cap"></i> MBA Section - 116</span>
-                        <span><i class="fas fa-id-card"></i> 25MBA11367</span>
+                        <span><i class="fas fa-university"></i> Chandigarh University</span>
+                        <span><i class="fas fa-graduation-cap"></i> MBA, Section 116</span>
                     </div>
                 </div>
             </div>
@@ -598,7 +695,7 @@
         <!-- Article Content -->
         <div class="article-content">
             <p class="intro-text">
-                Ever wondered why some students effortlessly maintain consistent study routines while others struggle with procrastination and irregular habits? The answer lies in understanding the science of habit formation. In this comprehensive guide, we'll explore proven strategies to build a study routine that becomes second nature, backed by neuroscience and behavioral psychology.
+                As an MBA student at Chandigarh University, I've observed countless peers struggling with maintaining consistent study routines. Ever wondered why some students effortlessly excel in their academics while others battle with procrastination and irregular habits? The answer lies in understanding the science of habit formation. Through my journey and extensive research, I've discovered proven strategies to build a study routine that becomes second nature, backed by neuroscience and behavioural psychology. Let me share these insights with you.
             </p>
 
             <!-- Section 1 -->
@@ -608,10 +705,10 @@
                     <h2>Understanding the Habit Loop</h2>
                 </div>
                 <p>
-                    At the core of every habit lies what neuroscientists call the "habit loop" – a three-part process discovered by MIT researchers. This loop consists of a cue (trigger), routine (behavior), and reward (positive reinforcement). When you understand this mechanism, you can engineer your environment to make studying automatic.
+                    At the core of every habit lies what neuroscientists call the "habit loop" – a three-part process discovered by MIT researchers. This loop consists of a cue (trigger), routine (behaviour), and reward (positive reinforcement). When you understand this mechanism, you can engineer your environment to make studying automatic.
                 </p>
                 <p>
-                    The basal ganglia, a primitive part of our brain, stores these habit loops once they're established. This is why habits feel automatic – they literally bypass our conscious decision-making processes. By deliberately creating positive cues and rewarding your study sessions, you're essentially programming your brain for success.
+                    During my MBA at Chandigarh University, I've applied this concept personally. The basal ganglia, a primitive part of our brain, stores these habit loops once they're established. This is why habits feel automatic – they literally bypass our conscious decision-making processes. By deliberately creating positive cues and rewarding your study sessions, you're essentially programming your brain for success.
                 </p>
                 <div class="highlight-box">
                     <h4><i class="fas fa-lightbulb"></i> The Three Components of a Habit Loop</h4>
@@ -744,7 +841,7 @@
         </div>
 
         <div class="footer-bar">
-            <p><strong>Harsh Dadwal</strong> | MBA Section 116 | UID: 25MBA11367</p>
+            <p><strong>Harsh Dadwal</strong> | MBA, Section 116 | Chandigarh University | UID: 25MBA11367</p>
             <p>© 2025 All Rights Reserved</p>
         </div>
     </div>
