@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5 Best Ways for Finance Management in College</title>
+    <title>The Science of Habits: How to Build a Study Routine That Sticks</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text: #334155;
+            --border: #e2e8f0;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,28 +24,26 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text);
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 0;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+        .blog-container {
+            max-width: 1000px;
+            margin: 40px auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            animation: fadeIn 0.8s ease-in;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            animation: slideUp 0.8s ease-out;
         }
 
-        @keyframes fadeIn {
+        @keyframes slideUp {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -41,444 +51,702 @@
             }
         }
 
-        header {
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: bottom;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px;
             color: white;
-            padding: 60px 40px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            font-size: 0.85em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            max-width: 700px;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        /* Author Section */
+        .author-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px 60px;
+            background: var(--light);
+            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .author-info-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            font-weight: 700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .author-details h3 {
+            font-size: 1.3em;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .author-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+            color: #64748b;
+        }
+
+        .author-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .read-stats {
+            display: flex;
+            gap: 30px;
+            font-size: 0.95em;
+            color: #64748b;
+        }
+
+        .read-stats i {
+            color: var(--primary);
+        }
+
+        /* Article Content */
+        .article-content {
+            padding: 60px;
+        }
+
+        .intro-text {
+            font-size: 1.25em;
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            padding: 30px;
+            background: linear-gradient(120deg, #f1f5f9 0%, #e2e8f0 100%);
+            border-left: 5px solid var(--primary);
+            border-radius: 10px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .section-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8em;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            color: var(--dark);
+            flex: 1;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #f59e0b;
+            margin: 25px 0;
+        }
+
+        .highlight-box h4 {
+            color: #92400e;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlight-box li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+            color: #78350f;
+            font-size: 1.05em;
+        }
+
+        .highlight-box li::before {
+            content: '⚡';
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .step-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 25px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+            border-color: var(--primary);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .step-card h3 {
+            color: var(--dark);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 60px;
+            margin: 60px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        header::before {
-            content: '';
+        .quote-section::before {
+            content: '"';
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
+            top: -20px;
+            left: 40px;
+            font-size: 15em;
+            opacity: 0.1;
+            font-family: Georgia, serif;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        .quote-section blockquote {
+            font-size: 1.8em;
+            font-style: italic;
+            line-height: 1.6;
             position: relative;
             z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .subtitle {
+        .quote-author {
+            margin-top: 20px;
             font-size: 1.1em;
             opacity: 0.9;
-            position: relative;
-            z-index: 1;
         }
 
-        .author-section {
-            background: white;
-            padding: 30px 40px;
-            border-bottom: 3px solid #667eea;
+        /* Key Takeaways */
+        .takeaways {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 40px 0;
         }
 
-        .author-card {
+        .takeaways h3 {
+            color: #0c4a6e;
+            font-size: 1.8em;
+            margin-bottom: 25px;
             display: flex;
             align-items: center;
-            gap: 25px;
-            flex-wrap: wrap;
+            gap: 15px;
         }
 
-        .author-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #667eea;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .takeaways ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .photo-placeholder {
-            width: 120px;
-            height: 120px;
+        .takeaways li {
+            padding: 15px 0 15px 40px;
+            position: relative;
+            color: #0c4a6e;
+            font-size: 1.1em;
+            border-bottom: 1px solid rgba(12, 74, 110, 0.1);
+        }
+
+        .takeaways li:last-child {
+            border-bottom: none;
+        }
+
+        .takeaways li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            width: 30px;
+            height: 30px;
+            background: #0ea5e9;
+            color: white;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3em;
+            font-weight: 700;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark) 0%, #334155 100%);
             color: white;
-            border: 5px solid #667eea;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 60px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 0;
         }
 
-        .author-info {
-            flex: 1;
-            min-width: 250px;
+        .cta-section h3 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
 
-        .author-name {
-            font-size: 1.8em;
-            color: #667eea;
-            font-weight: bold;
-            margin-bottom: 5px;
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
 
-        .author-details {
-            color: #666;
-            font-size: 1em;
-            line-height: 1.8;
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
         }
 
-        .author-details strong {
-            color: #764ba2;
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(236, 72, 153, 0.4);
         }
 
-        .meta {
-            background: #f8f9fa;
-            padding: 20px 40px;
+        /* Footer */
+        .article-footer {
+            background: var(--light);
+            padding: 40px 60px;
+            border-top: 1px solid var(--border);
+        }
+
+        .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            padding: 8px 18px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.9em;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .share-section {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
-            border-bottom: 2px solid #e9ecef;
+            gap: 20px;
         }
 
-        .meta-item {
+        .share-text {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: #666;
-        }
-
-        .icon {
-            font-size: 1.2em;
-        }
-
-        .content {
-            padding: 50px 40px;
-        }
-
-        .intro {
-            font-size: 1.15em;
-            color: #555;
-            margin-bottom: 40px;
-            padding: 25px;
-            background: linear-gradient(120deg, #f8f9fa 0%, #e9ecef 100%);
-            border-left: 5px solid #667eea;
-            border-radius: 10px;
-        }
-
-        .method {
-            margin-bottom: 50px;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 5px solid #667eea;
-        }
-
-        .method:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
-        }
-
-        .method-number {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
-            font-size: 1.5em;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .method h2 {
-            color: #667eea;
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        .method p {
-            color: #555;
-            margin-bottom: 15px;
-            font-size: 1.05em;
-        }
-
-        .tips {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .tips-title {
-            font-weight: bold;
-            color: #764ba2;
-            margin-bottom: 10px;
-            font-size: 1.1em;
-        }
-
-        .tips ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .tips li {
-            padding: 8px 0 8px 30px;
-            position: relative;
-            color: #666;
-        }
-
-        .tips li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .conclusion {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .conclusion h3 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
-        }
-
-        .conclusion p {
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        footer {
-            background: #2d3748;
-            color: white;
-            padding: 30px 40px;
-            text-align: center;
-        }
-
-        .share-buttons {
-            display: flex;
-            gap: 15px;
             justify-content: center;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .share-btn {
-            padding: 10px 25px;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            font-size: 0.95em;
-            transition: transform 0.2s ease;
             color: white;
-            text-decoration: none;
-            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1.2em;
         }
 
-        .share-btn:hover {
-            transform: scale(1.05);
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .twitter {
-            background: #1DA1F2;
+        .social-btn.twitter { background: #1DA1F2; }
+        .social-btn.facebook { background: #4267B2; }
+        .social-btn.linkedin { background: #0077b5; }
+        .social-btn.whatsapp { background: #25D366; }
+
+        .footer-bar {
+            background: var(--dark);
+            color: white;
+            padding: 30px 60px;
+            text-align: center;
         }
 
-        .facebook {
-            background: #4267B2;
+        .footer-bar p {
+            margin: 5px 0;
+            opacity: 0.8;
         }
 
-        .linkedin {
-            background: #0077b5;
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
+            .blog-container {
+                margin: 0;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+
+            .article-content,
+            .author-bar,
+            .article-footer,
+            .footer-bar {
+                padding: 30px 25px;
+            }
+
+            .quote-section {
+                padding: 40px 25px;
+            }
+
+            .quote-section blockquote {
+                font-size: 1.3em;
+            }
+
+            .section h2 {
                 font-size: 1.8em;
             }
 
-            .content {
-                padding: 30px 20px;
+            .author-bar {
+                flex-direction: column;
+                text-align: center;
             }
 
-            header {
-                padding: 40px 20px;
-            }
-
-            .method {
-                padding: 20px;
-            }
-
-            .meta, .author-section {
-                padding: 20px;
-            }
-
-            .author-card {
+            .read-stats {
                 justify-content: center;
-                text-align: center;
-            }
-
-            .author-info {
-                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>💰 5 Best Ways for Finance Management in College</h1>
-            <p class="subtitle">Smart Money Habits Every College Student Should Know</p>
-        </header>
-
-        <div class="author-section">
-    <div class="author-card">
-        <img src="college_uniform.jpg" alt="Author's Photo" class="author-photo">
-        <div class="author-info">
-            <div class="author-name">Harsh Dadwal</div>
-            <div class="author-details">
-                <strong>Class:</strong> MBA Section 116<br>
-                <strong>UID:</strong> 25MBA11367<br>
-                <strong>Program:</strong> Master of Business Administration
+    <div class="blog-container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <span class="category-badge">🎓 Study Skills</span>
+                <h1>The Science of Habits:<br>How to Build a Study Routine That Sticks</h1>
+                <p class="hero-subtitle">Unlock the secrets to creating lasting study habits backed by neuroscience and psychology</p>
             </div>
         </div>
-    </div>
+
+        <!-- Author Bar -->
+        <div class="author-bar">
+            <div class="author-info-left">
+                <div class="author-avatar">
+  <img src="college_uniform.jpg" alt="Harsh Dadwal - College Uniform Photo">
 </div>
-
-        <div class="meta">
-            <div class="meta-item">
-                <span>November 1, 2025</span>
+                <div class="author-details">
+                    <h3>Harsh Dadwal</h3>
+                    <div class="author-meta">
+                        <span><i class="fas fa-graduation-cap"></i> MBA Section - 116</span>
+                        <span><i class="fas fa-id-card"></i> 25MBA11367</span>
+                    </div>
+                </div>
             </div>
-            <div class="meta-item">
-                <span class="icon">⏱️</span>
-                <span>8 min read</span>
-            </div>
-            <div class="meta-item">
-                <span class="icon">📚</span>
-                <span>Finance Management</span>
+            <div class="read-stats">
+                <span><i class="fas fa-calendar"></i> Nov 1, 2025</span>
+                <span><i class="fas fa-clock"></i> 10 min read</span>
             </div>
         </div>
 
-        <div class="content">
-            <div class="intro">
-                College is an exciting time of growth, learning, and independence. However, it's also when many students face financial challenges for the first time. Managing money effectively during these years can set you up for lifelong financial success. Here are the five best strategies to help college students take control of their finances.
-            </div>
+        <!-- Article Content -->
+        <div class="article-content">
+            <p class="intro-text">
+                Ever wondered why some students effortlessly maintain consistent study routines while others struggle with procrastination and irregular habits? The answer lies in understanding the science of habit formation. In this comprehensive guide, we'll explore proven strategies to build a study routine that becomes second nature, backed by neuroscience and behavioral psychology.
+            </p>
 
-            <div class="method">
-                <div class="method-number">1</div>
-                <h2>Create and Stick to a Budget</h2>
-                <p>A budget is your financial roadmap. It helps you understand where your money comes from and where it goes. Start by tracking all your income sources (allowances, part-time jobs, scholarships) and list your expenses (rent, food, transportation, books, entertainment).</p>
-                <p>Use the 50/30/20 rule as a guideline: 50% for needs, 30% for wants, and 20% for savings. There are plenty of free budgeting apps like Mint, YNAB, or even a simple spreadsheet that can help you stay on track.</p>
-                <div class="tips">
-                    <div class="tips-title">Quick Tips:</div>
+            <!-- Section 1 -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-brain"></i></div>
+                    <h2>Understanding the Habit Loop</h2>
+                </div>
+                <p>
+                    At the core of every habit lies what neuroscientists call the "habit loop" – a three-part process discovered by MIT researchers. This loop consists of a cue (trigger), routine (behavior), and reward (positive reinforcement). When you understand this mechanism, you can engineer your environment to make studying automatic.
+                </p>
+                <p>
+                    The basal ganglia, a primitive part of our brain, stores these habit loops once they're established. This is why habits feel automatic – they literally bypass our conscious decision-making processes. By deliberately creating positive cues and rewarding your study sessions, you're essentially programming your brain for success.
+                </p>
+                <div class="highlight-box">
+                    <h4><i class="fas fa-lightbulb"></i> The Three Components of a Habit Loop</h4>
                     <ul>
-                        <li>Review your budget weekly to stay aware of your spending</li>
-                        <li>Set spending limits for different categories</li>
-                        <li>Use cash for discretionary spending to avoid overspending</li>
-                        <li>Track subscriptions and cancel unused services</li>
+                        <li><strong>Cue:</strong> A specific time, location, or event that triggers the behavior</li>
+                        <li><strong>Routine:</strong> The actual study behavior you want to make automatic</li>
+                        <li><strong>Reward:</strong> The positive feeling or tangible benefit you receive</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="method">
-                <div class="method-number">2</div>
-                <h2>Open a Student Bank Account</h2>
-                <p>Many banks offer special accounts designed for students with benefits like no monthly fees, no minimum balance requirements, and free ATM access. Having a dedicated bank account helps you manage your money more effectively and builds your banking history.</p>
-                <p>Look for accounts that offer mobile banking, budgeting tools, and even cashback rewards. Some student accounts also come with overdraft protection, which can save you from expensive fees if you accidentally overspend.</p>
-                <div class="tips">
-                    <div class="tips-title">What to Look For:</div>
+            <!-- Section 2 -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-clock"></i></div>
+                    <h2>The Power of Implementation Intentions</h2>
+                </div>
+                <p>
+                    Research by psychologist Peter Gollwitzer shows that people who use "implementation intentions" are significantly more likely to follow through with their goals. Instead of vague intentions like "I'll study more," create specific if-then plans: "If it's 7 PM after dinner, then I'll study mathematics for 45 minutes at my desk."
+                </p>
+                <p>
+                    This technique works because it removes the need for willpower and decision-making. Your brain recognizes the cue (7 PM after dinner) and automatically initiates the routine (studying mathematics). Over time, this connection strengthens, making the behavior increasingly automatic.
+                </p>
+
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Choose Your Prime Study Time</h3>
+                    <p>Identify when your energy and focus are naturally highest. For most people, this is either early morning or late evening. Track your alertness levels for a week to find your optimal window. Schedule your most challenging subjects during these peak hours.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Create Environmental Cues</h3>
+                    <p>Design your study space to trigger the right behavior. This could be a specific desk lamp, background music, or even wearing a particular "study hoodie." These environmental anchors signal to your brain that it's time to focus, making the transition into study mode smoother.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Start Ridiculously Small</h3>
+                    <p>The two-minute rule states that any new habit should take less than two minutes to start. Instead of "study for two hours," begin with "open my textbook and read one page." This reduces resistance and makes it easier to build momentum. Once you start, you'll likely continue beyond the minimum.</p>
+                </div>
+            </div>
+
+            <!-- Quote Section -->
+            <div class="quote-section">
+                <blockquote>
+                    "We are what we repeatedly do. Excellence, then, is not an act, but a habit."
+                </blockquote>
+                <p class="quote-author">— Aristotle</p>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-chart-line"></i></div>
+                    <h2>The Compound Effect of Consistency</h2>
+                </div>
+                <p>
+                    James Clear, author of "Atomic Habits," emphasizes that improving by just 1% each day leads to being 37 times better after one year. This compound effect applies perfectly to study habits. It's not about massive transformations overnight, but rather about showing up consistently, even when motivation is low.
+                </p>
+                <p>
+                    The key is to focus on systems rather than goals. Instead of fixating on getting an A grade (goal), focus on studying for 30 minutes daily (system). The grades become a natural byproduct of a consistent system. This shift in perspective reduces pressure and increases sustainability.
+                </p>
+                <div class="highlight-box">
+                    <h4><i class="fas fa-star"></i> Building Your Study System</h4>
                     <ul>
-                        <li>Zero or low monthly maintenance fees</li>
-                        <li>Easy mobile app access for tracking expenses</li>
-                        <li>ATM fee reimbursements or wide ATM network</li>
-                        <li>Instant notifications for transactions</li>
+                        <li>Track your study streaks using a calendar or app to build momentum</li>
+                        <li>Never miss twice – if you skip one day, make sure to return the next</li>
+                        <li>Focus on time invested rather than perfect understanding initially</li>
+                        <li>Celebrate small wins to reinforce the behavior neurologically</li>
                     </ul>
                 </div>
             </div>
 
-            <div class="method">
-                <div class="method-number">3</div>
-                <h2>Build an Emergency Fund</h2>
-                <p>Life is unpredictable, and unexpected expenses can derail your finances. An emergency fund acts as a financial safety net for situations like medical emergencies, car repairs, or sudden travel needs. Start small – even ₹500 can make a huge difference.</p>
-                <p>Try to save at least ₹1,000 to ₹2,000 over time. Set up automatic transfers from your checking to savings account each month, even if it's just ₹20-50. You'll be surprised how quickly it adds up!</p>
-                <div class="tips">
-                    <div class="tips-title">Building Your Fund:</div>
-                    <ul>
-                        <li>Start with a goal of ₹500, then work up to ₹1,000</li>
-                        <li>Put birthday money and gifts directly into savings</li>
-                        <li>Save refunds from textbook returns or unused meal plans</li>
-                        <li>Keep emergency funds in a separate, hard-to-access account</li>
-                    </ul>
+            <!-- Section 4 -->
+            <div class="section">
+                <div class="section-header">
+                    <div class="section-icon"><i class="fas fa-users"></i></div>
+                    <h2>Social Accountability and Identity</h2>
                 </div>
+                <p>
+                    Research shows that publicly committing to a goal increases follow-through rates by up to 65%. Share your study goals with friends, join study groups, or find an accountability partner. The social pressure to maintain consistency is a powerful motivator that complements intrinsic motivation.
+                </p>
+                <p>
+                    Even more powerful is shifting your identity. Instead of saying "I'm trying to study more," say "I'm a dedicated student." This subtle shift changes how you perceive yourself and makes behaviors consistent with that identity feel natural. Every study session becomes evidence of your new identity, reinforcing the habit loop.
+                </p>
             </div>
 
-            <div class="method">
-                <div class="method-number">4</div>
-                <h2>Use Credit Cards Wisely</h2>
-                <p>Credit cards can be powerful financial tools when used responsibly, but they can also lead to debt if mismanaged. If you choose to get a credit card, treat it like a debit card – only spend what you can afford to pay off completely each month.</p>
-                <p>Building good credit in college can help you later when renting apartments, buying cars, or even getting certain jobs. Look for student credit cards with no annual fees and rewards programs that match your spending habits.</p>
-                <div class="tips">
-                    <div class="tips-title">Credit Card Best Practices:</div>
-                    <ul>
-                        <li>Pay your balance in full every month to avoid interest</li>
-                        <li>Never miss a payment – set up automatic payments</li>
-                        <li>Keep credit utilization below 30% of your limit</li>
-                        <li>Read all terms and conditions before applying</li>
-                    </ul>
-                </div>
+            <!-- Key Takeaways -->
+            <div class="takeaways">
+                <h3><i class="fas fa-key"></i> Key Takeaways</h3>
+                <ul>
+                    <li>Habits form through repetition of the cue-routine-reward loop, bypassing conscious decision-making</li>
+                    <li>Use implementation intentions (if-then planning) to automate your study behavior</li>
+                    <li>Start with tiny habits that take less than two minutes to reduce resistance</li>
+                    <li>Focus on consistency over intensity – small daily actions compound dramatically</li>
+                    <li>Design your environment with visual cues that trigger studying automatically</li>
+                    <li>Track your progress and never break the chain two days in a row</li>
+                    <li>Leverage social accountability and identity shifts for lasting change</li>
+                </ul>
             </div>
 
-            <div class="method">
-                <div class="method-number">5</div>
-                <h2>Take Advantage of Student Discounts</h2>
-                <p>Being a student comes with perks! Many businesses offer student discounts that can save you significant money over time. From software subscriptions and streaming services to restaurants, clothing stores, and travel, there are countless ways to save.</p>
-                <p>Always carry your student ID and don't hesitate to ask if a student discount is available. Websites like UNiDAYS and Student Beans aggregate thousands of student deals in one place, making it easy to find savings.</p>
-                <div class="tips">
-                    <div class="tips-title">Where to Find Discounts:</div>
-                    <ul>
-                        <li>Tech: Apple, Microsoft, Adobe offer education pricing</li>
-                        <li>Entertainment: Spotify, Amazon Prime, YouTube Premium</li>
-                        <li>Food: Many local restaurants offer 10-20% off</li>
-                        <li>Transportation: Discounts on buses, trains, and airlines</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="conclusion">
-                <h3>Start Building Your Financial Future Today</h3>
-                <p>Managing finances in college isn't just about making ends meet – it's about building habits that will serve you for a lifetime. By creating a budget, using banking tools wisely, building savings, understanding credit, and maximizing student benefits, you're setting yourself up for financial success.</p>
-                <p>Remember, financial literacy is a journey, not a destination. Start with small steps, be patient with yourself, and celebrate your progress along the way. Your future self will thank you!</p>
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3>Ready to Transform Your Study Habits?</h3>
+                <p>Start implementing these science-backed strategies today and watch your academic performance soar. Remember, the best time to start was yesterday – the second best time is now.</p>
+                <a href="#" class="cta-button" onclick="alert('Start your journey today!'); return false;">Get Started Now</a>
             </div>
         </div>
 
-        <footer>
-            <p>Found this helpful? Share it with your fellow students!</p>
-            <div class="share-buttons">
-                <button class="share-btn twitter" onclick="alert('Share on Twitter functionality')">📱 Twitter</button>
-                <button class="share-btn facebook" onclick="alert('Share on Facebook functionality')">👍 Facebook</button>
-                <button class="share-btn linkedin" onclick="alert('Share on LinkedIn functionality')">💼 LinkedIn</button>
+        <!-- Footer -->
+        <div class="article-footer">
+            <div class="tags">
+                <span class="tag">#StudyHabits</span>
+                <span class="tag">#Productivity</span>
+                <span class="tag">#EducationTips</span>
+                <span class="tag">#HabitFormation</span>
+                <span class="tag">#StudentLife</span>
+                <span class="tag">#AcademicSuccess</span>
             </div>
-            <p style="margin-top: 20px; opacity: 0.7;">© 2025 Harsh Dadwal | MBA Section 116 | All rights reserved.</p>
-        </footer>
+            <div class="share-section">
+                <span class="share-text">Share this article:</span>
+                <div class="social-buttons">
+                    <div class="social-btn twitter" onclick="alert('Share on Twitter')"><i class="fab fa-twitter"></i></div>
+                    <div class="social-btn facebook" onclick="alert('Share on Facebook')"><i class="fab fa-facebook-f"></i></div>
+                    <div class="social-btn linkedin" onclick="alert('Share on LinkedIn')"><i class="fab fa-linkedin-in"></i></div>
+                    <div class="social-btn whatsapp" onclick="alert('Share on WhatsApp')"><i class="fab fa-whatsapp"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bar">
+            <p><strong>Harsh Dadwal</strong> | MBA Section 116 | UID: 25MBA11367</p>
+            <p>© 2025 All Rights Reserved</p>
+        </div>
     </div>
 </body>
 </html>
