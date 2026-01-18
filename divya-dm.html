@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Enchanting Journey to Darjeeling | Divya Kumari</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+
+        .blog-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .blog-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.3em;
+        }
+
+        .blog-content {
+            padding: 50px 40px;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><rect fill="%23667eea" width="800" height="400"/><path fill="%23764ba2" d="M0 400 L800 400 L800 200 Q600 150 400 200 T0 200 Z"/><circle fill="%23fff" opacity="0.1" cx="650" cy="80" r="30"/><text x="400" y="200" font-family="Arial" font-size="40" fill="white" text-anchor="middle">Darjeeling Hills</text></svg>');
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .blog-content h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin: 30px 0 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .blog-content h3 {
+            color: #764ba2;
+            font-size: 1.4em;
+            margin: 25px 0 15px;
+        }
+
+        .blog-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .highlight-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .experience-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf3 100%);
+            padding: 25px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .experience-card h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .tips-list {
+            background: #fff8e1;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .tips-list ul {
+            margin-left: 20px;
+        }
+
+        .tips-list li {
+            margin: 10px 0;
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.3em;
+            color: #764ba2;
+            text-align: center;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .quote:before {
+            content: '"';
+            font-size: 4em;
+            position: absolute;
+            left: 10px;
+            top: -10px;
+            opacity: 0.2;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .blog-header {
+                padding: 40px 20px;
+            }
+
+            .blog-header h1 {
+                font-size: 1.8em;
+            }
+
+            .blog-content {
+                padding: 30px 20px;
+            }
+
+            .featured-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-container">
+        <div class="blog-header">
+            <h1>My Enchanting Journey to Darjeeling</h1>
+            <p>A Tale of Misty Mountains, Aromatic Tea Gardens, and Unforgettable Memories</p>
+            <div class="author-info">
+                <div class="author-avatar">DK</div>
+                <div>
+                    <strong>Divya Kumari</strong><br>
+                    <span>December 2024 • 8 min read</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="blog-content">
+            <div class="featured-image"></div>
+
+            <p>As the train slowly chugged its way through the winding hills, I pressed my face against the window, watching the landscape transform from plains to rolling tea estates. This was it—my long-awaited journey to Darjeeling, the "Queen of the Hills," was finally happening!</p>
+
+            <h2>The Journey Begins: Toy Train Experience</h2>
+            
+            <p>My adventure started with the iconic Darjeeling Himalayan Railway, lovingly called the "Toy Train." Listed as a UNESCO World Heritage Site, this narrow-gauge railway is more than just transportation—it's a journey through time. The gentle rhythm of the wheels, the whistle echoing through the valleys, and the breathtaking views made every moment magical.</p>
+
+            <div class="highlight-box">
+                <strong>Did you know?</strong> The Darjeeling Himalayan Railway was built between 1879 and 1881 and is one of the few steam locomotives still operating in India. The journey from New Jalpaiguri to Darjeeling covers about 88 kilometers and takes approximately 7 hours!
+            </div>
+
+            <h2>First Impressions: The Charm of Mall Road</h2>
+
+            <p>Arriving in Darjeeling felt like stepping into a postcard. The crisp mountain air filled my lungs as I walked along Mall Road, the heart of the town. Colonial-era buildings stood proudly alongside colorful shops selling everything from woolen shawls to local handicrafts. The aroma of freshly brewed tea wafted from every corner, reminding me why this place is famous worldwide.</p>
+
+            <h2>Sunrise at Tiger Hill: A Moment of Pure Magic</h2>
+
+            <p>Waking up at 3:30 AM isn't usually my thing, but for Tiger Hill, I made an exception—and I'm so glad I did! The journey to the viewpoint in the pre-dawn darkness built up my anticipation. As we waited in the cold, huddled in our jackets, the sky slowly began to paint itself in shades of pink and orange.</p>
+
+            <div class="quote">
+                And then it happened—the first rays of sunlight kissed the peak of Mount Kanchenjunga, turning it golden. It was absolutely breathtaking!
+            </div>
+
+            <p>The third-highest mountain in the world stood majestically before us, and for a moment, all 200 of us stood in complete silence, mesmerized by nature's grand spectacle. Some moments truly leave you speechless, and this was definitely one of them.</p>
+
+            <h2>Exploring the Tea Gardens</h2>
+
+            <p>No visit to Darjeeling is complete without exploring its legendary tea estates. I visited the Happy Valley Tea Estate, one of the oldest in the region. Walking through rows upon rows of bright green tea bushes, watching skilled workers pluck the delicate leaves, I gained a newfound appreciation for my morning cup of tea.</p>
+
+            <h3>The Tea Tasting Experience</h3>
+
+            <p>The highlight was the tea tasting session. I learned about the different varieties—First Flush, Second Flush, and Autumn Flush—each with its unique flavor profile. The subtle notes, the delicate aroma, the smooth finish—Darjeeling tea truly lives up to its reputation as the "Champagne of Teas."</p>
+
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h4>🏔️ Tiger Hill</h4>
+                    <p>Witnessed the magnificent sunrise over Kanchenjunga. The view of the Himalayan range was absolutely stunning!</p>
+                </div>
+                <div class="experience-card">
+                    <h4>🚂 Toy Train Ride</h4>
+                    <p>Enjoyed the scenic journey through mountains and valleys on the UNESCO heritage railway.</p>
+                </div>
+                <div class="experience-card">
+                    <h4>🍵 Tea Gardens</h4>
+                    <p>Explored lush tea estates and learned about the tea-making process from leaf to cup.</p>
+                </div>
+                <div class="experience-card">
+                    <h4>🏛️ Peace Pagoda</h4>
+                    <p>Found tranquility at the Japanese Peace Pagoda with panoramic views of the town.</p>
+                </div>
+            </div>
+
+            <h2>Cultural Encounters</h2>
+
+            <p>Darjeeling is a beautiful melting pot of cultures—Nepali, Tibetan, Bengali, and British influences blend seamlessly here. I spent an afternoon at the Himalayan Mountaineering Institute, learning about the brave souls who have conquered Everest, including the legendary Tenzing Norgay.</p>
+
+            <p>The Padmaja Naidu Himalayan Zoological Park was another highlight. Seeing the endangered red panda in its natural habitat was a dream come true! These adorable creatures are native to the Eastern Himalayas, and conservation efforts here are doing tremendous work to protect them.</p>
+
+            <h2>Food Adventures</h2>
+
+            <p>Let me tell you about the food—oh, the food! From steaming momos at local street stalls to traditional Nepali thalis, every meal was an adventure. I particularly fell in love with thukpa, a hearty noodle soup perfect for the chilly mountain weather. And the local bakeries? Their fresh bread and cakes were simply divine!</p>
+
+            <div class="tips-list">
+                <h3>💡 My Travel Tips for Darjeeling</h3>
+                <ul>
+                    <li><strong>Best Time to Visit:</strong> March to May and September to November offer the best weather and views</li>
+                    <li><strong>What to Pack:</strong> Warm clothes (even in summer), comfortable walking shoes, sunscreen, and a good camera</li>
+                    <li><strong>Stay Duration:</strong> I recommend at least 4-5 days to explore properly</li>
+                    <li><strong>Book in Advance:</strong> Toy Train tickets and good hotels get booked quickly during peak season</li>
+                    <li><strong>Altitude Tip:</strong> Take it easy on the first day to acclimatize (Darjeeling is at 6,700 feet)</li>
+                    <li><strong>Local Transport:</strong> Shared jeeps are the most common and economical way to get around</li>
+                </ul>
+            </div>
+
+            <h2>Moments of Reflection</h2>
+
+            <p>One evening, I sat at the Batasia Loop, a spiral railway track with a war memorial at the center. As the sun set behind the mountains, painting the sky in brilliant hues, I reflected on my journey. Darjeeling isn't just about scenic beauty—it's about the warmth of the people, the rich history, the cultural diversity, and the simple joy of breathing in pure mountain air.</p>
+
+            <h2>The Farewell</h2>
+
+            <p>As I boarded my train back, my heart felt full. Darjeeling had given me more than just beautiful photographs and memories—it had given me perspective, peace, and a renewed appreciation for the simple pleasures in life. The mountains have a way of making you feel small yet significant, humbled yet empowered.</p>
+
+            <p>To anyone considering a trip to Darjeeling, I say—go! Let yourself get lost in the misty mountains, savor every sip of that aromatic tea, embrace the cold morning walks, and most importantly, take time to simply be present in the moment.</p>
+
+            <div class="quote">
+                The mountains are calling, and you must go. Trust me, Darjeeling will steal a piece of your heart, and you'll be planning your return before you even leave!
+            </div>
+
+            <p>Until next time, Darjeeling. Thank you for the memories that will last a lifetime.</p>
+
+            <p><em>With love from the hills,</em><br>
+            <strong>Divya Kumari</strong></p>
+        </div>
+
+        <div class="footer">
+            <p>Thank you for reading! Have you been to Darjeeling? I'd love to hear about your experiences!</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">© 2026 Travel Diaries by Divya Kumari</p>
+        </div>
+    </div>
+</body>
+</html>
