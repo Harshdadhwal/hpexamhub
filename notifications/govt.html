@@ -173,85 +173,62 @@
   </div>
 
   <div class="bg-white rounded-xl shadow overflow-hidden">
-    <div class="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
-      
-      <!-- Latest HP Notifications -->
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-4 flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-          </svg>
-          Latest Notifications
-        </h3>
-        <div class="space-y-4">
-          
-          <!-- Panchayat Secretary Vacancy -->
-          <div class="border-l-4 border-green-600 pl-4 py-1 bg-green-50/30 rounded-r-md">
-            <h4 class="font-medium text-green-800">Panchayat Secretary (Job Trainee) – Zila Parishad Cadre</h4>
-            <p class="text-sm text-gray-700">Total Posts: <strong>119</strong></p>
-            <p class="text-sm text-gray-700">Online Start: <strong>10/03/2026</strong> | Last Date: <strong>04/04/2026</strong></p>
-            <div class="flex flex-wrap gap-2 mt-2">
+    <div class="p-6">
+      <!-- NEWEST NOTIFICATION FIRST (Panchayat Secretary) -->
+      <div class="border-b border-gray-200 pb-5 mb-5 last:border-b-0 last:pb-0 last:mb-0">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">New</span>
               <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Panchayat Dept</span>
-              <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Job Trainee</span>
-              <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">Zila Parishad</span>
+              <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">Zila Parishad</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900">Panchayat Secretary (Job Trainee) – Zila Parishad Cadre</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2 text-sm">
+              <div><span class="font-medium">📅 Start Date:</span> <span class="text-gray-700">10/03/2026</span></div>
+              <div><span class="font-medium">⏰ Last Date:</span> <span class="text-red-600 font-semibold">04/04/2026</span></div>
+              <div><span class="font-medium">📊 Total Posts:</span> <span class="text-gray-900 font-bold">119</span></div>
             </div>
           </div>
-          
-          <!-- Himachal Pradesh State Cooperative Bank Clerk -->
-          <div class="border-l-4 border-yellow-600 pl-4 py-1 bg-yellow-50/30 rounded-r-md">
-            <h4 class="font-medium text-yellow-800">Himachal Pradesh State Cooperative Bank – Clerk</h4>
-            <p class="text-sm text-gray-700">Total Posts: <strong>74 + 91</strong> (165 Posts)</p>
-            <p class="text-sm text-gray-700">Last Date: <strong>29/05/2026</strong></p>
-            <div class="flex flex-wrap gap-2 mt-2">
-              <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Banking</span>
+          <div class="flex-shrink-0">
+            <a href="govt/panchayat-secretary-2026.html" 
+               class="inline-flex items-center px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition shadow-sm">
+              Apply Online
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- OLDER NOTIFICATION (Himachal Pradesh State Cooperative Bank - Clerk) -->
+      <div class="border-b border-gray-200 pb-5 mb-5 last:border-b-0 last:pb-0 last:mb-0">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex flex-wrap items-center gap-2 mb-2">
+              <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">Banking</span>
               <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">Clerk</span>
               <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Cooperative Bank</span>
             </div>
+            <h3 class="text-xl font-bold text-gray-900">Himachal Pradesh State Cooperative Bank – Clerk</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-2 text-sm">
+              <div><span class="font-medium">⏰ Last Date:</span> <span class="text-red-600 font-semibold">29/05/2026</span></div>
+              <div><span class="font-medium">📊 Total Posts:</span> <span class="text-gray-900 font-bold">74 + 91 = 165</span></div>
+            </div>
           </div>
-
-        </div>
-        
-        <!-- Optional: Note for more updates -->
-        <div class="mt-6 text-xs text-gray-500 border-t pt-3">
-          <p>📢 Apply online before the last date. More vacancies will be updated soon.</p>
-        </div>
-      </div>
-
-      <!-- HP Departments (Quick links to important recruiters) -->
-      <div class="p-6">
-        <h3 class="text-xl font-semibold mb-4 flex items-center">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-          </svg>
-          Important Recruiters (HP)
-        </h3>
-        <div class="grid grid-cols-2 gap-4">
-          <a href="#" class="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
-            <h4 class="font-medium">Zila Parishad, HP</h4>
-            <p class="text-sm text-gray-600">Panchayat Secretary & other cadre</p>
-          </a>
-          <a href="#" class="p-3 bg-gray-50 hover:bg-green-50 rounded-lg transition">
-            <h4 class="font-medium">HP State Cooperative Bank</h4>
-            <p class="text-sm text-gray-600">Clerk & banking posts</p>
-          </a>
-          <a href="#" class="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
-            <h4 class="font-medium">HP Public Service Commission</h4>
-            <p class="text-sm text-gray-600">Gazetted officer recruitments</p>
-          </a>
-          <a href="#" class="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
-            <h4 class="font-medium">HP Staff Selection Board</h4>
-            <p class="text-sm text-gray-600">Non-gazetted posts</p>
-          </a>
-          <a href="#" class="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
-            <h4 class="font-medium">Health Department</h4>
-            <p class="text-sm text-gray-600">Medical staff jobs</p>
-          </a>
-          <a href="#" class="p-3 bg-gray-50 hover:bg-blue-50 rounded-lg transition">
-            <h4 class="font-medium">Education Department</h4>
-            <p class="text-sm text-gray-600">Teacher recruitments</p>
-          </a>
+          <div class="flex-shrink-0">
+            <a href="govt/hpscb-clerk-2026.html" 
+               class="inline-flex items-center px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition shadow-sm">
+              Apply Online
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
+      
     </div>
   </div>
 </section>
