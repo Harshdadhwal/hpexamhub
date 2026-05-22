@@ -356,31 +356,27 @@
     </section>
   </main>
 
-  <!-- Footer Placeholder -->
+  <!-- Footer -->
   <div id="footer-placeholder"></div>
-  
-  <!-- Load header/footer components if applicable, else fallback -->
+  <script src="/load-components.js"></script>
+
   <script>
     (function() {
-      // FAQ toggling
-      const faqBtns = document.querySelectorAll('.faq-button');
-      faqBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          const answerDiv = this.nextElementSibling;
-          if(answerDiv) {
-            answerDiv.classList.toggle('hidden');
+      // FAQ toggle functionality
+      const faqButtons = document.querySelectorAll('.faq-button');
+      faqButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const answer = this.nextElementSibling;
+          if (answer) {
+            answer.classList.toggle('hidden');
             this.classList.toggle('active');
           }
         });
       });
-      // simple placeholder if external component fails
-      const headerDiv = document.getElementById('header-placeholder');
-      if(headerDiv && !headerDiv.innerHTML.trim()) {
-        headerDiv.innerHTML = '<div class="bg-white shadow-md py-4 px-6 flex justify-between items-center"><div class="text-green-800 text-2xl font-bold">🏦 HP Exam Hub</div><nav class="space-x-4"><a href="/" class="text-gray-600">Home</a><a href="/notifications" class="text-gray-600">Jobs</a></nav></div>';
-      }
-      const footerDiv = document.getElementById('footer-placeholder');
-      if(footerDiv && !footerDiv.innerHTML.trim()) {
-        footerDiv.innerHTML = '<footer class="bg-gray-800 text-white py-6 text-center text-sm">© 2026 HP Exam Hub | All Govt Job Updates</footer>';
+
+      // Simple handling for header/footer if load-components fails (fallback)
+      if (typeof window.loadHeaderFooter === 'undefined') {
+        console.warn('Component loader not found. Ensure load-components.js is present.');
       }
     })();
   </script>
