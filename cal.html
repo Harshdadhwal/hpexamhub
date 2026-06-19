@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Mental Math Trainer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        #startBtn, #finishBtn {
+            background-color: #3498db;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 16px;
+            margin: 20px auto;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        #startBtn:hover, #finishBtn:hover {
+            background-color: #2980b9;
+        }
+        #finishBtn {
+            display: none;
+            background-color: #e74c3c;
+        }
+        #finishBtn:hover {
+            background-color: #c0392b;
+        }
+        #timer {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .question {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            background-color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .question label {
+            flex: 1;
+        }
+        .question input {
+            margin-left: 10px;
+            padding: 5px;
+            width: 110px;
+            border: 1px solid #bdc3c7;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+        .result {
+            margin-left: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            flex-shrink: 0;
+            min-width: 60px;
+            text-align: right;
+        }
+        #summary, #analysis {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+        #analysis {
+            text-align: left;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .progress {
+            width: 0%;
+            height: 20px;
+            background-color: #3498db;
+            border-radius: 5px;
+            transition: width 0.5s ease-in-out;
+        }
+        .hint {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 13px;
+            margin-top: -10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced Mental Math Trainer</h1>
+        <p class="hint">Press <strong>Enter</strong> to lock in an answer, or just keep typing — correct answers lock automatically.</p>
+        <button id="startBtn">Start Training</button>
+        <div id="timer" style="display:none;">Time: 00:00</div>
+        <div id="questions"></div>
+        <button id="finishBtn">Finish</button>
+        <div id="summary"></div>
+        <div id="analysis"></div>
+    </div>
+
+    <script>
+        const startBtn = document.getElementById('startBtn');
+        const finishBtn = document.getElementById('finishBtn');
+        const timerDiv = document.getElementById('timer');
+        const questionsDiv = document.getElementById('questions');
+        const summaryDiv = document.getElementById('summary');
+        const analysisDiv = document.getElementById('analysis');
+
+        let questions = [];
+        let startTime;
+        let timerInterval;
+        let difficulty = 1;
+        let consecutiveCorrect = 0;
+
+        startBtn.addEventListener('click', startTraining);
+        finishBtn.addEventListener('click', finishTraining);
+
+        function randInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function startTraining() {
+            startBtn.style.display = 'none';
+            finishBtn.style.display = 'block';
+            timerDiv.style.display = 'block';
+            summaryDiv.innerHTML = '';
+            analysisDiv.innerHTML = '';
+            questions = generateQuestions();
+            displayQuestions();
+            startTime = new Date();
+            updateTimer();
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        function updateTimer() {
+            const currentTime = new Date();
+            const elapsedTime = new Date(currentTime - startTime);
+            const minutes = elapsedTime.getUTCMinutes().toString().padStart(2, '0');
+            const seconds = elapsedTime.getUTCSeconds().toString().padStart(2, '0');
+            timerDiv.textContent = `Time: ${minutes}:${seconds}`;
+        }
+
+        // ---------- Question bank configuration ----------
+
+        const QUESTION_TYPES = [
+            { type: 'simplification', count: 3 },
+            { type: 'simplificationSquareCube', count: 2 },
+            { type: 'percentRatio', count: 2 },
+            { type: 'averageLargerSmaller', count: 2 },
+            { type: 'ratio', count: 3 },
+            { type: 'avgFirstN', count: 1 },
+            { type: 'avgMiddleTwice', count: 3 },
+            { type: 'percentDifference', count: 2 },
+            { type: 'boatStream', count: 2 }
+        ];
+
+        const typeLabels = {
+            simplification: 'Simplification',
+            simplificationSquareCube: 'Simplification (Squares & Cubes)',
+            percentRatio: 'Percentage + Ratio',
+            averageLargerSmaller: 'Average (Larger/Smaller)',
+            ratio: 'Ratio',
+            avgFirstN: 'Average of First N Numbers',
+            avgMiddleTwice: 'Average (Middle Counted Twice)',
+            percentDifference: 'Percentage Difference',
+            boatStream: 'Boat & Stream'
+        };
+
+        const ratioItems = ['balls', 'caps', 'pens', 'books', 'pencils', 'marbles', 'stickers', 'coins'];
+
+        const percentRatioTemplates = [
+            (total, pct, a, b, catA, catB, askCat) => `At a cinema, ${total} tickets were sold for three movies. ${pct}% of the tickets were for Dhamaal, and the remaining tickets were sold for ${catA} and ${catB} in the ratio ${a}:${b}. How many tickets were sold for ${askCat}?`,
+            (total, pct, a, b, catA, catB, askCat) => `In a college, there are ${total} students. ${pct}% of the students are in Science, and the remaining students are divided between ${catA} and ${catB} in the ratio ${a}:${b}. How many students are in ${askCat}?`,
+            (total, pct, a, b, catA, catB, askCat) => `In an election, ${total} votes were cast. ${pct}% of the votes went to Candidate X, and the remaining votes were split between ${catA} and ${catB} in the ratio ${a}:${b}. How many votes did ${askCat} get?`,
+            (total, pct, a, b, catA, catB, askCat) => `A showroom sold ${total} cars last month. ${pct}% of the cars sold were Sedans, and the rest were sold as ${catA} and ${catB} in the ratio ${a}:${b}. How many cars sold were ${askCat}?`
+        ];
+        const percentRatioCatPairs = [
+            ['Hera Pheri', 'Welcome'],
+            ['Commerce', 'Arts'],
+            ['Candidate Y', 'Candidate Z'],
+            ['SUVs', 'Hatchbacks']
+        ];
+
+        const avgPairScenarios = [
+            ['wired earphones sold', 'wireless earphones sold'],
+            ['red balls', 'blue balls'],
+            ['Type A bulbs', 'Type B bulbs'],
+            [null, null]
+        ];
+
+        const percentDiffScenarios = [
+            { a: 'potatoes', b: 'carrots', noun: 'vegetables' },
+            { a: 'red balls', b: 'blue balls', noun: 'balls' },
+            { a: 'adult tickets', b: 'child tickets', noun: 'tickets' },
+            { a: 'apples', b: 'oranges', noun: 'fruits' }
+        ];
+
+        // ---------- Question generation ----------
+
+        function generateQuestions() {
+            let allQuestions = [];
+            QUESTION_TYPES.forEach(qt => {
+                for (let i = 0; i < qt.count; i++) {
+                    allQuestions.push(generateQuestion(qt.type));
+                }
+            });
+            return shuffleArray(allQuestions);
+        }
+
+        function generateQuestion(type) {
+            let question, answer;
+            const d = difficulty;
+
+            switch (type) {
+
+                case 'simplification': {
+                    const numTerms = randInt(4, 6) + Math.min(d - 1, 2);
+                    let terms = [];
+
+                    const first = randInt(1000, 99999);
+                    terms.push({ sign: 1, display: `${first}`, contrib: first });
+
+                    for (let i = 1; i < numTerms; i++) {
+                        const sign = Math.random() < 0.5 ? 1 : -1;
+                        const r = Math.random();
+                        if (r < 0.6) {
+                            const val = randInt(1000, 99999);
+                            terms.push({ sign, display: `${val}`, contrib: sign * val });
+                        } else if (r < 0.85) {
+                            const A = randInt(100, 9999);
+                            const B = randInt(2, 9);
+                            const val = A * B;
+                            terms.push({ sign, display: `(${A} × ${B})`, contrib: sign * val });
+                        } else {
+                            const val = randInt(1000, 99999);
+                            terms.push({ sign: -1, display: `(-${val})`, contrib: val });
+                        }
+                    }
+
+                    let qStr = terms[0].display;
+                    for (let i = 1; i < terms.length; i++) {
+                        qStr += (terms[i].sign === 1 ? ' + ' : ' - ') + terms[i].display;
+                    }
+                    question = qStr + ' = ';
+                    answer = terms.reduce((s, t) => s + t.contrib, 0);
+                    break;
+                }
+
+                case 'simplificationSquareCube': {
+                    const numPlain = randInt(2, 3) + Math.min(d - 1, 1);
+                    let terms = [];
+
+                    const first = randInt(1000, 9999);
+                    terms.push({ display: `${first}`, contrib: first });
+
+                    for (let i = 1; i < numPlain; i++) {
+                        const sign = Math.random() < 0.5 ? 1 : -1;
+                        const val = randInt(1000, 9999);
+                        terms.push({ display: (sign === 1 ? ' + ' : ' - ') + `${val}`, contrib: sign * val });
+                    }
+
+                    const sqBase = randInt(16, 35);
+                    const sqSign = Math.random() < 0.3 ? -1 : 1;
+                    terms.push({ display: (sqSign === 1 ? ' + ' : ' - ') + `(${sqBase})²`, contrib: sqSign * sqBase * sqBase });
+
+                    const cbBase = randInt(6, 12);
+                    const cbSign = Math.random() < 0.3 ? -1 : 1;
+                    terms.push({ display: (cbSign === 1 ? ' + ' : ' - ') + `(${cbBase})³`, contrib: cbSign * cbBase * cbBase * cbBase });
+
+                    const rest = shuffleArray(terms.slice(1));
+                    let qStr = terms[0].display;
+                    rest.forEach(t => qStr += t.display);
+
+                    question = qStr + ' = ';
+                    answer = terms[0].contrib + rest.reduce((s, t) => s + t.contrib, 0);
+                    break;
+                }
+
+                case 'percentRatio': {
+                    const idx = randInt(0, percentRatioTemplates.length - 1);
+                    const [catA, catB] = percentRatioCatPairs[idx];
+                    const pctOptions = [10, 15, 20, 25, 30, 35, 40, 45, 55, 60, 65, 70];
+
+                    let total, pct, a, b, sum, pctCount, remaining, tries = 0;
+                    do {
+                        pct = pctOptions[randInt(0, pctOptions.length - 1)];
+                        a = randInt(1, 9);
+                        b = randInt(1, 9);
+                        sum = a + b;
+                        total = randInt(10, 100 + (d - 1) * 40) * 10;
+                        pctCount = total * pct / 100;
+                        remaining = total - pctCount;
+                        tries++;
+                    } while ((pctCount % 1 !== 0 || remaining % sum !== 0) && tries < 2000);
+
+                    const catACount = remaining * a / sum;
+                    const catBCount = remaining * b / sum;
+                    const askA = Math.random() < 0.5;
+                    const askCat = askA ? catA : catB;
+
+                    question = percentRatioTemplates[idx](total, pct, a, b, catA, catB, askCat);
+                    answer = askA ? catACount : catBCount;
+                    break;
+                }
+
+                case 'averageLargerSmaller': {
+                    const [nameA, nameB] = avgPairScenarios[randInt(0, avgPairScenarios.length - 1)];
+
+                    const diffOptions = [];
+                    for (let v = 50; v <= 100; v += 2) diffOptions.push(v);
+                    const diff = diffOptions[randInt(0, diffOptions.length - 1)];
+                    const avg = randInt(diff / 2 + 20, diff / 2 + 300 + (d - 1) * 200);
+                    const larger = avg + diff / 2;
+                    const smaller = avg - diff / 2;
+                    const askLarger = Math.random() < 0.5;
+
+                    if (nameA) {
+                        const largerIsA = Math.random() < 0.5;
+                        const catLarger = largerIsA ? nameA : nameB;
+                        const catSmaller = largerIsA ? nameB : nameA;
+                        question = `The average number of ${nameA} and ${nameB} is ${avg}, and the difference between them is ${diff}. If there are more ${catLarger} than ${catSmaller}, how many ${askLarger ? catLarger : catSmaller} are there?`;
+                    } else {
+                        question = `If the average of two numbers is ${avg} and the difference between them is ${diff}, what is the ${askLarger ? 'larger' : 'smaller'} number?`;
+                    }
+                    answer = askLarger ? larger : smaller;
+                    break;
+                }
+
+                case 'ratio': {
+                    const selectedItem = ratioItems[randInt(0, ratioItems.length - 1)];
+                    const threeWay = Math.random() < 0.4;
+
+                    if (!threeWay) {
+                        const ratioFirst = randInt(1, 9);
+                        const ratioSecond = randInt(1, 9);
+                        const sum = ratioFirst + ratioSecond;
+                        const multiplier = randInt(2, 15 + (d - 1) * 5);
+                        const total = sum * multiplier;
+                        const largerPart = Math.max(ratioFirst, ratioSecond) * multiplier;
+                        const smallerPart = Math.min(ratioFirst, ratioSecond) * multiplier;
+                        const askDiff = Math.random() < 0.3 && ratioFirst !== ratioSecond;
+
+                        if (askDiff) {
+                            question = `If the ratio of ${selectedItem} is ${ratioFirst}:${ratioSecond} and the total number of ${selectedItem} is ${total}, what is the difference between the two groups?`;
+                            answer = Math.abs(largerPart - smallerPart);
+                        } else {
+                            const askLarger = Math.random() < 0.5;
+                            question = `If the ratio of ${selectedItem} is ${ratioFirst}:${ratioSecond} and the total number of ${selectedItem} is ${total}, how many ${selectedItem} are in the ${askLarger ? 'larger' : 'smaller'} group?`;
+                            answer = askLarger ? largerPart : smallerPart;
+                        }
+                    } else {
+                        let r1, r2, r3;
+                        do {
+                            r1 = randInt(1, 6);
+                            r2 = randInt(1, 6);
+                            r3 = randInt(1, 6);
+                        } while (r1 === r2 || r2 === r3 || r1 === r3);
+
+                        const sum = r1 + r2 + r3;
+                        const multiplier = randInt(2, 12 + (d - 1) * 4);
+                        const total = sum * multiplier;
+                        const parts = [r1 * multiplier, r2 * multiplier, r3 * multiplier];
+                        const maxPart = Math.max(...parts);
+                        const minPart = Math.min(...parts);
+                        const midPart = parts.reduce((a, b) => a + b, 0) - maxPart - minPart;
+                        const askType = randInt(0, 2);
+
+                        question = `If the ratio of three groups of ${selectedItem} is ${r1}:${r2}:${r3} and the total number of ${selectedItem} is ${total}, how many ${selectedItem} are in the ${askType === 0 ? 'largest' : askType === 1 ? 'smallest' : 'middle'} group?`;
+                        answer = askType === 0 ? maxPart : askType === 1 ? minPart : midPart;
+                    }
+                    break;
+                }
+
+                case 'avgFirstN': {
+                    const n = randInt(10, 300 + (d - 1) * 150);
+                    question = `Find the average of the first ${n} natural numbers.`;
+                    answer = (n + 1) / 2;
+                    break;
+                }
+
+                case 'avgMiddleTwice': {
+                    const halfOptions = [4, 5, 6, 7];
+                    const half = halfOptions[randInt(0, halfOptions.length - 1)];
+                    const n = 2 * half - 1;
+
+                    let avgAll, avg1, avg2, middle, tries = 0;
+                    do {
+                        avgAll = randInt(30, 70 + (d - 1) * 20);
+                        avg1 = randInt(20, 60 + (d - 1) * 20);
+                        avg2 = randInt(40, 80 + (d - 1) * 20);
+                        middle = half * (avg1 + avg2) - n * avgAll;
+                        tries++;
+                    } while ((middle < 1 || middle > 300) && tries < 3000);
+
+                    question = `The average of ${n} numbers is ${avgAll}. The average of the first ${half} numbers is ${avg1}. The average of the last ${half} numbers is ${avg2}. If the middle number is counted twice across these two averages, find the middle number.`;
+                    answer = middle;
+                    break;
+                }
+
+                case 'percentDifference': {
+                    const scenario = percentDiffScenarios[randInt(0, percentDiffScenarios.length - 1)];
+                    const pctOptions = [10, 15, 20, 25, 30, 35, 40, 45, 55, 60, 65, 70, 75, 80, 85, 90];
+
+                    let total, pct, itemA, itemB, tries = 0;
+                    do {
+                        total = randInt(10, 200 + (d - 1) * 80) * 10;
+                        pct = pctOptions[randInt(0, pctOptions.length - 1)];
+                        itemA = total * pct / 100;
+                        tries++;
+                    } while ((itemA % 1 !== 0) && tries < 2000);
+
+                    itemB = total - itemA;
+                    const diff = Math.abs(itemA - itemB);
+                    const variant = randInt(0, 2);
+
+                    if (variant === 0) {
+                        question = `A shop has ${total} ${scenario.noun}. ${scenario.a} make up ${pct}% of the total, and the rest are ${scenario.b}. Find the number of ${scenario.b}.`;
+                        answer = itemB;
+                    } else if (variant === 1) {
+                        question = `A shop has ${total} ${scenario.noun}, made up of ${scenario.a} and ${scenario.b}. ${scenario.a} make up ${pct}% of the total. Find the difference between the number of ${scenario.a} and ${scenario.b}.`;
+                        answer = diff;
+                    } else {
+                        const aIsLarger = itemA > itemB;
+                        const largerName = aIsLarger ? scenario.a : scenario.b;
+                        const smallerName = aIsLarger ? scenario.b : scenario.a;
+                        const largerPct = aIsLarger ? pct : 100 - pct;
+                        question = `A shop has ${scenario.a} and ${scenario.b}, totalling ${total} ${scenario.noun}. The difference between them is ${diff}, and there are more ${largerName} than ${smallerName}. Find the percentage of ${largerName} out of the total.`;
+                        answer = largerPct;
+                    }
+                    break;
+                }
+
+                case 'boatStream': {
+                    const boatSpeed = randInt(15, 35 + (d - 1) * 15);
+                    const streamSpeed = randInt(2, boatSpeed - 3);
+                    const downstream = boatSpeed + streamSpeed;
+                    const upstream = boatSpeed - streamSpeed;
+
+                    const patterns = [
+                        { given: ['boatSpeed', 'streamSpeed'], ask: 'downstream' },
+                        { given: ['boatSpeed', 'streamSpeed'], ask: 'upstream' },
+                        { given: ['boatSpeed', 'upstream'], ask: 'streamSpeed' },
+                        { given: ['boatSpeed', 'upstream'], ask: 'downstream' },
+                        { given: ['boatSpeed', 'downstream'], ask: 'streamSpeed' },
+                        { given: ['boatSpeed', 'downstream'], ask: 'upstream' },
+                        { given: ['upstream', 'downstream'], ask: 'boatSpeed' },
+                        { given: ['upstream', 'downstream'], ask: 'streamSpeed' },
+                        { given: ['streamSpeed', 'downstream'], ask: 'boatSpeed' },
+                        { given: ['streamSpeed', 'downstream'], ask: 'upstream' },
+                        { given: ['streamSpeed', 'upstream'], ask: 'boatSpeed' },
+                        { given: ['streamSpeed', 'upstream'], ask: 'downstream' }
+                    ];
+                    const pattern = patterns[randInt(0, patterns.length - 1)];
+                    const values = { boatSpeed, streamSpeed, upstream, downstream };
+                    const labels = {
+                        boatSpeed: 'speed of the boat in still water',
+                        streamSpeed: 'speed of the stream',
+                        upstream: 'upstream speed',
+                        downstream: 'downstream speed'
+                    };
+
+                    const givenText = pattern.given.map(g => `the ${labels[g]} is ${values[g]} km/h`).join(' and ');
+                    question = `If ${givenText}, find the ${labels[pattern.ask]}.`;
+                    answer = values[pattern.ask];
+                    break;
+                }
+
+                default:
+                    question = '';
+                    answer = 0;
+            }
+
+            return { question, answer, type };
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // ---------- Display & answer checking ----------
+
+        function displayQuestions() {
+            questionsDiv.innerHTML = '';
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+
+                const questionLabel = document.createElement('label');
+                questionLabel.textContent = `${index + 1}. ${q.question}`;
+                questionDiv.appendChild(questionLabel);
+
+                const answerInput = document.createElement('input');
+                answerInput.type = 'number';
+                answerInput.id = `answer${index}`;
+                answerInput.step = '0.01';
+                answerInput.addEventListener('input', () => checkAnswer(index));
+                answerInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        lockAnswer(index);
+                    }
+                });
+                questionDiv.appendChild(answerInput);
+
+                const resultSpan = document.createElement('span');
+                resultSpan.classList.add('result');
+                questionDiv.appendChild(resultSpan);
+
+                questionsDiv.appendChild(questionDiv);
+            });
+
+            const firstInput = document.getElementById('answer0');
+            if (firstInput) firstInput.focus();
+        }
+
+        function checkAnswer(index) {
+            const input = document.getElementById(`answer${index}`);
+            const userAnswer = parseFloat(input.value);
+            const question = questions[index];
+
+            if (!isNaN(userAnswer) && Math.abs(userAnswer - question.answer) < 0.01) {
+                lockAnswer(index);
+                return;
+            }
+
+            // Heuristic auto-lock once a wrong, non-negative integer answer
+            // has reached the same digit length as the correct answer.
+            if (!isNaN(userAnswer) && Number.isInteger(question.answer) && question.answer >= 0 &&
+                userAnswer >= 0 && Number.isInteger(userAnswer) &&
+                input.value.length >= question.answer.toString().length) {
+                lockAnswer(index);
+            }
+        }
+
+        function lockAnswer(index) {
+            const input = document.getElementById(`answer${index}`);
+            if (input.disabled) return;
+
+            const userAnswer = parseFloat(input.value);
+            const question = questions[index];
+            const resultSpan = document.querySelector(`#answer${index} ~ .result`);
+            const isCorrect = !isNaN(userAnswer) && Math.abs(userAnswer - question.answer) < 0.01;
+
+            if (isCorrect) {
+                resultSpan.textContent = '✓';
+                resultSpan.style.color = 'green';
+            } else {
+                resultSpan.textContent = `✗ (Correct: ${question.answer})`;
+                resultSpan.style.color = 'red';
+            }
+            input.disabled = true;
+
+            if (index < questions.length - 1) {
+                const nextInput = document.getElementById(`answer${index + 1}`);
+                if (nextInput) nextInput.focus();
+            } else {
+                finishTraining();
+            }
+        }
+
+        function finishTraining() {
+            clearInterval(timerInterval);
+            finishBtn.style.display = 'none';
+
+            let correctAnswers = 0;
+            let typeStats = {};
+
+            questions.forEach((q, index) => {
+                const input = document.getElementById(`answer${index}`);
+                const userAnswer = parseFloat(input.value);
+                const resultSpan = document.querySelector(`#answer${index} ~ .result`);
+                const isCorrect = !isNaN(userAnswer) && Math.abs(userAnswer - q.answer) < 0.01;
+
+                if (resultSpan.textContent === '') {
+                    if (isCorrect) {
+                        resultSpan.textContent = '✓';
+                        resultSpan.style.color = 'green';
+                    } else {
+                        resultSpan.textContent = `✗ (Correct: ${q.answer})`;
+                        resultSpan.style.color = 'red';
+                    }
+                    input.disabled = true;
+                }
+
+                if (isCorrect) {
+                    correctAnswers++;
+                    consecutiveCorrect++;
+                    if (consecutiveCorrect >= 5) {
+                        difficulty++;
+                        consecutiveCorrect = 0;
+                    }
+                } else {
+                    consecutiveCorrect = 0;
+                }
+
+                if (!typeStats[q.type]) {
+                    typeStats[q.type] = { total: 0, correct: 0 };
+                }
+                typeStats[q.type].total++;
+                if (isCorrect) typeStats[q.type].correct++;
+            });
+
+            const elapsedTime = timerDiv.textContent;
+            const accuracy = (correctAnswers / questions.length) * 100;
+
+            summaryDiv.innerHTML = `
+                <h2>Training Summary</h2>
+                <p>You got ${correctAnswers} out of ${questions.length} correct.</p>
+                <p>Accuracy: ${accuracy.toFixed(2)}%</p>
+                <p>Time taken: ${elapsedTime}</p>
+                <p>Current difficulty level: ${difficulty}</p>
+                <div class="progress-bar"><div class="progress" style="width: ${accuracy}%;"></div></div>
+            `;
+
+            let analysisHTML = '<h2>Question Type Analysis</h2>';
+            for (const type in typeStats) {
+                const correct = typeStats[type].correct;
+                const total = typeStats[type].total;
+                const typeAccuracy = (correct / total) * 100;
+                analysisHTML += `
+                    <p><strong>${typeLabels[type] || type}:</strong> ${correct}/${total} correct (${typeAccuracy.toFixed(2)}% accuracy)</p>
+                `;
+            }
+            analysisDiv.innerHTML = analysisHTML;
+
+            startBtn.style.display = 'block';
+            startBtn.textContent = 'Start New Training';
+        }
+    </script>
+</body>
+</html>
