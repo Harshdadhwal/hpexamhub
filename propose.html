@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>For Manya 💕</title>
+<style>
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #ff9a9e, #fecfef, #fbc2eb, #a6c1ee);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .heart {
+    position: fixed;
+    top: -10%;
+    font-size: 20px;
+    opacity: 0.7;
+    animation: fall linear infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @keyframes fall {
+    to { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
+  .sparkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    animation: twinkle ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.15; transform: scale(0.8) rotate(0deg); }
+    50% { opacity: 0.9; transform: scale(1.15) rotate(20deg); }
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 28px;
+    padding: 40px 28px;
+    max-width: 420px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.35);
+    position: relative;
+    z-index: 2;
+    animation: popIn 0.8s ease;
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .card h1 {
+    font-size: 1.6rem;
+    color: #d6336c;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .card .name {
+    font-size: 2rem;
+    color: #c2185b;
+    font-weight: 800;
+  }
+
+  .card p.sub {
+    color: #8a5a6b;
+    font-size: 0.95rem;
+    margin-top: 10px;
+    margin-bottom: 28px;
+  }
+
+  .btn-row {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    min-height: 130px;
+    align-items: center;
+  }
+
+  button {
+    padding: 14px 30px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+  }
+
+  #yesBtn {
+    background: linear-gradient(135deg, #ff6b9d, #c2185b);
+    color: white;
+    box-shadow: 0 8px 20px rgba(194, 24, 91, 0.4);
+  }
+
+  #yesBtn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 12px 26px rgba(194, 24, 91, 0.55);
+  }
+
+  #noBtn {
+    background: #f1f1f1;
+    color: #666;
+    position: relative;
+    transition: transform 0.12s ease, left 0.18s ease, top 0.18s ease;
+  }
+
+  #noBtn.escaped {
+    position: fixed;
+  }
+
+  #yesBtn.grow {
+    transform: scale(var(--yes-scale, 1));
+  }
+
+  .quote-box {
+    display: none;
+    margin-top: 22px;
+    background: #fff0f5;
+    border: 2px dashed #d6336c;
+    border-radius: 16px;
+    padding: 16px 18px;
+    color: #a4133c;
+    font-size: 1rem;
+    line-height: 1.6;
+    animation: popIn 0.5s ease;
+  }
+
+  .quote-box.show { display: block; }
+
+  .success {
+    display: none;
+    text-align: center;
+    z-index: 2;
+  }
+
+  .success.show {
+    display: block;
+    animation: popIn 0.6s ease;
+  }
+
+  .success h1 {
+    font-size: 2rem;
+    color: #c2185b;
+    margin-bottom: 10px;
+  }
+
+  .success p {
+    color: #8a5a6b;
+    font-size: 1.05rem;
+  }
+
+  .success .big-heart {
+    font-size: 3rem;
+    animation: beat 1s ease-in-out infinite;
+  }
+
+  @keyframes beat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  /* Photo frame, polaroid style */
+  .photo-wrap {
+    width: 230px;
+    max-width: 70vw;
+    margin: 14px auto 6px;
+    position: relative;
+  }
+
+  .polaroid {
+    background: #fff;
+    padding: 14px 14px 34px 14px;
+    border-radius: 10px;
+    box-shadow: 0 14px 30px rgba(194, 24, 91, 0.28);
+    transform: rotate(-3deg);
+    animation: polaroidFloat 3.4s ease-in-out infinite;
+    position: relative;
+  }
+
+  @keyframes polaroidFloat {
+    0%, 100% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(-1deg) translateY(-6px); }
+  }
+
+  .polaroid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+  }
+
+  .polaroid::after {
+    content: "besties 4ever";
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Segoe UI', cursive;
+    font-size: 0.85rem;
+    color: #c2185b;
+    font-weight: 600;
+  }
+
+  .photo-sticker {
+    position: absolute;
+    font-size: 1.6rem;
+    animation: stickerWiggle 2s ease-in-out infinite;
+  }
+
+  .photo-sticker.s1 { top: -14px; left: -14px; animation-delay: 0s; }
+  .photo-sticker.s2 { top: -10px; right: -16px; animation-delay: 0.4s; }
+  .photo-sticker.s3 { bottom: 20px; left: -20px; animation-delay: 0.8s; }
+  .photo-sticker.s4 { bottom: 18px; right: -18px; animation-delay: 1.2s; }
+
+  @keyframes stickerWiggle {
+    0%, 100% { transform: rotate(-8deg) scale(1); }
+    50% { transform: rotate(10deg) scale(1.15); }
+  }
+
+  /* Friendship meter */
+  .meter-wrap {
+    margin: 22px auto 4px;
+    max-width: 300px;
+  }
+
+  .meter-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #a4133c;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .meter-track {
+    width: 100%;
+    height: 14px;
+    border-radius: 10px;
+    background: #ffe0ec;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(194,24,91,0.25);
+  }
+
+  .meter-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #ff9a9e, #ff6b9d, #c2185b);
+    transition: width 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .meter-fill.filled { width: 100%; }
+
+  /* Promise list */
+  .promise-list {
+    text-align: left;
+    max-width: 300px;
+    margin: 18px auto 0;
+    padding: 14px 18px;
+    background: #fff0f5;
+    border-radius: 16px;
+    border: 1px solid #ffd0e0;
+  }
+
+  .promise-list li {
+    list-style: none;
+    font-size: 0.9rem;
+    color: #8a3b52;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    opacity: 0;
+    transform: translateX(-8px);
+    animation: promiseIn 0.5s ease forwards;
+  }
+
+  .promise-list li:nth-child(1) { animation-delay: 0.3s; }
+  .promise-list li:nth-child(2) { animation-delay: 0.55s; }
+  .promise-list li:nth-child(3) { animation-delay: 0.8s; }
+  .promise-list li:nth-child(4) { animation-delay: 1.05s; }
+  .promise-list li:last-child { margin-bottom: 0; }
+
+  @keyframes promiseIn {
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  #confetti-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 5;
+  }
+
+  @media (max-width: 400px) {
+    .card { padding: 30px 18px; }
+    .card h1 { font-size: 1.35rem; }
+    .card .name { font-size: 1.7rem; }
+    button { padding: 12px 22px; font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<div class="card" id="mainCard">
+  <h1>Will you be my <span style="color:#c2185b;">best friend</span> forever?</h1>
+  <div class="name">Manya 💗</div>
+  <p class="sub">Think carefully before you answer... 😌</p>
+
+  <div class="btn-row">
+    <button id="yesBtn" onclick="sayYes()">Yes Ofcourse 💖</button>
+    <button id="noBtn" onclick="dodge()" onmouseover="dodge()" ontouchstart="dodgeTouch(event)">No</button>
+  </div>
+
+  <div class="quote-box" id="quoteBox">
+    💌 <span id="quoteText"></span>
+  </div>
+</div>
+
+<div class="success" id="successCard">
+  <div class="big-heart">💕</div>
+  <h1>Yayyy!! 🥳</h1>
+
+  <div class="photo-wrap">
+    <span class="photo-sticker s1">✨</span>
+    <span class="photo-sticker s2">🎀</span>
+    <span class="photo-sticker s3">⭐</span>
+    <span class="photo-sticker s4">💫</span>
+    <div class="polaroid">
+      <img src="https://pbs.twimg.com/media/HAhoxkNacAAfw7F.jpg" alt="Us" referrerpolicy="no-referrer">
+    </div>
+  </div>
+
+  <p>Manya said YES! Best friends forever, now and always. 💗</p>
+
+  <div class="meter-wrap">
+    <div class="meter-label"><span>Friendship Level</span><span id="meterPercent">0%</span></div>
+    <div class="meter-track"><div class="meter-fill" id="meterFill"></div></div>
+  </div>
+
+  <ul class="promise-list">
+    <li>🤍 I'll always show up for you, no matter what.</li>
+    <li>🎧 Every playlist, every rant, every 2 AM thought — you're in it.</li>
+    <li>🌸 No judgment, ever. Just us being us.</li>
+    <li>🚀 Here's to a hundred more memories together.</li>
+  </ul>
+</div>
+
+<script>
+  // Floating hearts background
+  const heartsContainer = document.body;
+  const heartEmojis = ["💗","💖","💓","💞","❤️","💘"];
+  for (let i = 0; i < 18; i++) {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.animationDuration = (6 + Math.random() * 8) + "s";
+    h.style.animationDelay = (Math.random() * 8) + "s";
+    h.style.fontSize = (14 + Math.random() * 18) + "px";
+    heartsContainer.appendChild(h);
+  }
+
+  // Floating sparkles background
+  const sparkleEmojis = ["✨","⭐","🌟","💫"];
+  for (let i = 0; i < 12; i++) {
+    const s = document.createElement("div");
+    s.className = "sparkle";
+    s.textContent = sparkleEmojis[Math.floor(Math.random() * sparkleEmojis.length)];
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.top = Math.random() * 100 + "vh";
+    s.style.fontSize = (10 + Math.random() * 14) + "px";
+    s.style.animationDuration = (2 + Math.random() * 3) + "s";
+    s.style.animationDelay = (Math.random() * 4) + "s";
+    heartsContainer.appendChild(s);
+  }
+
+  const hindiQuotes = [
+    "दोस्ती वो रिश्ता है जो बिना खून के भी खून से गहरा होता है। ❤️",
+    "जो साथ हर हाल में निभाए, वही सच्चा दोस्त कहलाए। 💫",
+    "प्यार और दोस्ती में फर्क सिर्फ इतना है — प्यार अंधा होता है, दोस्ती समझदार। 😉",
+    "दिल कहता है 'हाँ' कह दो, वरना पछताओगे! 😄",
+    "कहते हैं ना, किस्मत वाले होते हैं जिनकी दोस्ती प्यार में बदल जाए। 💞"
+  ];
+
+  const noBtn = document.getElementById("noBtn");
+  const yesBtn = document.getElementById("yesBtn");
+  const quoteBox = document.getElementById("quoteBox");
+  const quoteText = document.getElementById("quoteText");
+  let dodgeCount = 0;
+
+  // ~5cm on a standard 96dpi screen ≈ 189px. The No button is only ever
+  // allowed to roam inside this radius around its original resting spot.
+  const MAX_RADIUS_PX = 189;
+  let centerX = null;
+  let centerY = null;
+
+  function initCenter() {
+    if (centerX !== null) return;
+    const rect = noBtn.getBoundingClientRect();
+    centerX = rect.left + rect.width / 2;
+    centerY = rect.top + rect.height / 2;
+  }
+
+  function getRandomPositionNearCenter() {
+    initCenter();
+    const btnW = noBtn.offsetWidth || 100;
+    const btnH = noBtn.offsetHeight || 50;
+
+    const angle = Math.random() * Math.PI * 2;
+    const r = Math.random() * MAX_RADIUS_PX;
+
+    let x = centerX + r * Math.cos(angle) - btnW / 2;
+    let y = centerY + r * Math.sin(angle) - btnH / 2;
+
+    // Keep it fully on-screen even near edges, without ever exceeding the radius intent.
+    const margin = 8;
+    x = Math.max(margin, Math.min(x, window.innerWidth - btnW - margin));
+    y = Math.max(margin, Math.min(y, window.innerHeight - btnH - margin));
+
+    return { x, y };
+  }
+
+  function moveNoButton() {
+    noBtn.classList.add("escaped");
+    const pos = getRandomPositionNearCenter();
+    noBtn.style.left = pos.x + "px";
+    noBtn.style.top = pos.y + "px";
+
+    dodgeCount++;
+    // Grow the Yes button a little each time, cheekily
+    const scale = Math.min(1 + dodgeCount * 0.08, 1.8);
+    yesBtn.style.setProperty('--yes-scale', scale);
+    yesBtn.classList.add('grow');
+
+    showQuote();
+  }
+
+  function dodge() {
+    moveNoButton();
+  }
+
+  function dodgeTouch(e) {
+    e.preventDefault();
+    moveNoButton();
+  }
+
+  function showQuote() {
+    const q = hindiQuotes[Math.floor(Math.random() * hindiQuotes.length)];
+    quoteText.textContent = q;
+    quoteBox.classList.add("show");
+  }
+
+  function sayYes() {
+    document.getElementById("mainCard").style.display = "none";
+    document.getElementById("successCard").classList.add("show");
+    launchConfetti();
+
+    // Animate the friendship meter up to 100%
+    const fill = document.getElementById("meterFill");
+    const percentLabel = document.getElementById("meterPercent");
+    requestAnimationFrame(() => {
+      fill.classList.add("filled");
+    });
+    let shown = 0;
+    const meterInterval = setInterval(() => {
+      shown += 4;
+      if (shown >= 100) {
+        shown = 100;
+        clearInterval(meterInterval);
+      }
+      percentLabel.textContent = shown + "%";
+    }, 70);
+  }
+
+  // Simple confetti
+  function launchConfetti() {
+    const canvas = document.getElementById("confetti-canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext("2d");
+    const colors = ["#ff6b9d", "#c2185b", "#fbc2eb", "#a6c1ee", "#ffd166"];
+    let particles = [];
+
+    for (let i = 0; i < 150; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: -20 - Math.random() * canvas.height,
+        r: 4 + Math.random() * 6,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        speed: 2 + Math.random() * 4,
+        drift: (Math.random() - 0.5) * 3,
+        rotation: Math.random() * 360
+      });
+    }
+
+    let frame = 0;
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.y += p.speed;
+        p.x += p.drift;
+        p.rotation += 4;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.r / 2, -p.r / 2, p.r, p.r);
+        ctx.restore();
+      });
+      frame++;
+      if (frame < 260) {
+        requestAnimationFrame(animate);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+    animate();
+  }
+
+  window.addEventListener("resize", () => {
+    // Recalculate the resting center after a resize so the radius stays accurate,
+    // then, if the button had already escaped, keep it within bounds.
+    centerX = null;
+    if (noBtn.classList.contains("escaped")) {
+      noBtn.classList.remove("escaped");
+      noBtn.style.position = "relative";
+      noBtn.style.left = "";
+      noBtn.style.top = "";
+    }
+  });
+</script>
+
+</body>
+</html>
