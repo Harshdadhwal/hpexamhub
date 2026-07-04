@@ -146,6 +146,16 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
+        function gcd(a, b) {
+            return b === 0 ? a : gcd(b, a % b);
+        }
+
+        function sameParity(min, max, parity) {
+            let v = randInt(min, max);
+            if (v % 2 !== parity) v += (v < max) ? 1 : -1;
+            return v;
+        }
+
         function startTraining() {
             startBtn.style.display = 'none';
             finishBtn.style.display = 'block';
@@ -172,25 +182,47 @@
         const QUESTION_TYPES = [
             { type: 'simplification', count: 3 },
             { type: 'simplificationSquareCube', count: 2 },
+            { type: 'complexSimplification', count: 2 },
             { type: 'percentRatio', count: 2 },
             { type: 'averageLargerSmaller', count: 2 },
             { type: 'ratio', count: 3 },
             { type: 'avgFirstN', count: 1 },
             { type: 'avgMiddleTwice', count: 3 },
             { type: 'percentDifference', count: 2 },
-            { type: 'boatStream', count: 2 }
+            { type: 'boatStream', count: 2 },
+            { type: 'trainSpeed', count: 2 },
+            { type: 'mensurationSquare', count: 2 },
+            { type: 'mensurationCircle', count: 2 },
+            { type: 'mensurationCylinder', count: 2 },
+            { type: 'mensurationCuboid', count: 2 },
+            { type: 'ciSiDifference', count: 1 },
+            { type: 'avgABCValue', count: 1 },
+            { type: 'siMultipleTime', count: 1 },
+            { type: 'siBasicCalc', count: 1 },
+            { type: 'ciMultiplePower', count: 1 }
         ];
 
         const typeLabels = {
             simplification: 'Simplification',
             simplificationSquareCube: 'Simplification (Squares & Cubes)',
+            complexSimplification: 'Simplification (Mixed Multiplication)',
             percentRatio: 'Percentage + Ratio',
             averageLargerSmaller: 'Average (Larger/Smaller)',
             ratio: 'Ratio',
             avgFirstN: 'Average of First N Numbers',
             avgMiddleTwice: 'Average (Middle Counted Twice)',
             percentDifference: 'Percentage Difference',
-            boatStream: 'Boat & Stream'
+            boatStream: 'Boat & Stream',
+            trainSpeed: 'Trains (Speed, Length, Time)',
+            mensurationSquare: 'Mensuration – Square',
+            mensurationCircle: 'Mensuration – Circle',
+            mensurationCylinder: 'Mensuration – Cylinder',
+            mensurationCuboid: 'Mensuration – Cube / Cuboid',
+            ciSiDifference: 'CI – SI Difference',
+            avgABCValue: 'Average of Pairs (A, B, C)',
+            siMultipleTime: 'Simple Interest – Multiple of Principal',
+            siBasicCalc: 'Simple Interest – Basic Calculation',
+            ciMultiplePower: 'Compound Interest – Multiple of Principal'
         };
 
         const ratioItems = ['balls', 'caps', 'pens', 'books', 'pencils', 'marbles', 'stickers', 'coins'];
@@ -221,6 +253,34 @@
             { a: 'adult tickets', b: 'child tickets', noun: 'tickets' },
             { a: 'apples', b: 'oranges', noun: 'fruits' }
         ];
+
+        const avgABCScenarios = [
+            { noun: 'numbers', label: ['A', 'B', 'C'] },
+            { noun: 'students\' ages', label: ['Aman', 'Bina', 'Chetan'] },
+            { noun: 'boxes\' weights (in kg)', label: ['Box X', 'Box Y', 'Box Z'] },
+            { noun: 'test scores', label: ['Player 1', 'Player 2', 'Player 3'] },
+            { noun: 'villages\' populations (in hundreds)', label: ['Village P', 'Village Q', 'Village R'] }
+        ];
+
+        // ---------- Train helpers ----------
+        // Speed is a multiple of 5 (so when converted to m/s via ×5/18 over
+        // carefully chosen pairings, or used directly in km/h problems, the
+        // arithmetic stays clean). Distances are derived so time is always
+        // a whole number of seconds.
+
+        const TRAIN_SPEEDS_KMH = [36, 45, 54, 60, 63, 72, 81, 90, 108, 126];
+        // km/h values chosen so that speed × 5/18 (m/s) is a whole number
+
+        // ---------- Mensuration helpers ----------
+        // π = 22/7; radii/heights are multiples of 7 so divisions are always clean integers.
+
+        const PIE = 22 / 7;
+        const PIE_DISPLAY = '22/7';
+
+        // Allowed radius values (multiples of 7): 7, 14, 21, 28
+        const CIRCLE_RADII = [7, 14, 21, 28];
+        // Allowed cylinder heights (multiples of 7): 7, 14, 21, 28
+        const CYL_HEIGHTS = [7, 14, 21, 28];
 
         // ---------- Question generation ----------
 
@@ -300,6 +360,35 @@
 
                     question = qStr + ' = ';
                     answer = terms[0].contrib + rest.reduce((s, t) => s + t.contrib, 0);
+                    break;
+                }
+
+                case 'complexSimplification': {
+                    const m5Options = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+                    const m5a = m5Options[randInt(0, m5Options.length - 1)];
+                    const m5b = m5Options[randInt(0, m5Options.length - 1)];
+                    const t1 = m5a * m5b;
+
+                    const a2 = randInt(12, 20);
+                    const b2 = randInt(2, 9);
+                    const t2 = a2 * b2;
+
+                    const a3 = randInt(10, 29);
+                    const b3 = randInt(2, 9);
+                    const t3 = a3 * b3;
+
+                    const a4 = randInt(95, 105);
+                    const b4 = randInt(2, 9);
+                    const t4 = a4 * b4;
+
+                    const t5 = randInt(100, 9999);
+
+                    const sqOptions = [96, 97, 98, 99, 101, 102, 103, 104];
+                    const a6 = sqOptions[randInt(0, sqOptions.length - 1)];
+                    const t6 = a6 * a6;
+
+                    question = `${m5a} × ${m5b} + ${a2} × ${b2} + ${a3} × ${b3} + ${a4} × ${b4} + ${t5} + (${a6})² = `;
+                    answer = t1 + t2 + t3 + t4 + t5 + t6;
                     break;
                 }
 
@@ -489,6 +578,361 @@
                     const givenText = pattern.given.map(g => `the ${labels[g]} is ${values[g]} km/h`).join(' and ');
                     question = `If ${givenText}, find the ${labels[pattern.ask]}.`;
                     answer = values[pattern.ask];
+                    break;
+                }
+
+                // =====================================================================
+                // TRAINS – Speed, Length, Time (crossing a pole or a platform)
+                // Speed (km/h) is chosen from a list where speed × 5/18 is a whole
+                // number of m/s. Train length and platform length are also chosen
+                // so that distance / speed(m/s) always gives a whole number of seconds.
+                // =====================================================================
+                case 'trainSpeed': {
+                    const speedKmh = TRAIN_SPEEDS_KMH[randInt(0, TRAIN_SPEEDS_KMH.length - 1)];
+                    const speedMs = speedKmh * 5 / 18; // guaranteed whole number
+
+                    const trainLength = randInt(2, 30) * speedMs; // multiple of speedMs → clean time
+                    const crossesPlatform = Math.random() < 0.6;
+
+                    if (!crossesPlatform) {
+                        // Crossing a pole/signal: distance = trainLength only
+                        const time = trainLength / speedMs;
+                        const variant = randInt(0, 2);
+
+                        if (variant === 0) {
+                            question = `A train ${trainLength} m long is running at a speed of ${speedKmh} km/h. Find the time it takes to cross a pole.`;
+                            answer = time;
+                        } else if (variant === 1) {
+                            question = `A train running at ${speedKmh} km/h crosses a pole in ${time} seconds. Find the length of the train.`;
+                            answer = trainLength;
+                        } else {
+                            question = `A train ${trainLength} m long crosses a pole in ${time} seconds. Find the speed of the train in km/h.`;
+                            answer = speedKmh;
+                        }
+                    } else {
+                        // Crossing a platform: distance = trainLength + platformLength
+                        const platformLength = randInt(2, 30) * speedMs; // multiple of speedMs → clean time
+                        const totalDistance = trainLength + platformLength;
+                        const time = totalDistance / speedMs;
+                        const variant = randInt(0, 3);
+
+                        if (variant === 0) {
+                            question = `A train ${trainLength} m long is running at ${speedKmh} km/h. It crosses a platform ${platformLength} m long. Find the time taken to cross the platform.`;
+                            answer = time;
+                        } else if (variant === 1) {
+                            question = `A train running at ${speedKmh} km/h crosses a platform ${platformLength} m long in ${time} seconds. Find the length of the train.`;
+                            answer = trainLength;
+                        } else if (variant === 2) {
+                            question = `A train ${trainLength} m long running at ${speedKmh} km/h crosses a platform in ${time} seconds. Find the length of the platform.`;
+                            answer = platformLength;
+                        } else {
+                            question = `A train ${trainLength} m long crosses a platform ${platformLength} m long in ${time} seconds. Find the speed of the train in km/h.`;
+                            answer = speedKmh;
+                        }
+                    }
+                    break;
+                }
+
+                // =====================================================================
+                // MENSURATION – SQUARE
+                // Formulae: Area = side²  |  Perimeter = 4 × side
+                // side is chosen as a clean integer (10–50) so squares/roots are easy.
+                // =====================================================================
+                case 'mensurationSquare': {
+                    const side = randInt(10, 50);
+                    const area = side * side;
+                    const perimeter = 4 * side;
+                    const variant = randInt(0, 1);
+
+                    if (variant === 0) {
+                        question = `The area of a square is ${area} cm². Find its perimeter.`;
+                        answer = perimeter;
+                    } else {
+                        question = `The perimeter of a square is ${perimeter} cm. Find its area.`;
+                        answer = area;
+                    }
+                    break;
+                }
+
+                // =====================================================================
+                // MENSURATION – CIRCLE
+                // Formulae (π = 22/7):
+                //   Area        = π × r²
+                //   Circumference = 2 × π × r
+                // Radius is restricted to {7, 14, 21, 28} so all results are integers.
+                // =====================================================================
+                case 'mensurationCircle': {
+                    const r = CIRCLE_RADII[randInt(0, CIRCLE_RADII.length - 1)];
+                    const circum = Math.round(2 * PIE * r);
+                    const area   = Math.round(PIE * r * r);
+                    const variant = randInt(0, 1);
+
+                    if (variant === 0) {
+                        question = `The circumference of a circle is ${circum} cm. Using π = 22/7, find its area.`;
+                        answer = area;
+                    } else {
+                        question = `The area of a circle is ${area} cm². Using π = 22/7, find its circumference.`;
+                        answer = circum;
+                    }
+                    break;
+                }
+
+                // =====================================================================
+                // MENSURATION – CYLINDER
+                // Formulae (π = 22/7):
+                //   CSA    = 2 × π × r × h
+                //   Volume = π × r² × h
+                // Both r and h are multiples of 7 → results are clean integers.
+                // =====================================================================
+                case 'mensurationCylinder': {
+                    const r = CIRCLE_RADII[randInt(0, CIRCLE_RADII.length - 1)];
+                    const h = CYL_HEIGHTS[randInt(0, CYL_HEIGHTS.length - 1)];
+                    const csa    = Math.round(2 * PIE * r * h);     // 2πrh
+                    const volume = Math.round(PIE * r * r * h);     // πr²h
+
+                    const variant = randInt(0, 1);
+
+                    if (variant === 0) {
+                        question = `A cylinder has radius ${r} cm and height ${h} cm. Using π = 22/7, find its Curved Surface Area (CSA = 2πrh).`;
+                        answer = csa;
+                    } else {
+                        question = `A cylinder has radius ${r} cm and height ${h} cm. Using π = 22/7, find its volume (V = πr²h).`;
+                        answer = volume;
+                    }
+                    break;
+                }
+
+                // =====================================================================
+                // MENSURATION – CUBE / CUBOID
+                //
+                // CUBE formulae (side = a):
+                //   Volume            = a³
+                //   Total Surface Area (TSA) = 6a²
+                //   Lateral Surface Area (LSA) = 4a²
+                //
+                // CUBOID formulae (l × b × h):
+                //   Volume  = l × b × h
+                //   TSA     = 2(lb + bh + hl)
+                //   LSA     = 2h(l + b)
+                //
+                // Sides chosen as small integers so mental arithmetic stays feasible.
+                // =====================================================================
+                case 'mensurationCuboid': {
+                    const isCube = Math.random() < 0.45;   // ~45% chance of cube question
+
+                    if (isCube) {
+                        const a = randInt(3, 12);
+                        const vol = a * a * a;
+                        const tsa = 6 * a * a;
+                        const lsa = 4 * a * a;
+
+                        const variant = randInt(0, 2);
+                        if (variant === 0) {
+                            question = `A cube has a side of ${a} cm. Find its volume (V = a³).`;
+                            answer = vol;
+                        } else if (variant === 1) {
+                            question = `A cube has a side of ${a} cm. Find its Total Surface Area (TSA = 6a²).`;
+                            answer = tsa;
+                        } else {
+                            question = `A cube has a side of ${a} cm. Find its Lateral Surface Area (LSA = 4a²).`;
+                            answer = lsa;
+                        }
+                    } else {
+                        // Cuboid: keep numbers small for mental math
+                        const l = randInt(4, 20);
+                        const b = randInt(3, 15);
+                        const h = randInt(2, 10);
+                        const vol = l * b * h;
+                        const tsa = 2 * (l * b + b * h + h * l);
+                        const lsa = 2 * h * (l + b);
+
+                        const variant = randInt(0, 2);
+                        if (variant === 0) {
+                            question = `A cuboid has length ${l} cm, breadth ${b} cm, and height ${h} cm. Find its volume (V = l×b×h).`;
+                            answer = vol;
+                        } else if (variant === 1) {
+                            question = `A cuboid has length ${l} cm, breadth ${b} cm, and height ${h} cm. Find its Total Surface Area (TSA = 2(lb+bh+hl)).`;
+                            answer = tsa;
+                        } else {
+                            question = `A cuboid has length ${l} cm, breadth ${b} cm, and height ${h} cm. Find its Lateral Surface Area (LSA = 2h(l+b)).`;
+                            answer = lsa;
+                        }
+                    }
+                    break;
+                }
+
+                case 'ciSiDifference': {
+                    const T = 2;
+                    const rates = [10, 20, 25, 30, 40, 50];
+                    const R = rates[randInt(0, rates.length - 1)];
+                    const g = gcd(R * R, 10000);
+                    const divisor = 10000 / g;
+                    const k = randInt(2, 60);
+                    const P = divisor * k;
+                    const diff = (P * R * R) / 10000;
+
+                    const principalPhrases = [
+                        `an amount of Rs. ${P}`,
+                        `a sum of Rs. ${P}`,
+                        `Rs. ${P} invested`
+                    ];
+                    const pPhrase = principalPhrases[randInt(0, principalPhrases.length - 1)];
+
+                    const variant = randInt(0, 2);
+
+                    if (variant === 0) {
+                        const templates = [
+                            `On ${pPhrase} at ${R}% per annum for ${T} years, find the difference between the compound interest and the simple interest.`,
+                            `A sum of Rs. ${P} is invested for ${T} years at ${R}% per annum. Find the difference between the compound interest and the simple interest on this sum.`
+                        ];
+                        question = templates[randInt(0, templates.length - 1)];
+                        answer = diff;
+                    } else if (variant === 1) {
+                        const templates = [
+                            `The difference between the compound interest and the simple interest accrued, at the same rate of interest, on ${pPhrase} in ${T} years was Rs. ${diff}. What was the rate of interest percent per annum?`,
+                            `The difference between simple interest and compound interest earned on a sum of Rs. ${P} invested for ${T} years was Rs. ${diff}. Find the rate of interest at which the sum was invested annually.`
+                        ];
+                        question = templates[randInt(0, templates.length - 1)];
+                        answer = R;
+                    } else {
+                        const templates = [
+                            `The difference between the compound interest and the simple interest accrued, at ${R}% per annum, on a certain sum in ${T} years was Rs. ${diff}. Find the sum.`,
+                            `At ${R}% per annum, the difference between the compound interest and simple interest on a sum for ${T} years is Rs. ${diff}. What is the sum?`
+                        ];
+                        question = templates[randInt(0, templates.length - 1)];
+                        answer = P;
+                    }
+                    break;
+                }
+
+                case 'avgABCValue': {
+                    const A = randInt(10, 999);
+                    const par = A % 2;
+                    const B = sameParity(10, 999, par);
+                    const C = sameParity(10, 999, par);
+
+                    const avgAB = (A + B) / 2;
+                    const avgBC = (B + C) / 2;
+                    const avgCA = (C + A) / 2;
+
+                    const scenario = avgABCScenarios[randInt(0, avgABCScenarios.length - 1)];
+                    const [n1, n2, n3] = scenario.label;
+
+                    const askOptions = [
+                        { name: n1, value: A },
+                        { name: n2, value: B },
+                        { name: n3, value: C }
+                    ];
+                    const ask = askOptions[randInt(0, askOptions.length - 1)];
+
+                    const phrasings = [
+                        `Three ${scenario.noun} — ${n1}, ${n2}, ${n3} — are such that the average of ${n1} and ${n2} is ${avgAB}, the average of ${n2} and ${n3} is ${avgBC}, and the average of ${n3} and ${n1} is ${avgCA}. Find the value of ${ask.name}.`,
+                        `For three ${scenario.noun} (${n1}, ${n2}, ${n3}): the average of ${n1} and ${n2} is ${avgAB}, the average of ${n2} and ${n3} is ${avgBC}, and the average of ${n3} and ${n1} is ${avgCA}. What is the value of ${ask.name}?`,
+                        `If the average of ${n1} and ${n2} is ${avgAB}, the average of ${n2} and ${n3} is ${avgBC}, and the average of ${n1} and ${n3} is ${avgCA}, find ${ask.name}.`
+                    ];
+
+                    question = phrasings[randInt(0, phrasings.length - 1)];
+                    answer = ask.value;
+                    break;
+                }
+
+                // =====================================================================
+                // SIMPLE INTEREST – "Becomes n times of itself" proportional problems
+                // Logic: if a sum becomes m times of itself in T years at simple
+                // interest, then (m - 1) units of the principal were earned as
+                // interest over T years, so rate R = (m-1) × 100 / T.
+                // Since the yearly interest is a fixed fraction of P, the time taken
+                // is directly proportional to (m - 1). We fix R to a clean value by
+                // choosing T as (m-1) × k, where k = 100/R years-per-unit.
+                // =====================================================================
+                case 'siMultipleTime': {
+                    const kOptions = [2, 4, 5]; // gives R = 50%, 25%, 20%
+                    const k = kOptions[randInt(0, kOptions.length - 1)];
+                    const R = 100 / k;
+
+                    let m1 = randInt(2, 6);
+                    let m2 = randInt(2, 7);
+                    while (m2 === m1) m2 = randInt(2, 7);
+
+                    const T1 = (m1 - 1) * k;
+                    const T2 = (m2 - 1) * k;
+
+                    const variant = randInt(0, 2);
+
+                    if (variant === 0) {
+                        question = `A sum of money becomes ${m1} times of itself in ${T1} years at simple interest. In how many years will it become ${m2} times of itself?`;
+                        answer = T2;
+                    } else if (variant === 1) {
+                        question = `A sum of money becomes ${m1} times of itself in ${T1} years at simple interest. Find the rate of interest per annum.`;
+                        answer = R;
+                    } else {
+                        question = `A sum of money becomes ${m1} times of itself in ${T1} years at simple interest. What will it become (how many times of itself) in ${T2} years?`;
+                        answer = m2;
+                    }
+                    break;
+                }
+
+                // =====================================================================
+                // SIMPLE INTEREST – Basic calculation
+                // Principal is a 4–7 digit multiple of 10, tenure is 4–9 years, and
+                // the rate is chosen from a clean set so that the resulting simple
+                // interest is always a whole number and a multiple of 2.
+                // SI = P × T × R / 100
+                // =====================================================================
+                case 'siBasicCalc': {
+                    const rateOptions = [2, 4, 5, 6, 8, 10, 12, 15, 16, 20, 25];
+                    let P, T, R, SI, tries = 0;
+                    do {
+                        const digits = randInt(4, 7);
+                        const minP = Math.pow(10, digits - 1);
+                        const maxP = Math.pow(10, digits) - 1;
+                        P = randInt(Math.ceil(minP / 10), Math.floor(maxP / 10)) * 10;
+                        T = randInt(4, 9);
+                        R = rateOptions[randInt(0, rateOptions.length - 1)];
+                        SI = (P * T * R) / 100;
+                        tries++;
+                    } while ((SI % 1 !== 0 || SI % 2 !== 0) && tries < 3000);
+
+                    const variant = randInt(0, 3);
+
+                    if (variant === 0) {
+                        question = `Find the simple interest on Rs. ${P} for ${T} years at ${R}% per annum.`;
+                        answer = SI;
+                    } else if (variant === 1) {
+                        question = `A sum of Rs. ${P} earns a simple interest of Rs. ${SI} in ${T} years. Find the rate of interest per annum.`;
+                        answer = R;
+                    } else if (variant === 2) {
+                        question = `A sum of Rs. ${P} earns a simple interest of Rs. ${SI} at ${R}% per annum. Find the time period in years.`;
+                        answer = T;
+                    } else {
+                        question = `A sum of money earns a simple interest of Rs. ${SI} in ${T} years at ${R}% per annum. Find the principal.`;
+                        answer = P;
+                    }
+                    break;
+                }
+
+                // =====================================================================
+                // COMPOUND INTEREST – "Becomes n times of itself" (power scaling)
+                // Logic: if a sum becomes m times of itself in T1 years at compound
+                // interest, then (1+r)^T1 = m. To become m^k times of itself, we need
+                // (1+r)^T2 = m^k = ((1+r)^T1)^k, so T2 = k × T1.
+                // =====================================================================
+                case 'ciMultiplePower': {
+                    const m = randInt(2, 5);
+                    const k = randInt(0, 1) === 0 ? 2 : 3;
+                    const targetMultiple = Math.pow(m, k);
+                    const T1 = randInt(2, 8);
+                    const T2 = T1 * k;
+
+                    const variant = randInt(0, 1);
+
+                    if (variant === 0) {
+                        question = `A sum of money becomes ${m} times of itself in ${T1} years at compound interest (compounded annually). In how many years will it become ${targetMultiple} times of itself?`;
+                        answer = T2;
+                    } else {
+                        question = `A sum of money becomes ${m} times of itself in ${T1} years at compound interest (compounded annually). How many times of itself will it become in ${T2} years?`;
+                        answer = targetMultiple;
+                    }
                     break;
                 }
 
