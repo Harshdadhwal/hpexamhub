@@ -156,6 +156,22 @@
             return v;
         }
 
+        // ---------- Number series helper ----------
+        // Builds a 5-term series from a starting value and 4 successive
+        // differences, then blanks out one random term (never the first)
+        // for the person to work out.
+        function buildSeriesQuestion(diffs, t1) {
+            const terms = [t1];
+            for (const d of diffs) terms.push(terms[terms.length - 1] + d);
+            const blankIdx = randInt(1, terms.length - 1);
+            const answer = terms[blankIdx];
+            const displayTerms = terms.map((t, i) => (i === blankIdx ? '?' : t));
+            return {
+                question: `Find the missing number in the series: ${displayTerms.join(', ')}`,
+                answer
+            };
+        }
+
         function startTraining() {
             startBtn.style.display = 'none';
             finishBtn.style.display = 'block';
@@ -199,7 +215,12 @@
             { type: 'avgABCValue', count: 1 },
             { type: 'siMultipleTime', count: 1 },
             { type: 'siBasicCalc', count: 1 },
-            { type: 'ciMultiplePower', count: 1 }
+            { type: 'ciMultiplePower', count: 1 },
+            { type: 'seriesSquareDiff', count: 1 },
+            { type: 'seriesTableDiff', count: 1 },
+            { type: 'seriesAPDiff', count: 1 },
+            { type: 'seriesCubeDiff', count: 1 },
+            { type: 'seriesPrimeDiff', count: 1 }
         ];
 
         const typeLabels = {
@@ -222,7 +243,12 @@
             avgABCValue: 'Average of Pairs (A, B, C)',
             siMultipleTime: 'Simple Interest – Multiple of Principal',
             siBasicCalc: 'Simple Interest – Basic Calculation',
-            ciMultiplePower: 'Compound Interest – Multiple of Principal'
+            ciMultiplePower: 'Compound Interest – Multiple of Principal',
+            seriesSquareDiff: 'Number Series (Difference of Squares)',
+            seriesTableDiff: 'Number Series (Difference of Table Multiples)',
+            seriesAPDiff: 'Number Series (Differences in AP)',
+            seriesCubeDiff: 'Number Series (Difference of Cubes)',
+            seriesPrimeDiff: 'Number Series (Difference of Primes)'
         };
 
         const ratioItems = ['balls', 'caps', 'pens', 'books', 'pencils', 'marbles', 'stickers', 'coins'];
@@ -933,6 +959,90 @@
                         question = `A sum of money becomes ${m} times of itself in ${T1} years at compound interest (compounded annually). How many times of itself will it become in ${T2} years?`;
                         answer = targetMultiple;
                     }
+                    break;
+                }
+
+                // =====================================================================
+                // NUMBER SERIES – Difference of Squares
+                // Differences between consecutive terms are 4 consecutive perfect
+                // squares n², (n+1)², (n+2)², (n+3)², with n chosen so all bases
+                // lie between 4 and 16.
+                // e.g. 252, 373, 517, 686, ? -> diffs 11², 12², 13², 14² -> 882
+                // =====================================================================
+                case 'seriesSquareDiff': {
+                    const n = randInt(4, 13); // n..n+3 stays within 4-16
+                    const diffs = [n * n, (n + 1) * (n + 1), (n + 2) * (n + 2), (n + 3) * (n + 3)];
+                    const sumDiffs = diffs.reduce((a, b) => a + b, 0);
+                    const t1 = randInt(100, Math.max(101, 999 - sumDiffs));
+                    const sq = buildSeriesQuestion(diffs, t1);
+                    question = sq.question;
+                    answer = sq.answer;
+                    break;
+                }
+
+                // =====================================================================
+                // NUMBER SERIES – Difference of Table Multiples
+                // Differences between consecutive terms are consecutive multiples
+                // of a fixed table T (between 7 and 18): T×1, T×2, T×3, T×4.
+                // e.g. 388, 404, ?, 484, 548 -> diffs 16, 32, 48, 64 -> 436
+                // =====================================================================
+                case 'seriesTableDiff': {
+                    const T = randInt(7, 18);
+                    const diffs = [T * 1, T * 2, T * 3, T * 4];
+                    const sumDiffs = diffs.reduce((a, b) => a + b, 0);
+                    const t1 = randInt(100, Math.max(101, 999 - sumDiffs));
+                    const sq = buildSeriesQuestion(diffs, t1);
+                    question = sq.question;
+                    answer = sq.answer;
+                    break;
+                }
+
+                // =====================================================================
+                // NUMBER SERIES – Differences in Arithmetic Progression
+                // The differences themselves form an AP: d, d+k, d+2k, d+3k.
+                // =====================================================================
+                case 'seriesAPDiff': {
+                    const d1 = randInt(5, 25);
+                    const k = randInt(3, 15);
+                    const diffs = [d1, d1 + k, d1 + 2 * k, d1 + 3 * k];
+                    const sumDiffs = diffs.reduce((a, b) => a + b, 0);
+                    const t1 = randInt(100, Math.max(101, 999 - sumDiffs));
+                    const sq = buildSeriesQuestion(diffs, t1);
+                    question = sq.question;
+                    answer = sq.answer;
+                    break;
+                }
+
+                // =====================================================================
+                // NUMBER SERIES – Difference of Cubes
+                // Differences between consecutive terms are 4 consecutive perfect
+                // cubes m³, (m+1)³, (m+2)³, (m+3)³, with m between 5 and 10.
+                // e.g. diffs 125, 216, 343, 512 (bases 5,6,7,8)
+                // =====================================================================
+                case 'seriesCubeDiff': {
+                    const m = randInt(5, 7); // m..m+3 stays within 5-10
+                    const diffs = [m ** 3, (m + 1) ** 3, (m + 2) ** 3, (m + 3) ** 3];
+                    const t1 = randInt(100, 300);
+                    const sq = buildSeriesQuestion(diffs, t1);
+                    question = sq.question;
+                    answer = sq.answer;
+                    break;
+                }
+
+                // =====================================================================
+                // NUMBER SERIES – Difference of Prime Numbers
+                // Differences between consecutive terms are 4 consecutive prime
+                // numbers taken from a fixed prime list.
+                // =====================================================================
+                case 'seriesPrimeDiff': {
+                    const primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47];
+                    const startIdx = randInt(0, primes.length - 4);
+                    const diffs = primes.slice(startIdx, startIdx + 4);
+                    const sumDiffs = diffs.reduce((a, b) => a + b, 0);
+                    const t1 = randInt(100, Math.max(101, 999 - sumDiffs));
+                    const sq = buildSeriesQuestion(diffs, t1);
+                    question = sq.question;
+                    answer = sq.answer;
                     break;
                 }
 
